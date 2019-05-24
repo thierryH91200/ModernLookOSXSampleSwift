@@ -24,31 +24,41 @@ For example, there is the MLTextField component which is derived from NSTextFiel
 <img src="doc/mltextfield.png" alt="MLTextField" style="width:189;height:44">
 
 Here is the code of the MLTextField class.
-```objective-c
-- (void) commonInit {
-	self.font = [NSFont fontWithName:@"Helvetica Neue Light" size:16.0];
-	self.bordered = false;
-	self.backgroundColor = [NSColor clearColor];
-	self.focusRingType = NSFocusRingTypeNone;
-}
+```Swift
+    func commonInit() {
+        font = NSFont(name: "Helvetica Neue Thin", size: 16.0)
+        isBordered = false
+        backgroundColor = .clear
+        focusRingType = .none
+    }
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        NSGraphicsContext.saveGraphicsState()
+        
+        let bounds: NSRect = self.bounds
+        textColor?.set()
+        
+        let bottomLine = NSBezierPath()
+        var p = NSPoint.zero //bounds.origin;
+        p.y = bounds.size.height
+        bottomLine.move(to: p)
+        p.x += bounds.size.width
+        bottomLine.line(to: p)
+        bottomLine.lineWidth = 2
+        bottomLine.stroke()
+        
+        let heightLine = NSBezierPath()
+        var p2 = NSPoint.zero //bounds.origin;
+        heightLine.move(to: p2)
+        p2.y = bounds.size.height
+        heightLine.line(to: p2)
+        heightLine.lineWidth = 2
+        heightLine.stroke()
 
-- (void)drawRect:(NSRect)dirtyRect {
-	[NSGraphicsContext saveGraphicsState];
-	
-	NSRect bounds = [self bounds];
-	[[NSColor blackColor] set];
-	
-	NSBezierPath *bottomLine = [NSBezierPath bezierPath];
-	NSPoint p = NSZeroPoint;//bounds.origin;
-	p.y = bounds.size.height;
-	[bottomLine moveToPoint:p];
-	p.x += bounds.size.width;
-	[bottomLine lineToPoint:p];
-	[bottomLine stroke];
-	
-	[NSGraphicsContext restoreGraphicsState];
-	[super drawRect:dirtyRect];
-}
+        NSGraphicsContext.restoreGraphicsState()
+    }
+ 
 ```
 You can easily change it to meet your needs, for example draw the line with foreground color, instead of hardcoded black (~~I plan to add this to the component soon~~ - implemented).
 
@@ -121,13 +131,19 @@ It is really not a component, just a manager to mimic Segmented Control and need
 
 ## MLAlert
 It is an alert window provider. At the moment it provides just a Yes/No/Cancel possibility. You can use this component like this:
-```objective-c
-MLAlertResponse res = [MLAlert showQuestion:@"Create new Something?" title:@"Unknown Something" withCancel:NO];
-switch(res) {
-	case MLALERT_YES:break;
-	case MLALERT_NO:break;
-	case MLALERT_CANCEL:break;
-}
+```Swift
+        let res = mlAlert.showQuestion("question", title: "hello", withCancel: true)
+        switch res {
+        case .yes:
+            break
+        case .no:
+            break
+        case .cancel:
+            break
+        default:
+            break
+        }
+
 ```
 
 ## MLCalendarView
@@ -150,31 +166,32 @@ The component uses the system Language & Region settings, so it will display the
 MLCalendarView is derived from NSViewController and can be used as any other view. 
 
 The component contains the following properties to change the default colors used by the calendar.
-```objective-c
-@property (nonatomic, copy) NSColor* backgroundColor;
-@property (nonatomic, copy) NSColor* textColor;
-@property (nonatomic, copy) NSColor* selectionColor;
-@property (nonatomic, copy) NSColor* todayMarkerColor;
-@property (nonatomic, copy) NSColor* dayMarkerColor;
+```Swift
+    var backgroundColor = NSColor.white
+    var textColor = NSColor.black
+    var selectionColor = NSColor.red
+    var todayMarkerColor = NSColor.green
+    var dayMarkerColor = NSColor.darkGray
+
 ```
 And the following two properties to set the selected date and the currently displayed month.
-```objective-c
-@property (nonatomic, strong) NSDate* date;
-@property (nonatomic, strong) NSDate* selectedDate;
+```Swift
+    var date =  Date()
+    var selectedDate = Date()
 ```
 Also, there is a delegate for the calendar, which is used to send a message when the selected date changed.
-```objective-c
-@protocol MLCalendarViewDelegate <NSObject>
-- (void) didSelectDate:(NSDate*)selectedDate;
-@end
+```Swift
+protocol MLCalendarViewDelegate: NSObjectProtocol {
+    func didSelectDate(_ selectedDate: Date?)
+}
 ```
 # MLHoverButton
 It is derived from NSButton and draws itself as a filled circle with an image or text. The visuals can be specified by the following properties.
-```objective-c
-@property (nonatomic, copy) NSColor* backgroundColor;
-@property (nonatomic, copy) NSColor* hooverBackgroundColor;
-@property (nonatomic, copy) NSColor* foregroundColor;
-@property (nonatomic, copy) NSColor* hooveredForegroundColor;
+```Swift
+    var backgroundColor: NSColor?
+    var hoveredBackgroundColor: NSColor?
+    var foregroundColor: NSColor = NSColor.blue
+    var _hoveredForegroundColor = NSColor.blue
 ```
 # MLHyperlink
 It looks and behaves similar to a hyperlink in a web browser. When the mouse hover over it will change the text color and underline the text.
