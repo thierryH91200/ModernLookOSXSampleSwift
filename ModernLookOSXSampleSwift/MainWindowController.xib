@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="pbContentView" destination="bPg-Z3-Mcc" id="pg6-U2-IJ7"/>
+                <outlet property="win" destination="F0z-JX-Cv5" id="RQ7-lF-gqR"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="saveWin" animationBehavior="default" id="F0z-JX-Cv5" customClass="MLMainWindow" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="798" height="425"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+            <view key="contentView" id="se5-gp-TjO" customClass="MLWindowContent" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="798" height="425"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="whW-lX-rz4" customClass="MLToolbar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="360" width="798" height="65"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2DT-er-t5Q">
+                                <rect key="frame" x="32" y="20" width="170" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="FaU-Xm-F0m"/>
+                                    <constraint firstAttribute="width" constant="166" id="fcd-Aw-sOL"/>
+                                </constraints>
+                                <textFieldCell key="cell" controlSize="small" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="justified" title="Budget Skeleton" id="O6w-Ch-Q7e">
+                                    <font key="font" size="24" name="HelveticaNeue-Thin"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="NR3-Kg-hW0">
+                                <rect key="frame" x="334" y="16" width="130" height="34"/>
+                                <subviews>
+                                    <button fixedFrame="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0j4-hn-bpt">
+                                        <rect key="frame" x="5" y="2" width="27" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="SettingsTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="nWN-e9-uwv">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="Z9K-At-RJG" id="rmP-8e-6MD"/>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="Df3-Qy-J8M">
+                                        <rect key="frame" x="34" y="0.0" width="31" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="BuyTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="Sk3-yg-Td2">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="Z9K-At-RJG" id="PvS-HW-d66"/>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="VHN-K7-aoq">
+                                        <rect key="frame" x="68" y="5" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="PursueTemplate" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyUpOrDown" inset="2" id="Hgb-Mz-AG1">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="Z9K-At-RJG" id="3iM-n3-EvU"/>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="lmU-31-4dt">
+                                        <rect key="frame" x="100" y="5" width="25" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="TimerTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="QkX-P3-wDr">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="Z9K-At-RJG" id="5hh-Lc-3nk"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="Bci-aV-gq6"/>
+                                    <constraint firstAttribute="width" constant="130" id="GCP-7t-zdn"/>
+                                </constraints>
+                            </customView>
+                            <button tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9rH-br-91h">
+                                <rect key="frame" x="215" y="19" width="27" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="9vc-Ru-NCo"/>
+                                    <constraint firstAttribute="width" constant="27" id="wWf-VT-ujC"/>
+                                </constraints>
+                                <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="CalendarTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="RNo-J6-hdj">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="showCalendar:" target="-2" id="KLS-MU-HhZ"/>
+                                </connections>
+                            </button>
+                            <button translatesAutoresizingMaskIntoConstraints="NO" id="awa-Mw-GbB" customClass="MLCheckbox" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                                <rect key="frame" x="580" y="17" width="108" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="26" id="fxz-eP-NEy"/>
+                                    <constraint firstAttribute="width" constant="104" id="riW-F8-r9U"/>
+                                </constraints>
+                                <buttonCell key="cell" type="bevel" title="every days" bezelStyle="regularSquare" image="TimerTemplate" imagePosition="left" alignment="left" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="6SX-ld-cgj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="2DT-er-t5Q" firstAttribute="leading" secondItem="whW-lX-rz4" secondAttribute="leading" constant="34" id="FoH-D2-v2q"/>
+                            <constraint firstItem="NR3-Kg-hW0" firstAttribute="centerY" secondItem="whW-lX-rz4" secondAttribute="centerY" id="Gsb-ih-aRD"/>
+                            <constraint firstAttribute="height" constant="65" id="H6X-CI-trH"/>
+                            <constraint firstItem="NR3-Kg-hW0" firstAttribute="centerX" secondItem="whW-lX-rz4" secondAttribute="centerX" id="JDA-Z5-2Vd"/>
+                            <constraint firstAttribute="trailing" secondItem="awa-Mw-GbB" secondAttribute="trailing" constant="112" id="aE1-d5-WOO"/>
+                            <constraint firstItem="2DT-er-t5Q" firstAttribute="top" secondItem="whW-lX-rz4" secondAttribute="top" constant="16" id="cWY-lc-o5v"/>
+                            <constraint firstItem="awa-Mw-GbB" firstAttribute="bottom" secondItem="2DT-er-t5Q" secondAttribute="bottom" id="sqY-Yh-0kc"/>
+                            <constraint firstItem="9rH-br-91h" firstAttribute="leading" secondItem="2DT-er-t5Q" secondAttribute="trailing" constant="15" id="tEH-bX-KNG"/>
+                            <constraint firstItem="9rH-br-91h" firstAttribute="top" secondItem="2DT-er-t5Q" secondAttribute="top" id="zd5-Ka-dvQ"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="verticalButtons" value="YES"/>
+                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                                <color key="value" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </customView>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="bPg-Z3-Mcc" customClass="MLContentView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="798" height="360"/>
+                    </customView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bPg-Z3-Mcc" firstAttribute="top" secondItem="whW-lX-rz4" secondAttribute="bottom" id="LBU-hF-bm7"/>
+                    <constraint firstItem="bPg-Z3-Mcc" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="PtL-HZ-asK"/>
+                    <constraint firstAttribute="trailing" secondItem="whW-lX-rz4" secondAttribute="trailing" id="Yaj-1D-KR0"/>
+                    <constraint firstItem="whW-lX-rz4" firstAttribute="top" secondItem="se5-gp-TjO" secondAttribute="top" id="c3D-mw-0AA"/>
+                    <constraint firstItem="whW-lX-rz4" firstAttribute="leading" secondItem="se5-gp-TjO" secondAttribute="leading" id="dnK-MN-pPF"/>
+                    <constraint firstAttribute="bottom" secondItem="bPg-Z3-Mcc" secondAttribute="bottom" id="uHW-3i-7ae"/>
+                    <constraint firstAttribute="trailing" secondItem="bPg-Z3-Mcc" secondAttribute="trailing" id="vaj-o4-xRo"/>
+                </constraints>
+            </view>
+            <connections>
+                <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+                <outlet property="pbContent" destination="bPg-Z3-Mcc" id="HJG-cR-FBV"/>
+                <outlet property="pbToolbar" destination="whW-lX-rz4" id="gIu-gA-kKm"/>
+            </connections>
+            <point key="canvasLocation" x="298" y="224.5"/>
+        </window>
+        <customObject id="Z9K-At-RJG" customClass="MLRadioGroupManager" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <connections>
+                <action selector="pageSelectionChanged:" target="-2" id="g2v-Vj-skx"/>
+                <outlet property="groupView" destination="NR3-Kg-hW0" id="J50-nY-h2Z"/>
+            </connections>
+        </customObject>
+    </objects>
+    <resources>
+        <image name="BuyTemplate" width="512" height="512"/>
+        <image name="CalendarTemplate" width="512" height="512"/>
+        <image name="PursueTemplate" width="512" height="512"/>
+        <image name="SettingsTemplate" width="512" height="512"/>
+        <image name="TimerTemplate" width="512" height="512"/>
+    </resources>
+</document>

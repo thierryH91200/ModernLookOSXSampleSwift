@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="14490.70"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PredicitionView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="R29-LZ-0V9" id="L69-z3-af4"/>
+                <outlet property="webView" destination="aoA-Cc-YhW" id="3rz-vH-orV"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView wantsLayer="YES" id="R29-LZ-0V9" userLabel="Predicition View" customClass="MLContentView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="687" height="418"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qIR-pU-xKp">
+                    <rect key="frame" x="30" y="351" width="123" height="22"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="22" id="HqG-BU-jM5"/>
+                        <constraint firstAttribute="width" constant="119" id="Icj-gs-U6o"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Predict this year" id="SDb-EI-MlO">
+                        <font key="font" size="18" name="HelveticaNeue-Thin"/>
+                        <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="naE-rk-bi3">
+                    <rect key="frame" x="18" y="377" width="132" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="6m4-3O-9XL"/>
+                        <constraint firstAttribute="width" constant="128" id="uxE-fh-iaO"/>
+                    </constraints>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Predictions" id="eZw-Zb-xES">
+                        <font key="font" size="28" name="HelveticaNeue-Thin"/>
+                        <color key="textColor" red="0.2039215714" green="0.59607845540000004" blue="0.85882353779999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aoA-Cc-YhW">
+                    <rect key="frame" x="20" y="20" width="647" height="298"/>
+                    <wkWebViewConfiguration key="configuration">
+                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkPreferences key="preferences"/>
+                    </wkWebViewConfiguration>
+                </wkWebView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="aoA-Cc-YhW" firstAttribute="leading" secondItem="R29-LZ-0V9" secondAttribute="leading" constant="20" id="EXv-9I-f8p"/>
+                <constraint firstItem="naE-rk-bi3" firstAttribute="leading" secondItem="R29-LZ-0V9" secondAttribute="leading" constant="20" id="J7S-52-Z8j"/>
+                <constraint firstAttribute="trailing" secondItem="aoA-Cc-YhW" secondAttribute="trailing" constant="20" id="Qcs-D8-l8n"/>
+                <constraint firstItem="qIR-pU-xKp" firstAttribute="leading" secondItem="R29-LZ-0V9" secondAttribute="leading" constant="32" id="Uas-lw-pdL"/>
+                <constraint firstItem="qIR-pU-xKp" firstAttribute="top" secondItem="naE-rk-bi3" secondAttribute="bottom" constant="4" id="XVs-r8-vqW"/>
+                <constraint firstItem="aoA-Cc-YhW" firstAttribute="top" secondItem="R29-LZ-0V9" secondAttribute="top" constant="100" id="dzS-MI-axB"/>
+                <constraint firstItem="naE-rk-bi3" firstAttribute="top" secondItem="R29-LZ-0V9" secondAttribute="top" constant="7" id="h18-Vr-0gC"/>
+                <constraint firstAttribute="bottom" secondItem="aoA-Cc-YhW" secondAttribute="bottom" constant="20" id="v8g-5T-Pb8"/>
+            </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
+                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="-70.5" y="1591"/>
+        </customView>
+    </objects>
+</document>
