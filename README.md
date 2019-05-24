@@ -24,31 +24,41 @@ For example, there is the MLTextField component which is derived from NSTextFiel
 <img src="doc/mltextfield.png" alt="MLTextField" style="width:189;height:44">
 
 Here is the code of the MLTextField class.
-```objective-c
-- (void) commonInit {
-	self.font = [NSFont fontWithName:@"Helvetica Neue Light" size:16.0];
-	self.bordered = false;
-	self.backgroundColor = [NSColor clearColor];
-	self.focusRingType = NSFocusRingTypeNone;
-}
+```Swift
+    func commonInit() {
+        font = NSFont(name: "Helvetica Neue Thin", size: 16.0)
+        isBordered = false
+        backgroundColor = .clear
+        focusRingType = .none
+    }
+    
+    override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
+        NSGraphicsContext.saveGraphicsState()
+        
+        let bounds: NSRect = self.bounds
+        textColor?.set()
+        
+        let bottomLine = NSBezierPath()
+        var p = NSPoint.zero //bounds.origin;
+        p.y = bounds.size.height
+        bottomLine.move(to: p)
+        p.x += bounds.size.width
+        bottomLine.line(to: p)
+        bottomLine.lineWidth = 2
+        bottomLine.stroke()
+        
+        let heightLine = NSBezierPath()
+        var p2 = NSPoint.zero //bounds.origin;
+        heightLine.move(to: p2)
+        p2.y = bounds.size.height
+        heightLine.line(to: p2)
+        heightLine.lineWidth = 2
+        heightLine.stroke()
 
-- (void)drawRect:(NSRect)dirtyRect {
-	[NSGraphicsContext saveGraphicsState];
-	
-	NSRect bounds = [self bounds];
-	[[NSColor blackColor] set];
-	
-	NSBezierPath *bottomLine = [NSBezierPath bezierPath];
-	NSPoint p = NSZeroPoint;//bounds.origin;
-	p.y = bounds.size.height;
-	[bottomLine moveToPoint:p];
-	p.x += bounds.size.width;
-	[bottomLine lineToPoint:p];
-	[bottomLine stroke];
-	
-	[NSGraphicsContext restoreGraphicsState];
-	[super drawRect:dirtyRect];
-}
+        NSGraphicsContext.restoreGraphicsState()
+    }
+ 
 ```
 You can easily change it to meet your needs, for example draw the line with foreground color, instead of hardcoded black (~~I plan to add this to the component soon~~ - implemented).
 
