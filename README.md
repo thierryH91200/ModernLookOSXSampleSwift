@@ -131,13 +131,19 @@ It is really not a component, just a manager to mimic Segmented Control and need
 
 ## MLAlert
 It is an alert window provider. At the moment it provides just a Yes/No/Cancel possibility. You can use this component like this:
-```objective-c
-MLAlertResponse res = [MLAlert showQuestion:@"Create new Something?" title:@"Unknown Something" withCancel:NO];
-switch(res) {
-	case MLALERT_YES:break;
-	case MLALERT_NO:break;
-	case MLALERT_CANCEL:break;
-}
+```Swift
+        let res = mlAlert.showQuestion("question", title: "hello", withCancel: true)
+        switch res {
+        case .yes:
+            break
+        case .no:
+            break
+        case .cancel:
+            break
+        default:
+            break
+        }
+
 ```
 
 ## MLCalendarView
