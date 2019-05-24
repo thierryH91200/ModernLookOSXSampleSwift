@@ -21,6 +21,7 @@ class MLCalendarView: NSViewController {
     var selectionColor = NSColor.red
     var todayMarkerColor = NSColor.green
     var dayMarkerColor = NSColor.darkGray
+    
     weak var delegate: MLCalendarViewDelegate?
     var date =  Date()
     var selectedDate = Date()

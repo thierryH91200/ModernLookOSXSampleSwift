@@ -86,7 +86,18 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     
     @IBAction func showAlert(_ sender: Any) {
         
-        _ = mlAlert.showQuestion("question", title: "hello", withCancel: true)
+        let res = mlAlert.showQuestion("question", title: "hello", withCancel: true)
+        switch res {
+        case .yes:
+            break
+        case .no:
+            break
+        case .cancel:
+            break
+        default:
+            break
+        }
+
     }
     
     

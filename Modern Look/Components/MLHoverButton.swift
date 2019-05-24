@@ -14,6 +14,7 @@ class MLHoverButton: NSButton {
     var hoveredBackgroundColor: NSColor?
     var foregroundColor: NSColor = NSColor.blue
     var _hoveredForegroundColor = NSColor.blue
+    
     var circleBorder: CGFloat = 0.0
     var drawsOn = false
     

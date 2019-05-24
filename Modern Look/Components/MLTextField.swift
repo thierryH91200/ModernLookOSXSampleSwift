@@ -49,7 +49,7 @@ class MLTextField: NSTextField {
         bottomLine.move(to: p)
         p.x += bounds.size.width
         bottomLine.line(to: p)
-        bottomLine.lineWidth = 3
+        bottomLine.lineWidth = 2
         bottomLine.stroke()
         
         let heightLine = NSBezierPath()
@@ -57,7 +57,7 @@ class MLTextField: NSTextField {
         heightLine.move(to: p2)
         p2.y = bounds.size.height
         heightLine.line(to: p2)
-        heightLine.lineWidth = 3
+        heightLine.lineWidth = 2
         heightLine.stroke()
 
         NSGraphicsContext.restoreGraphicsState()
