@@ -166,31 +166,32 @@ The component uses the system Language & Region settings, so it will display the
 MLCalendarView is derived from NSViewController and can be used as any other view. 
 
 The component contains the following properties to change the default colors used by the calendar.
-```objective-c
-@property (nonatomic, copy) NSColor* backgroundColor;
-@property (nonatomic, copy) NSColor* textColor;
-@property (nonatomic, copy) NSColor* selectionColor;
-@property (nonatomic, copy) NSColor* todayMarkerColor;
-@property (nonatomic, copy) NSColor* dayMarkerColor;
+```Swift
+    var backgroundColor = NSColor.white
+    var textColor = NSColor.black
+    var selectionColor = NSColor.red
+    var todayMarkerColor = NSColor.green
+    var dayMarkerColor = NSColor.darkGray
+
 ```
 And the following two properties to set the selected date and the currently displayed month.
-```objective-c
-@property (nonatomic, strong) NSDate* date;
-@property (nonatomic, strong) NSDate* selectedDate;
+```Swift
+    var date =  Date()
+    var selectedDate = Date()
 ```
 Also, there is a delegate for the calendar, which is used to send a message when the selected date changed.
-```objective-c
-@protocol MLCalendarViewDelegate <NSObject>
-- (void) didSelectDate:(NSDate*)selectedDate;
-@end
+```Swift
+protocol MLCalendarViewDelegate: NSObjectProtocol {
+    func didSelectDate(_ selectedDate: Date?)
+}
 ```
 # MLHoverButton
 It is derived from NSButton and draws itself as a filled circle with an image or text. The visuals can be specified by the following properties.
-```objective-c
-@property (nonatomic, copy) NSColor* backgroundColor;
-@property (nonatomic, copy) NSColor* hooverBackgroundColor;
-@property (nonatomic, copy) NSColor* foregroundColor;
-@property (nonatomic, copy) NSColor* hooveredForegroundColor;
+```Swift
+    var backgroundColor: NSColor?
+    var hoveredBackgroundColor: NSColor?
+    var foregroundColor: NSColor = NSColor.blue
+    var _hoveredForegroundColor = NSColor.blue
 ```
 # MLHyperlink
 It looks and behaves similar to a hyperlink in a web browser. When the mouse hover over it will change the text color and underline the text.
