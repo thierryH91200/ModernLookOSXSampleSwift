@@ -148,8 +148,6 @@ It is an alert window provider. At the moment it provides just a Yes/No/Cancel p
             break
         case .cancel:
             break
-        default:
-            break
         }
 
 ```
