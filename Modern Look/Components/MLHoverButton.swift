@@ -22,8 +22,6 @@ class MLHoverButton: NSButton {
     var hoovered = false
     var tintedImage: NSImage?
     
-    
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -43,7 +41,7 @@ class MLHoverButton: NSButton {
         wantsLayer = true
         createTrackingArea()
         hoovered = false
-        hoveredForegroundColor = NSColor.white //]selectedTextColor];
+        hoveredForegroundColor = NSColor.white
         hoveredBackgroundColor = NSColor.selectedTextBackgroundColor
         backgroundColor = NSColor.clear
         foregroundColor = NSColor.controlTextColor

@@ -12,16 +12,29 @@ class MLTextView: NSTextView {
     
     var fieldEditorMarker =  NSColor.clear
     
-    override init(frame : NSRect ) {
-        super.init(frame: frame)
+    override init(frame frameRect: NSRect)
+    {
+        super.init(frame: frameRect)
         
         isFieldEditor = true
         super.focusRingType = .none
     }
     
+    override init(frame: NSRect, textContainer:NSTextContainer?) {
+        super.init(frame: frame, textContainer:textContainer)
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+//    required init?(coder: NSCoder) {
+//        super.init(coder: coder)
+//
+//        isFieldEditor = true
+//        super.focusRingType = .none
+//
+//    }
     
     override var drawsBackground: Bool {
         get {
@@ -42,8 +55,9 @@ class MLTextView: NSTextView {
     }
     
     override func draw(_ dirtyRect: NSRect) {
+        super.draw(dirtyRect)
         
-        let bounds: NSRect = self.bounds
+        let bounds = self.bounds
         fieldEditorMarker.set()
         
         let bottomLine = NSBezierPath()
@@ -55,7 +69,6 @@ class MLTextView: NSTextView {
         bottomLine.lineWidth = 2.0
         bottomLine.stroke()
         
-        super.draw(dirtyRect)
     }
     
 }

@@ -10,6 +10,12 @@ import AppKit
 
 class MLTextField: NSTextField {
     
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        commonInit()
+    }
+
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         let fnt: NSFont? = font
@@ -22,11 +28,6 @@ class MLTextField: NSTextField {
         if restoreFont {
             font = fnt
         }
-    }
-    
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        commonInit()
     }
     
     func commonInit() {

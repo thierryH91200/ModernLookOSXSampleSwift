@@ -17,6 +17,7 @@ class MLMainWindow: NSWindow {
     @IBOutlet weak var pbToolbar: MLToolbar!
     
     var mlTextView: MLTextView?
+    
     var fieldEditorMarker = NSColor.clear
     
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreType, defer flag: Bool)
@@ -88,15 +89,15 @@ class MLMainWindow: NSWindow {
         super.sendEvent(event)
     }
     
-    override func fieldEditor(_ createFlag: Bool, for anObject: Any?) -> NSText? {
-        if (anObject is MLTableView) || (anObject is MLOutlineView) {
+    override func fieldEditor(_ createFlag: Bool, for object: Any?) -> NSText? {
+        if (object is MLTableView) || (object is MLOutlineView) {
             if !(mlTextView != nil) {
                 mlTextView = MLTextView( frame : frame)
                 mlTextView?.fieldEditorMarker = fieldEditorMarker
             }
             return mlTextView
         }
-        let ret = super.fieldEditor(createFlag, for: anObject)
+        let ret = super.fieldEditor(createFlag, for: object)
         return ret
     }
     

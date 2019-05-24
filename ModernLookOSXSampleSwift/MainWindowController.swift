@@ -94,8 +94,6 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
             break
         case .cancel:
             break
-        default:
-            break
         }
 
     }
