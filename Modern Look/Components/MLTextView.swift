@@ -28,14 +28,6 @@ class MLTextView: NSTextView {
         fatalError("init(coder:) has not been implemented")
     }
     
-//    required init?(coder: NSCoder) {
-//        super.init(coder: coder)
-//
-//        isFieldEditor = true
-//        super.focusRingType = .none
-//
-//    }
-    
     override var drawsBackground: Bool {
         get {
             return super.drawsBackground
