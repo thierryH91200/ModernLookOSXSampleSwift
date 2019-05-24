@@ -1,3 +1,11 @@
+
+<p align="center">
+<img src="https://img.shields.io/badge/Swift-5.0-orange.svg" />
+<img src="https://img.shields.io/badge/platforms-mac-brightgreen.svg?style=flat" alt="Mac" />
+</p>
+
+
+
 # Modern Look OSX
 
 This project aims to provide a simple and customizable component set which can be used to create OSX applications with new style look.
@@ -10,7 +18,7 @@ This project aims to provide a simple and customizable component set which can b
 
 **IMPORTANT NOTICE**
 
-ModernLook-OSX requires OSX 10.10 to work properly. I have tested the components on OSX 10.9 with no success: generally the application runs well on 10.9, but some visual effect does not work. Probably some hacking can help, so if you can make it look better on 10.9 please let me know. However I think this new look does not fit well on older OSX UI.
+ModernLook-OSX requires OSX 10.14 to work properly. I have tested the components on OSX 10.9 with no success: generally the application runs well on 10.9, but some visual effect does not work. Probably some hacking can help, so if you can make it look better on 10.9 please let me know. However I think this new look does not fit well on older OSX UI.
 
 # Description
 

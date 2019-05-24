@@ -14,6 +14,7 @@
 		031349DB226DA04A0083077A /* MLPopupWindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031349DA226DA04A0083077A /* MLPopupWindowManager.swift */; };
 		031349EC226E41390083077A /* MLContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031349EB226E41390083077A /* MLContentView.swift */; };
 		031349EE226E41410083077A /* MLGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031349ED226E41410083077A /* MLGlassView.swift */; };
+		03236F94229834C900BDF4A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 03236F93229834C900BDF4A6 /* README.md */; };
 		0344319D2297C0C5007C3837 /* MLRadioGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344319C2297C0C5007C3837 /* MLRadioGroupManager.swift */; };
 		034431A02297CA9E007C3837 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0344319E2297CA9E007C3837 /* BudgetView.xib */; };
 		034431A12297CA9E007C3837 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344319F2297CA9E007C3837 /* BudgetView.swift */; };
@@ -91,6 +92,7 @@
 		031349DA226DA04A0083077A /* MLPopupWindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLPopupWindowManager.swift; sourceTree = "<group>"; };
 		031349EB226E41390083077A /* MLContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLContentView.swift; sourceTree = "<group>"; };
 		031349ED226E41410083077A /* MLGlassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLGlassView.swift; sourceTree = "<group>"; };
+		03236F93229834C900BDF4A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0344319C2297C0C5007C3837 /* MLRadioGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLRadioGroupManager.swift; sourceTree = "<group>"; };
 		0344319E2297CA9E007C3837 /* BudgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
 		0344319F2297CA9E007C3837 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 		03DE67A8226BA52F0034AACB = {
 			isa = PBXGroup;
 			children = (
+				03236F93229834C900BDF4A6 /* README.md */,
 				03DE67DE226BA54A0034AACB /* Modern Look */,
 				03DE67B3226BA52F0034AACB /* ModernLookOSXSampleSwift */,
 				03DE67C4226BA5300034AACB /* ModernLookOSXSampleSwiftTests */,
@@ -440,6 +443,7 @@
 				03DE67B7226BA5300034AACB /* Assets.xcassets in Resources */,
 				034431B62297D8EA007C3837 /* Chart.min.js in Resources */,
 				034431A82297D494007C3837 /* AccountsView.xib in Resources */,
+				03236F94229834C900BDF4A6 /* README.md in Resources */,
 				03DE681B226CA5550034AACB /* ChartTemplate.png in Resources */,
 				03DE6816226CA5550034AACB /* ScaleTemplate.png in Resources */,
 				03DE681C226CA5550034AACB /* CalendarTemplate.png in Resources */,
