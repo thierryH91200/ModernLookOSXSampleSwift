@@ -12,7 +12,6 @@ class MLMainWindow: NSWindow {
     
     static let shared = MLMainWindow()
 
-    
     @IBOutlet weak var pbContent: NSView!
     @IBOutlet weak var pbToolbar: MLToolbar!
     

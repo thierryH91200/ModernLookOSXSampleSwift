@@ -15,19 +15,9 @@ class MLTextField: NSTextField {
         commonInit()
     }
 
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        let fnt: NSFont? = font
-        let regular = NSFont.systemFont(ofSize: 0)
-        var restoreFont = false
-        if regular != font {
-            restoreFont = true
-        }
         commonInit()
-        if restoreFont {
-            font = fnt
-        }
     }
     
     func commonInit() {
@@ -39,9 +29,10 @@ class MLTextField: NSTextField {
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
+        
         NSGraphicsContext.saveGraphicsState()
         
-        let bounds: NSRect = self.bounds
+        let bounds = self.bounds
         textColor?.set()
         
         let bottomLine = NSBezierPath()

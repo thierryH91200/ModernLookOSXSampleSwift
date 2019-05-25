@@ -24,41 +24,41 @@ class MLTableHeaderCell: NSTableHeaderCell {
         NSColor.white.set()
         cellFrame.fill()
         
-        var textCell: NSRect = cellFrame
+        var textCell = cellFrame
         textCell.origin.x += 4
         textCell.size.width -= 8
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .byWordWrapping
         paragraphStyle.alignment = alignment
         
-        let attrs = [
-            NSAttributedString.Key.paragraphStyle: paragraphStyle,
-            NSAttributedString.Key.font: font,
-            NSAttributedString.Key.foregroundColor: textColor
+        let attrs : [NSAttributedString.Key : Any] = [
+            .paragraphStyle: paragraphStyle,
+            .font: font!,
+            .foregroundColor: textColor!
         ]
         
         stringValue.draw(in: textCell, withAttributes: attrs as [NSAttributedString.Key : Any])
         
         NSColor.gridColor.set()
         let sepLine = NSBezierPath()
-        var p: NSPoint = cellFrame.origin
-        p.y = 8
-        p.x += cellFrame.size.width
-        sepLine.move(to: p)
+        var point = cellFrame.origin
+        point.y = 8
+        point.x += cellFrame.size.width
+        sepLine.move(to: point)
         
-        p.y += 10 //cellFrame.size.height - 16;
+        point.y += 10 //cellFrame.size.height - 16;
         
-        sepLine.line(to: p)
+        sepLine.line(to: point)
         sepLine.stroke()
         
         NSColor.black.set()
         let bottomLine = NSBezierPath()
-        p = cellFrame.origin
-        p.y += cellFrame.size.height
-        bottomLine.move(to: p)
+        point = cellFrame.origin
+        point.y += cellFrame.size.height
+        bottomLine.move(to: point)
         
-        p.x += cellFrame.size.width
-        bottomLine.line(to: p)
+        point.x += cellFrame.size.width
+        bottomLine.line(to: point)
         bottomLine.stroke()
     }
 }

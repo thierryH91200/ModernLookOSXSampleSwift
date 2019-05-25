@@ -10,6 +10,8 @@ import Cocoa
 
 class MLRadioGroupManager: NSControl {
     
+    static let shared = MLRadioGroupManager()
+
     var selectedItem: Int = 0
     
     @IBOutlet weak var groupView: NSView!

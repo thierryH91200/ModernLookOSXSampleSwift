@@ -35,11 +35,8 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         return "MainWindowController"
     }
     
-    
-    
     override func windowDidLoad() {
         super.windowDidLoad()
-        
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         
@@ -47,7 +44,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         let vc = (self.budgetView?.view)!
         
         Commun.shared.addSubview(subView: vc, toView: pbContentView)
-        
+
         vc.translatesAutoresizingMaskIntoConstraints = false
         var viewBindingsDict = [String: AnyObject]()
         viewBindingsDict["vc"] = vc
@@ -98,10 +95,8 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
 
     }
     
-    
     func didSelectDate(_ selectedDate: Date?) {
         calendarPopover?.close()
-        
     }
     
     @IBAction func pageSelectionChanged(_ sender: MLRadioGroupManager) {
@@ -111,7 +106,6 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         switch sender.selectedItem {
         case 1:
             print("settingsView" )
-
             self.settingsView = SettingsView()
             vc = (self.settingsView?.view)!
             
