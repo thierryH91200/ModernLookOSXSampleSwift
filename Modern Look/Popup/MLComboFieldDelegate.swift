@@ -9,12 +9,10 @@
 import AppKit
 
 class MLComboFieldDelegate : NSObject {
-    
-//        var description: String = ""
-    
+        
     var popupContent: MLPopupContent?
     var dontSearch = false
-    var combo: MLComboField?
+    var comboField: MLComboField?
     
     override init() {
         super.init()
@@ -35,9 +33,10 @@ class MLComboFieldDelegate : NSObject {
     }
     
     func displayPopupFirstTime(_ control: NSControl?) {
-        if !showPopup(for: control!) {
-            if combo?.stringValue != "" {
-                popupContent?.moveSelection(to: combo?.stringValue)
+        
+        if showPopup(for: control!) == false {
+            if comboField?.stringValue != "" {
+                popupContent?.moveSelection(to: comboField?.stringValue)
             } else {
                 popupContent?.selectFirstItem()
             }
@@ -48,7 +47,7 @@ class MLComboFieldDelegate : NSObject {
     
     func handleMouseClick(_ control: NSControl?) {
         if (control is MLComboField) {
-            combo = control as? MLComboField
+            comboField = (control as! MLComboField)
         }
         displayPopupFirstTime(control)
     }
@@ -56,14 +55,15 @@ class MLComboFieldDelegate : NSObject {
 }
 
 extension MLComboFieldDelegate : MLPopupContentDelegate {
+    
     func selectionDidChange(_ sel: Any?, fromUpDown updown: Bool) {
         let object = sel as? PBCategory
         if updown == true {
             let description = object?.name
             print(description!)
-            combo?.stringValue = description!
+            comboField?.stringValue = description!
         }
-        combo?.selectedItem = object
+        comboField?.selectedItem = object
     }
     
     func requestClose() {
@@ -82,34 +82,30 @@ extension MLComboFieldDelegate :  NSTextFieldDelegate {
         return true
     }
     
-    func controlTextDidChange(_ obj: Notification) {
+    func controlTextDidChange(_ notification: Notification) {
         
-        let control = obj.object as? NSControl
+        let control = notification.object as? NSControl
         
-        combo = nil
+        comboField = nil
         if control is MLComboField {
-            combo = (control as? MLComboField)
+            comboField = (control as! MLComboField)
         }
-        if combo == nil {
+        if comboField == nil {
             return
         }
         showPopup(for: control!)
-        
         
         if dontSearch  == true {
             dontSearch = false
             return
         }
         
-        //    NSTextField* tfc = (NSTextField*)control;
         var editor: NSTextView? = nil
         if (control?.currentEditor() is NSTextView) {
             editor = control?.currentEditor() as? NSTextView
         }
         
-        if !(editor != nil) {
-            return
-        }
+        guard editor != nil else { return }
         
         let s = popupContent?.moveSelection(to: control?.stringValue)
         if s != "" {
@@ -125,9 +121,9 @@ extension MLComboFieldDelegate :  NSTextFieldDelegate {
     }
     
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        combo = nil
+        comboField = nil
         if (control is MLComboField) {
-            combo = control as? MLComboField
+            comboField = control as? MLComboField
         }
         if commandSelector == #selector( NSResponder.moveUp(_:)) {
             if showPopup(for: control) {

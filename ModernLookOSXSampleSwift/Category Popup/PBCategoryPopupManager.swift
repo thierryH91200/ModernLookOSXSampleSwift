@@ -19,7 +19,6 @@ class PBCategoryPopupManager: MLComboFieldDelegate {
         budget = PBEntityManager.shared.loadBudgets()
         budgets.content = budget
 
-        
         let pbBudget = budgets.arrangedObjects as! [PBBudget]
         let b = pbBudget[budgets.selectionIndex]
 
