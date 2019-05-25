@@ -41,7 +41,7 @@ final class MLTableView: NSTableView {
         }
     }
     
-    @objc open var selectionColor: NSColor
+    @objc public var selectionColor: NSColor
         {
         get { return _selectionColor }
         set {

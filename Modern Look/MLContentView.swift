@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class MLContentView: MLGlassView {
+class MLContentView: MLGlassView {
 
     override func draw(_ rect: NSRect) {
         

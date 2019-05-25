@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class MLGlassView: NSView {
+class MLGlassView: NSView {
     
     var backgroundColor = NSColor.white
     

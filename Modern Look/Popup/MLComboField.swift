@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class MLComboField: MLTextField {
+class MLComboField: MLTextField {
     
     var selectedItem: Any?
 

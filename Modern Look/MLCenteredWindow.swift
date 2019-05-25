@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class MLCenteredWindow: MLMainWindow {
+class MLCenteredWindow: MLMainWindow {
     
     override var canBecomeMain: Bool {
         return false
