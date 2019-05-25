@@ -8,7 +8,7 @@
 
 import AppKit
 
-final class MLComboFieldDelegate : NSObject {
+class MLComboFieldDelegate : NSObject {
     
 //        var description: String = ""
     
@@ -52,23 +52,23 @@ final class MLComboFieldDelegate : NSObject {
         }
         displayPopupFirstTime(control)
     }
-    
-    
+
 }
 
 extension MLComboFieldDelegate : MLPopupContentDelegate {
     func selectionDidChange(_ sel: Any?, fromUpDown updown: Bool) {
-        let o = sel as? NSObject
+        let object = sel as? PBCategory
         if updown == true {
-            combo?.stringValue = o?.description ?? ""
+            let description = object?.name
+            print(description!)
+            combo?.stringValue = description!
         }
-        combo?.selectedItem = o
+        combo?.selectedItem = object
     }
     
     func requestClose() {
         MLPopupWindowManager.shared.hidePopup()
     }
-    
 }
 
 extension MLComboFieldDelegate :  NSTextFieldDelegate {
@@ -88,9 +88,9 @@ extension MLComboFieldDelegate :  NSTextFieldDelegate {
         
         combo = nil
         if control is MLComboField {
-            combo = control as? MLComboField
+            combo = (control as? MLComboField)
         }
-        if !(combo != nil) {
+        if combo == nil {
             return
         }
         showPopup(for: control!)

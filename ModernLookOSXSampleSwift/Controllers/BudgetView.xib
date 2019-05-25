@@ -140,6 +140,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                     <connections>
+                        <outlet property="delegate" destination="be1-g7-lS3" id="Tev-lw-cmt"/>
                         <outlet property="nextKeyView" destination="sxZ-Wz-dWk" id="Wke-fG-MsN"/>
                     </connections>
                 </textField>
@@ -241,7 +242,12 @@
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-68.5" y="761"/>
         </customView>
-        <customObject id="be1-g7-lS3" customClass="PBCategoryPopupManager"/>
+        <customObject id="be1-g7-lS3" customClass="PBCategoryPopupManager" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="budgets" destination="PZ7-fo-oT3" id="lHA-Qi-xGR"/>
+            </connections>
+        </customObject>
+        <arrayController objectClassName="PBBudget" id="PZ7-fo-oT3" userLabel="Budgets"/>
     </objects>
     <resources>
         <image name="NSGoLeftTemplate" width="9" height="12"/>

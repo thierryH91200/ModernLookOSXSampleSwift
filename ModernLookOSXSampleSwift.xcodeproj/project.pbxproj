@@ -35,6 +35,9 @@
 		03A347DE2295850400BC1D5E /* MLAlertYesNoCancel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A347DD2295850400BC1D5E /* MLAlertYesNoCancel.xib */; };
 		03A347E02295853300BC1D5E /* MLAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347DF2295853300BC1D5E /* MLAlert.swift */; };
 		03A347E22295B00A00BC1D5E /* MLCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347E12295B00A00BC1D5E /* MLCheckbox.swift */; };
+		03D7A73F22995764004B6251 /* PBCategoryPopupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7A73E22995764004B6251 /* PBCategoryPopupManager.swift */; };
+		03D7A74122995783004B6251 /* PBCategoryContent.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03D7A74022995783004B6251 /* PBCategoryContent.xib */; };
+		03D7A743229957D2004B6251 /* PBCategoryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D7A742229957D2004B6251 /* PBCategoryContent.swift */; };
 		03DE67B5226BA52F0034AACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67B4226BA52F0034AACB /* AppDelegate.swift */; };
 		03DE67B7226BA5300034AACB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 03DE67B6226BA5300034AACB /* Assets.xcassets */; };
 		03DE67BA226BA5300034AACB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DE67B8226BA5300034AACB /* MainMenu.xib */; };
@@ -114,6 +117,9 @@
 		03A347DD2295850400BC1D5E /* MLAlertYesNoCancel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLAlertYesNoCancel.xib; sourceTree = "<group>"; };
 		03A347DF2295853300BC1D5E /* MLAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAlert.swift; sourceTree = "<group>"; };
 		03A347E12295B00A00BC1D5E /* MLCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCheckbox.swift; sourceTree = "<group>"; };
+		03D7A73E22995764004B6251 /* PBCategoryPopupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBCategoryPopupManager.swift; sourceTree = "<group>"; };
+		03D7A74022995783004B6251 /* PBCategoryContent.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PBCategoryContent.xib; sourceTree = "<group>"; };
+		03D7A742229957D2004B6251 /* PBCategoryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBCategoryContent.swift; sourceTree = "<group>"; };
 		03DE67B1226BA52F0034AACB /* ModernLookOSXSampleSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ModernLookOSXSampleSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DE67B4226BA52F0034AACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		03DE67B6226BA5300034AACB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -225,6 +231,16 @@
 			path = Alert;
 			sourceTree = "<group>";
 		};
+		03D7A73D22995730004B6251 /* Category Popup */ = {
+			isa = PBXGroup;
+			children = (
+				03D7A74022995783004B6251 /* PBCategoryContent.xib */,
+				03D7A73E22995764004B6251 /* PBCategoryPopupManager.swift */,
+				03D7A742229957D2004B6251 /* PBCategoryContent.swift */,
+			);
+			path = "Category Popup";
+			sourceTree = "<group>";
+		};
 		03DE67A8226BA52F0034AACB = {
 			isa = PBXGroup;
 			children = (
@@ -250,6 +266,7 @@
 		03DE67B3226BA52F0034AACB /* ModernLookOSXSampleSwift */ = {
 			isa = PBXGroup;
 			children = (
+				03D7A73D22995730004B6251 /* Category Popup */,
 				035F0F5422991C3D006311FA /* Controllers */,
 				035F0F5322991C25006311FA /* Entities */,
 				03DE6809226CA5430034AACB /* Assets */,
@@ -465,6 +482,7 @@
 				03236F94229834C900BDF4A6 /* README.md in Resources */,
 				03DE681B226CA5550034AACB /* ChartTemplate.png in Resources */,
 				03DE6816226CA5550034AACB /* ScaleTemplate.png in Resources */,
+				03D7A74122995783004B6251 /* PBCategoryContent.xib in Resources */,
 				03DE681C226CA5550034AACB /* CalendarTemplate.png in Resources */,
 				03DE6803226C9EBE0034AACB /* MainWindowController.xib in Resources */,
 				034431B52297D8EA007C3837 /* Chart.js in Resources */,
@@ -522,6 +540,7 @@
 				03DE67F4226C51660034AACB /* MLColoredButton.swift in Sources */,
 				03DE6804226C9EBE0034AACB /* MainWindowController.swift in Sources */,
 				03DE67EB226C41E40034AACB /* MLTextField.swift in Sources */,
+				03D7A73F22995764004B6251 /* PBCategoryPopupManager.swift in Sources */,
 				031349DB226DA04A0083077A /* MLPopupWindowManager.swift in Sources */,
 				03A347E22295B00A00BC1D5E /* MLCheckbox.swift in Sources */,
 				034431A52297D440007C3837 /* SettingsView.swift in Sources */,
@@ -531,6 +550,7 @@
 				03DE67FE226C5ED00034AACB /* MLTextView.swift in Sources */,
 				03DE67F6226C53280034AACB /* MLMainWindow.swift in Sources */,
 				03DE67FC226C55900034AACB /* MLToolbar.swift in Sources */,
+				03D7A743229957D2004B6251 /* PBCategoryContent.swift in Sources */,
 				031349D9226DA0220083077A /* MLPopupWindow.swift in Sources */,
 				031349D5226D9FD60083077A /* MLComboFieldDelegate.swift in Sources */,
 				03DE67E2226BA5B20034AACB /* MLCalendarView.swift in Sources */,

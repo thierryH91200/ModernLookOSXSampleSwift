@@ -82,9 +82,9 @@ final class MLPopupWindowManager: NSObject {
             frame.origin.x = screenRect.origin.x
             frame.origin.y = screenRect.origin.y - originalHeight
             
-            let x1: CGFloat = frame.origin.x
-            let y1: CGFloat = frame.origin.y
-            let x2: CGFloat = x1 + frame.size.width
+            let x1 = frame.origin.x
+            let y1 = frame.origin.y
+            let x2 = x1 + frame.size.width
             
             if x1 < screenFrame.origin.x {
                 frame.origin.x = screenFrame.origin.x
