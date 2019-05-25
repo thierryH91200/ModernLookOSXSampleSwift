@@ -27,6 +27,7 @@
 		034431B22297D8D1007C3837 /* line.html in Resources */ = {isa = PBXBuildFile; fileRef = 034431B12297D8D1007C3837 /* line.html */; };
 		034431B52297D8EA007C3837 /* Chart.js in Resources */ = {isa = PBXBuildFile; fileRef = 034431B32297D8EA007C3837 /* Chart.js */; };
 		034431B62297D8EA007C3837 /* Chart.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 034431B42297D8EA007C3837 /* Chart.min.js */; };
+		035F0F5222991C18006311FA /* PBBudgetTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F0F5122991C18006311FA /* PBBudgetTemplates.swift */; };
 		039A6F3B2297B6E0004FDA8D /* MLHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */; };
 		03A347DA2295337600BC1D5E /* MLAlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347D92295337600BC1D5E /* MLAlertWindow.swift */; };
 		03A347DC229533A600BC1D5E /* MLCenteredWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */; };
@@ -104,6 +105,7 @@
 		034431B12297D8D1007C3837 /* line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = line.html; sourceTree = "<group>"; };
 		034431B32297D8EA007C3837 /* Chart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.js; sourceTree = "<group>"; };
 		034431B42297D8EA007C3837 /* Chart.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.min.js; sourceTree = "<group>"; };
+		035F0F5122991C18006311FA /* PBBudgetTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBBudgetTemplates.swift; sourceTree = "<group>"; };
 		039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHoverButton.swift; sourceTree = "<group>"; };
 		03A347D92295337600BC1D5E /* MLAlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAlertWindow.swift; sourceTree = "<group>"; };
 		03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCenteredWindow.swift; sourceTree = "<group>"; };
@@ -187,6 +189,29 @@
 			path = Popup;
 			sourceTree = "<group>";
 		};
+		035F0F5322991C25006311FA /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				035F0F5122991C18006311FA /* PBBudgetTemplates.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		035F0F5422991C3D006311FA /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0344319E2297CA9E007C3837 /* BudgetView.xib */,
+				0344319F2297CA9E007C3837 /* BudgetView.swift */,
+				034431A22297D440007C3837 /* SettingsView.xib */,
+				034431A32297D440007C3837 /* SettingsView.swift */,
+				034431A62297D494007C3837 /* AccountsView.xib */,
+				034431A72297D494007C3837 /* AccountsView.swift */,
+				034431AA2297D53C007C3837 /* PredicitionView.xib */,
+				034431AB2297D53C007C3837 /* PredicitionView.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		03A347D82295330500BC1D5E /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +247,8 @@
 		03DE67B3226BA52F0034AACB /* ModernLookOSXSampleSwift */ = {
 			isa = PBXGroup;
 			children = (
+				035F0F5422991C3D006311FA /* Controllers */,
+				035F0F5322991C25006311FA /* Entities */,
 				03DE6809226CA5430034AACB /* Assets */,
 				03DE6801226C9EBE0034AACB /* MainWindowController.xib */,
 				03DE6802226C9EBE0034AACB /* MainWindowController.swift */,
@@ -230,14 +257,6 @@
 				03DE67B8226BA5300034AACB /* MainMenu.xib */,
 				03DE67BB226BA5300034AACB /* Info.plist */,
 				03DE67BC226BA5300034AACB /* ModernLookOSXSampleSwift.entitlements */,
-				0344319E2297CA9E007C3837 /* BudgetView.xib */,
-				0344319F2297CA9E007C3837 /* BudgetView.swift */,
-				034431A22297D440007C3837 /* SettingsView.xib */,
-				034431A32297D440007C3837 /* SettingsView.swift */,
-				034431A62297D494007C3837 /* AccountsView.xib */,
-				034431A72297D494007C3837 /* AccountsView.swift */,
-				034431AA2297D53C007C3837 /* PredicitionView.xib */,
-				034431AB2297D53C007C3837 /* PredicitionView.swift */,
 			);
 			path = ModernLookOSXSampleSwift;
 			sourceTree = "<group>";
@@ -496,6 +515,7 @@
 				03DE67E4226BA87C0034AACB /* MLCalendarCell.swift in Sources */,
 				03A347DC229533A600BC1D5E /* MLCenteredWindow.swift in Sources */,
 				031349D7226DA0020083077A /* MLPopupContent.swift in Sources */,
+				035F0F5222991C18006311FA /* PBBudgetTemplates.swift in Sources */,
 				03DE67F4226C51660034AACB /* MLColoredButton.swift in Sources */,
 				03DE6804226C9EBE0034AACB /* MainWindowController.swift in Sources */,
 				03DE67EB226C41E40034AACB /* MLTextField.swift in Sources */,
