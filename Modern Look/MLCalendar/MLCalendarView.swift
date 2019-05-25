@@ -12,7 +12,7 @@ protocol MLCalendarViewDelegate: NSObjectProtocol {
     func didSelectDate(_ selectedDate: Date?)
 }
 
-class MLCalendarView: NSViewController {
+final class MLCalendarView: NSViewController {
     
     @IBOutlet weak var calendarTitle: NSTextField!
     

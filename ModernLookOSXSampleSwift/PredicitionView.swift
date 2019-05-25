@@ -6,10 +6,10 @@
 //  Copyright © 2019 thierry hentic. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 import WebKit
 
-class PredicitionView: NSViewController, WKNavigationDelegate {
+final class PredicitionView: NSViewController, WKNavigationDelegate {
 
     @IBOutlet var webView: WKWebView!
 

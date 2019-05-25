@@ -6,9 +6,9 @@
 //  Copyright © 2019 thierry hentic. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
-class MLAlertWindow: MLCenteredWindow {
+final class MLAlertWindow: MLCenteredWindow {
     
     override func cancelOperation(_ sender: Any?) {
         NSApp.stopModal( withCode: .cancel)

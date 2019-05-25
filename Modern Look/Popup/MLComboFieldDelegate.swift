@@ -8,30 +8,21 @@
 
 import AppKit
 
-class MLComboFieldDelegate: MLPopupContentDelegate {
+final class MLComboFieldDelegate : NSObject {
     
-    var description: String = ""
+//        var description: String = ""
     
     var popupContent: MLPopupContent?
     var dontSearch = false
     var combo: MLComboField?
     
-//    init() {
-//        super.init()
-//        dontSearch = false
-//    }
-    
-    func control(_ control: NSControl, isValidObject object: Any?) -> Bool {
-        return true
+    override init() {
+        super.init()
+        dontSearch = false
     }
     
     func createPopupContent() -> MLPopupContent? {
         return nil
-    }
-    
-    func control(_ control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool {
-        showPopup(for: control)
-        return true
     }
     
     @discardableResult
@@ -43,16 +34,51 @@ class MLComboFieldDelegate: MLPopupContentDelegate {
         return MLPopupWindowManager.shared.showPopup(for: control, withContent: popupContent?.view)
     }
     
+    func displayPopupFirstTime(_ control: NSControl?) {
+        if !showPopup(for: control!) {
+            if combo?.stringValue != "" {
+                popupContent?.moveSelection(to: combo?.stringValue)
+            } else {
+                popupContent?.selectFirstItem()
+            }
+        } else {
+            popupContent?.moveSelectionUp(false)
+        }
+    }
+    
+    func handleMouseClick(_ control: NSControl?) {
+        if (control is MLComboField) {
+            combo = control as? MLComboField
+        }
+        displayPopupFirstTime(control)
+    }
+    
+    
+}
+
+extension MLComboFieldDelegate : MLPopupContentDelegate {
+    func selectionDidChange(_ sel: Any?, fromUpDown updown: Bool) {
+        let o = sel as? NSObject
+        if updown == true {
+            combo?.stringValue = o?.description ?? ""
+        }
+        combo?.selectedItem = o
+    }
+    
     func requestClose() {
         MLPopupWindowManager.shared.hidePopup()
     }
     
-    func control(_ control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String] {
-        return []
+}
+
+extension MLComboFieldDelegate :  NSTextFieldDelegate {
+    
+    func control(_ control: NSControl, isValidObject object: Any?) -> Bool {
+        return true
     }
     
-    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
-        MLPopupWindowManager.shared.hidePopup()
+    func control(_ control: NSControl, textShouldBeginEditing fieldEditor: NSText) -> Bool {
+        showPopup(for: control)
         return true
     }
     
@@ -98,25 +124,6 @@ class MLComboFieldDelegate: MLPopupContentDelegate {
         }
     }
     
-    func displayPopupFirstTime(_ control: NSControl?) {
-        if !showPopup(for: control!) {
-            if combo?.stringValue != "" {
-                popupContent?.moveSelection(to: combo?.stringValue)
-            } else {
-                popupContent?.selectFirstItem()
-            }
-        } else {
-            popupContent?.moveSelectionUp(false)
-        }
-    }
-    
-    func handleMouseClick(_ control: NSControl?) {
-        if (control is MLComboField) {
-            combo = control as? MLComboField
-        }
-        displayPopupFirstTime(control)
-    }
-    
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         combo = nil
         if (control is MLComboField) {
@@ -143,12 +150,17 @@ class MLComboFieldDelegate: MLPopupContentDelegate {
         return false
     }
     
-    func selectionDidChange(_ sel: Any?, fromUpDown updown: Bool) {
-        let o = sel as? NSObject
-        if updown {
-            combo?.stringValue = o?.description ?? ""
-        }
-        combo?.selectedItem = o
+    func control(_ control: NSControl, textView: NSTextView, completions words: [String], forPartialWordRange charRange: NSRange, indexOfSelectedItem index: UnsafeMutablePointer<Int>) -> [String] {
+        return []
     }
+    
+    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+        MLPopupWindowManager.shared.hidePopup()
+        return true
+    }
+    
+    
+    
+    
 }
 

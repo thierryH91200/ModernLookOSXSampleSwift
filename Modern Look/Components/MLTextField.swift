@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLTextField: NSTextField {
+final class MLTextField: NSTextField {
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLCalendarCell: NSButton {
+final class MLCalendarCell: NSButton {
     
     weak var owner: MLCalendarView?
     var representedDate: Date?

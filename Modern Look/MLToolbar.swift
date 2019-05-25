@@ -11,7 +11,7 @@ import AppKit
 let ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS = CGFloat(5)
 
 
-class MLToolbar: MLGlassView {
+final class MLToolbar: MLGlassView {
     
     @objc var isVerticalButtons = true
     var hiddenButtons = false
@@ -170,8 +170,8 @@ class MLToolbar: MLGlassView {
             let b: NSRect = bounds
             var y: CGFloat = b.size.height
             
-            let bh: CGFloat = closeButton.bounds.size.height
-            let bw: CGFloat = closeButton.bounds.size.width
+            let bh = closeButton.bounds.size.height
+            let bw = closeButton.bounds.size.width
             
             y = y - bh - 5
             

@@ -13,7 +13,7 @@ protocol MLPopupContentDelegate {
     func requestClose()
 }
 
-class MLPopupContent: NSViewController {
+final class MLPopupContent: NSViewController {
     
     var delegate: MLPopupContentDelegate?
     

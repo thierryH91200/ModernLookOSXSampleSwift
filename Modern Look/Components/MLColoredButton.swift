@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLColoredButton: NSButton {
+final class MLColoredButton: NSButton {
     
     let ML_COLORED_BUTTON_ROUNDED_RECT_RADIUS = CGFloat(5)
 

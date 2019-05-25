@@ -6,9 +6,9 @@
 //  Copyright © 2019 thierry hentic. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
-class MLHoverButton: NSButton {
+final class MLHoverButton: NSButton {
     
     var backgroundColor: NSColor?
     var hoveredBackgroundColor: NSColor?
@@ -32,11 +32,6 @@ class MLHoverButton: NSButton {
         commonInit()
     }
     
-    override func viewDidEndLiveResize() {
-        createTrackingArea()
-    }
-    
-    
     func commonInit() {
         wantsLayer = true
         createTrackingArea()
@@ -47,6 +42,10 @@ class MLHoverButton: NSButton {
         foregroundColor = NSColor.controlTextColor
         circleBorder = 8
         drawsOn = false
+    }
+    
+    override func viewDidEndLiveResize() {
+        createTrackingArea()
     }
     
     func createTrackingArea() {
@@ -135,7 +134,6 @@ class MLHoverButton: NSButton {
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        
         
         var isOn = false
         NSGraphicsContext.saveGraphicsState()

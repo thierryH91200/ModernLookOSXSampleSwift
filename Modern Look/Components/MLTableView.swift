@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLTableView: NSTableView {
+final class MLTableView: NSTableView {
     
     var _selectionColor = NSColor.blue
     

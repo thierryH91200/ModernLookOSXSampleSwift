@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLPopupWindowManager: NSObject {
+final class MLPopupWindowManager: NSObject {
     
     weak var control: NSControl?
     var popupWindow: MLPopupWindow?

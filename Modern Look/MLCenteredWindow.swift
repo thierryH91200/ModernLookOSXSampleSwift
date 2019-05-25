@@ -6,9 +6,9 @@
 //  Copyright © 2019 thierry hentic. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
-class MLCenteredWindow: MLMainWindow {
+final class MLCenteredWindow: MLMainWindow {
     
     override var canBecomeMain: Bool {
         return false
@@ -18,7 +18,7 @@ class MLCenteredWindow: MLMainWindow {
         let mr: NSRect = NSApplication.shared.mainWindow!.frame
         let mp = NSPoint(x: mr.midX, y: mr.midY)
         
-        var r: NSRect = frame
+        var r = frame
         let wo = NSPoint(x: mp.x - (r.size.width / 2.0), y: mp.y - (r.size.height / 2.0))
         r.origin = wo
         setFrameOrigin(wo)

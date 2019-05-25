@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLTextView: NSTextView {
+final class MLTextView: NSTextView {
     
     var fieldEditorMarker =  NSColor.clear
     

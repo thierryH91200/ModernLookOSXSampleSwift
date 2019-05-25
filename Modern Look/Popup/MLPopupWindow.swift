@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLPopupWindow: NSWindow {
+final class MLPopupWindow: NSWindow {
     
     override var canBecomeKey: Bool {
         return false

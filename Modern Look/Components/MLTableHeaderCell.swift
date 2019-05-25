@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLTableHeaderCell: NSTableHeaderCell {
+final class MLTableHeaderCell: NSTableHeaderCell {
     override init(textCell aString: String?) {
         super.init(textCell: aString!)
         controlTint = .clearControlTint

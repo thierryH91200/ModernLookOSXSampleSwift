@@ -7,7 +7,7 @@ import AppKit
 //MARK:-
 ////////////////////////////////////////////////////////////////
 
-class Commun
+final class Commun
 {
     static let shared = Commun()
     

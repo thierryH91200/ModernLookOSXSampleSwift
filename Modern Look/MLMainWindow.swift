@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLMainWindow: NSWindow {
+final class MLMainWindow: NSWindow {
     
     static let shared = MLMainWindow()
 

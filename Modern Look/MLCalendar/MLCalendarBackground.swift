@@ -8,7 +8,7 @@
 
 import AppKit
 
-class MLCalendarBackground: NSView {
+final class MLCalendarBackground: NSView {
     
     var backgroundColor: NSColor = .white
     

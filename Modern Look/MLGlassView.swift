@@ -8,9 +8,9 @@
 
 import AppKit
 
-class MLGlassView: NSView {
+final class MLGlassView: NSView {
     
-    var backgroundColor = NSColor.lightGray
+    var backgroundColor = NSColor.white
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
