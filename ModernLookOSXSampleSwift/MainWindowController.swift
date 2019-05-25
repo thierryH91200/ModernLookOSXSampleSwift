@@ -13,12 +13,12 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     //@IBOutlet weak var settingsView: MLContentView!
     @IBOutlet weak var mlRadioGroupManager: MLRadioGroupManager!
     
+    
     var settingsView: SettingsView?
     var accountsView: AccountsView?
     var budgetView: BudgetView?
     var predictionView: PredicitionView?
 
-    
     @IBOutlet weak var pbContentView: MLContentView!
     
     var calendarPopover: NSPopover?
@@ -43,19 +43,12 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         self.budgetView = BudgetView()
         let vc = (self.budgetView?.view)!
         
-        Commun.shared.addSubview(subView: vc, toView: pbContentView)
-
-        vc.translatesAutoresizingMaskIntoConstraints = false
-        var viewBindingsDict = [String: AnyObject]()
-        viewBindingsDict["vc"] = vc
-        pbContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[vc]|", options: [], metrics: nil, views: viewBindingsDict))
-        pbContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[vc]|", options: [], metrics: nil, views: viewBindingsDict))
-
+        win.showContent(vc)
     }
     
     func createCalendarPopover() {
         
-        var myPopover: NSPopover? = calendarPopover
+        var myPopover = calendarPopover
         if myPopover == nil {
             myPopover = NSPopover()
             let cp = MLCalendarView()
@@ -129,14 +122,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
 
             break
         }
-        Commun.shared.addSubview(subView: vc, toView: pbContentView)
-        
-        vc.translatesAutoresizingMaskIntoConstraints = false
-        var viewBindingsDict = [String: AnyObject]()
-        viewBindingsDict["vc"] = vc
-        pbContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[vc]|", options: [], metrics: nil, views: viewBindingsDict))
-        pbContentView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[vc]|", options: [], metrics: nil, views: viewBindingsDict))
-
+        win.showContent(vc)
     }
 }
 

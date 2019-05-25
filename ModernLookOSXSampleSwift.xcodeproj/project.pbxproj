@@ -27,7 +27,6 @@
 		034431B22297D8D1007C3837 /* line.html in Resources */ = {isa = PBXBuildFile; fileRef = 034431B12297D8D1007C3837 /* line.html */; };
 		034431B52297D8EA007C3837 /* Chart.js in Resources */ = {isa = PBXBuildFile; fileRef = 034431B32297D8EA007C3837 /* Chart.js */; };
 		034431B62297D8EA007C3837 /* Chart.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 034431B42297D8EA007C3837 /* Chart.min.js */; };
-		034431B82297E4D9007C3837 /* CommunShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034431B72297E4D9007C3837 /* CommunShared.swift */; };
 		039A6F3B2297B6E0004FDA8D /* MLHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */; };
 		03A347DA2295337600BC1D5E /* MLAlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347D92295337600BC1D5E /* MLAlertWindow.swift */; };
 		03A347DC229533A600BC1D5E /* MLCenteredWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */; };
@@ -105,7 +104,6 @@
 		034431B12297D8D1007C3837 /* line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = line.html; sourceTree = "<group>"; };
 		034431B32297D8EA007C3837 /* Chart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.js; sourceTree = "<group>"; };
 		034431B42297D8EA007C3837 /* Chart.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.min.js; sourceTree = "<group>"; };
-		034431B72297E4D9007C3837 /* CommunShared.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommunShared.swift; sourceTree = "<group>"; };
 		039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHoverButton.swift; sourceTree = "<group>"; };
 		03A347D92295337600BC1D5E /* MLAlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAlertWindow.swift; sourceTree = "<group>"; };
 		03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCenteredWindow.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 			children = (
 				03DE6809226CA5430034AACB /* Assets */,
 				03DE6801226C9EBE0034AACB /* MainWindowController.xib */,
-				034431B72297E4D9007C3837 /* CommunShared.swift */,
 				03DE6802226C9EBE0034AACB /* MainWindowController.swift */,
 				03DE67B4226BA52F0034AACB /* AppDelegate.swift */,
 				03DE67B6226BA5300034AACB /* Assets.xcassets */,
@@ -504,7 +501,6 @@
 				03DE67EB226C41E40034AACB /* MLTextField.swift in Sources */,
 				031349DB226DA04A0083077A /* MLPopupWindowManager.swift in Sources */,
 				03A347E22295B00A00BC1D5E /* MLCheckbox.swift in Sources */,
-				034431B82297E4D9007C3837 /* CommunShared.swift in Sources */,
 				034431A52297D440007C3837 /* SettingsView.swift in Sources */,
 				0344319D2297C0C5007C3837 /* MLRadioGroupManager.swift in Sources */,
 				034431A92297D494007C3837 /* AccountsView.swift in Sources */,

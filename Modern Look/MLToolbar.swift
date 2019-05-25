@@ -11,7 +11,7 @@ import AppKit
 let ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS = CGFloat(5)
 
 
-class MLToolbar: MLGlassView {
+final class MLToolbar: MLGlassView {
     
     @objc var isVerticalButtons = true
     var hiddenButtons = false

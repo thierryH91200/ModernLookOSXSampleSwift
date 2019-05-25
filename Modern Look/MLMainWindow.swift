@@ -29,6 +29,7 @@ class MLMainWindow: NSWindow {
         isMovableByWindowBackground = true
         styleMask  = [.borderless , .resizable]
         hasShadow = true
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.windowDidDeminiaturize(_:)), name: NSWindow.didDeminiaturizeNotification, object: self)
         NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(_:)), name: NSWindow.willCloseNotification, object: self)
     }
