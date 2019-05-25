@@ -12,9 +12,7 @@ class PBBudgetTemplates: NSObject {
     
     func createHomeBudget() -> PBBudget? {
         
-        
-        
-        var ret = PBBudget()
+        let ret = PBBudget()
         ret.name = "Home Budget"
         var c: PBCategory? = nil
         
@@ -33,11 +31,11 @@ class PBBudgetTemplates: NSObject {
             ], forParent: c)
         
         c = createCategory(withName: "Insurances", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: ["Car Insurance", "Life Insurance", "Health Insurance"], forParent: c)
         
         c = createCategory(withName: "Pleasure", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: [
             "Coffee",
             "Shopaholic",
@@ -47,7 +45,7 @@ class PBBudgetTemplates: NSObject {
             ], forParent: c)
         
         c = createCategory(withName: "Everyday Expenses", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: [
             "Groceries",
             "Fuel",
@@ -58,29 +56,24 @@ class PBBudgetTemplates: NSObject {
             ], forParent: c)
         
         c = createCategory(withName: "Saving Goals", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: ["Christmas Presents", "Birthdays", "Car Replacement", "Vacation"], forParent: c)
         
         c = createCategory(withName: "Debt", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: ["Car Payment", "Student Loan Payment", "Personal Loan Payment"], forParent: c)
         
         return ret
-        
-        
     }
     
     func createSmallOfficeBudget() -> PBBudget? {
         
-        
-        
-        
         let ret = PBBudget()
         ret.name = "Office Budget"
-        let c: PBCategory? = nil
+        var c: PBCategory? = nil
         
         c = createCategory(withName: "Marketing", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: [
             "Printing",
             "AdWords",
@@ -91,27 +84,25 @@ class PBBudgetTemplates: NSObject {
             ], forParent: c)
         
         c = createCategory(withName: "Services", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: ["Accounting", "Legal", "Contractors"], forParent: c)
         
         c = createCategory(withName: "Office", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: ["Rent", "Telephone/Fax", "Internet", "Cleaning"], forParent: c)
         
         c = createCategory(withName: "Travel", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: ["Automobile", "Hotels/Lodging", "Airfare", "Other"], forParent: c)
         
         c = createCategory(withName: "Taxes & Licenses", andParent: nil)
-        ret.categories.append(c)
+        ret.categories.append(c!)
         createSubCategories(withName: ["Unemployment", "Payroll", "Quaterlies"], forParent: c)
         
         return ret
-        
-        
     }
     
-    func createCategory(withName name: String?, andParent parent: PBCategory?) -> PBCategory? {
+    func createCategory(withName name: String, andParent parent: PBCategory?) -> PBCategory? {
         let ret = PBCategory()
         ret.name = name
         if parent != nil {
@@ -121,9 +112,9 @@ class PBBudgetTemplates: NSObject {
         return ret
     }
     
-    func createSubCategories(withName names: [Any]?, forParent parent: PBCategory?) {
-        for name in names as? [String] ?? [] {
-            createCategory(withName: name, andParent: parent)
+    func createSubCategories(withName names: [String], forParent parent: PBCategory?) {
+        for name in names {
+            _ = createCategory(withName: name, andParent: parent)
         }
     }
     

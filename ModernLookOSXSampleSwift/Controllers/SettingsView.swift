@@ -9,10 +9,26 @@
 import AppKit
 
 class SettingsView: NSViewController {
-
+    
+    dynamic var budgets = [PBBudget]()
+    @IBOutlet var arrayController: NSArrayController!
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
+        
+        budgets = PBEntityManager.shared.loadBudgets()
+        arrayController.content = budgets
     }
     
+}
+
+@objc
+class PBBudgetArrayController : NSArrayController {
+    override func add(_ sender: Any?) {
+        let b = PBBudget()
+        b.name = "New Budget"
+//        append(b)
+        PBEntityManager.shared.budgets.append(b)
+    }
 }

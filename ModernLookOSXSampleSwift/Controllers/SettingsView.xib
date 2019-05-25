@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
             <connections>
+                <outlet property="arrayController" destination="kMO-Fq-8MI" id="AUV-jY-jBR"/>
                 <outlet property="view" destination="AyI-EZ-wmw" id="MGE-vd-lD0"/>
             </connections>
         </customObject>
@@ -42,6 +43,9 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <connections>
+                                            <binding destination="kMO-Fq-8MI" name="value" keyPath="arrangedObjects.name" id="aFv-Gp-1hR"/>
+                                        </connections>
                                     </tableColumn>
                                 </tableColumns>
                             </tableView>
@@ -168,6 +172,9 @@
                                         </textFieldCell>
                                         <sortDescriptor key="sortDescriptorPrototype" selector="compare:" sortKey="seq"/>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <connections>
+                                            <binding destination="ou7-OM-aAO" name="value" keyPath="arrangedObjects.name" id="mjH-qz-3LT"/>
+                                        </connections>
                                     </tableColumn>
                                 </tableColumns>
                             </outlineView>
@@ -315,6 +322,13 @@
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-26" y="290"/>
         </customView>
+        <arrayController objectClassName="PBBudget" id="kMO-Fq-8MI" userLabel="Budgets"/>
+        <treeController objectClassName="PBCategory" childrenKeyPath="subCategories" id="ou7-OM-aAO" userLabel="Categories">
+            <connections>
+                <binding destination="kMO-Fq-8MI" name="contentArray" keyPath="selection.categories" id="XTs-3J-grn"/>
+            </connections>
+        </treeController>
+        <arrayController objectClassName="PBAccount" id="hvI-jQ-SIc" userLabel="Accounts"/>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>

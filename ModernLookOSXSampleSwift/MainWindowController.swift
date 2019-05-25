@@ -18,14 +18,16 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     var accountsView: AccountsView?
     var budgetView: BudgetView?
     var predictionView: PredicitionView?
-
+    
+    var budgets = [PBBudget]()
+    
+    
     @IBOutlet weak var pbContentView: MLContentView!
     
     var calendarPopover: NSPopover?
     @IBOutlet var win: MLMainWindow!
     
     @IBOutlet weak var comboBox: NSComboBox!
-    
     @IBOutlet weak var popUp: NSPopUpButton!
     @IBOutlet weak var combo: MLComboField!
     
@@ -39,6 +41,12 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         super.windowDidLoad()
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        
+//        budgets = PBEntityManager.shared.loadBudgets()
+//        if PBEntityManager.shared.budgets.count > 0 {
+//            budgets.setSelectionIndex(0)
+//        }
+        
         
         self.budgetView = BudgetView()
         let vc = (self.budgetView?.view)!
@@ -82,7 +90,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         case .cancel:
             break
         }
-
+        
     }
     
     func didSelectDate(_ selectedDate: Date?) {
@@ -92,7 +100,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     @IBAction func pageSelectionChanged(_ sender: MLRadioGroupManager) {
         
         var  vc = NSView()
-
+        
         switch sender.selectedItem {
         case 1:
             print("settingsView" )
@@ -103,20 +111,20 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
             print("accountsView" )
             self.accountsView = AccountsView()
             vc = (self.accountsView?.view)!
-
+            
         case 3:
             print("budgetView" )
             self.budgetView = BudgetView()
             vc = (self.budgetView?.view)!
-
+            
         case 4:
             print("predictionView" )
             self.predictionView = PredicitionView()
             vc = (self.predictionView?.view)!
-
+            
         default:
             print(sender.selectedItem )
-
+            
             break
         }
         win.showContent(vc)
@@ -146,7 +154,7 @@ struct Stack<Element> {
     mutating func get(_ num : Int) -> Element? {
         return array[ num ]
     }
-
+    
     func peek() -> Element? {
         return array.last
     }
@@ -161,12 +169,14 @@ struct Stack<Element> {
     
 }
 
-struct Account {
+class PBAccount :  PBEntity {
     
     var name = "name"
     var budgeted = true
+    var budget: PBBudget?
     
-    init () {
+    
+    override init () {
     }
     
     init(name: String = "name", budgeted: Bool = true)
@@ -177,12 +187,17 @@ struct Account {
     
 }
 
-struct PBBudget {
+class PBBudget : NSObject {
     
-    var name = "name"
+    @objc var name = "name"
     var budgeted = true
     
-    init () {
+    var accounts: [PBAccount] = []
+    var payees: [PBPayee] = []
+    @objc var categories: [PBCategory] = []
+    
+    
+    override init () {
     }
     
     init(name: String = "name", budgeted: Bool = true)
@@ -192,11 +207,35 @@ struct PBBudget {
     }
 }
 
-//struct PBCategory {
-//    var budget: PBBudget?
-//    var parent: PBCategory? = nil
-//    var subCategories: [AnyHashable] = []
-//    var name = ""
-//    var seq: NSNumber?
-//}
+class PBPayee :  PBEntity{
+    var budget: PBBudget?
+    var name = ""
+    var categories: [PBCategory] = []
+}
 
+class PBCategory: PBEntity {
+    var budget: PBBudget?
+    var parent: PBCategory? = nil
+    @objc var subCategories: [PBCategory] = []
+    @objc var name = ""
+    var seq: NSNumber?
+    
+    override init() {
+        super.init()
+    }
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    
+    func isLeaf() -> Bool {
+        return subCategories.isEmpty
+    }
+    
+    
+}
+
+class PBEntity: NSObject {
+    var uid = ""
+}

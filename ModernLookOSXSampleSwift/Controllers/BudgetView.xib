@@ -241,6 +241,7 @@
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-68.5" y="761"/>
         </customView>
+        <customObject id="be1-g7-lS3" customClass="PBCategoryPopupManager"/>
     </objects>
     <resources>
         <image name="NSGoLeftTemplate" width="9" height="12"/>
