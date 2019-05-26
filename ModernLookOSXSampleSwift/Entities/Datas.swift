@@ -98,8 +98,7 @@ class PBCategory: PBEntity {
     func isLeaf() -> Bool {
         return subCategories.isEmpty
     }
-    
-    
+
 }
 
 class PBEntity: NSObject {

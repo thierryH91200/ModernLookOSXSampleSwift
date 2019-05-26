@@ -41,36 +41,29 @@ class PBEntityManager: NSObject {
     }
     
     func payee(byUID uid: String) -> PBPayee? {
-        var ret: PBPayee? = nil
-        for p in currentBudget!.payees {
-            if (p.uid == uid) {
-                ret = p
-                break
-            }
+        
+        if let payees = currentBudget!.payees.first(where: { $0.uid == uid }) {
+            return payees
         }
-        return ret
+        return nil
+
     }
     
     func category(byUID uid: String?) -> PBCategory? {
-        var ret: PBCategory? = nil
-        for c in currentBudget!.categories {
-            if (c.uid == uid) {
-                ret = c
-                break
-            }
+        
+        if let cat = currentBudget!.categories.first(where: { $0.uid == uid }) {
+            return cat
         }
-        return ret
+        return nil
     }
     
     func account(byUID uid: String?) -> PBAccount? {
-        var ret: PBAccount? = nil
-        for a in currentBudget!.accounts {
-            if (a.uid == uid) {
-                ret = a
-                break
-            }
+        
+        if let acc = currentBudget!.accounts.first(where: { $0.uid == uid }) {
+            return acc
         }
-        return ret
+        return nil
+
     }
     
     func saveSetup() {

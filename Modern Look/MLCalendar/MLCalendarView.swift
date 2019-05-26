@@ -149,21 +149,20 @@ final class MLCalendarView: NSViewController {
             for col in 0..<7 {
                 let cell: MLCalendarCell? = dayCells?[row, col]
                 let selected = isSameDate(cell?.representedDate, date: self.selectedDate)
-                cell?.isSelected = selected
+                cell?.setSelected( selected )
             }
         }
-        
     }
     
     @objc func cellClicked(_ sender: MLCalendarCell?) {
         for row in 0..<6 {
             for col in 0..<7 {
                 let cell = dayCells?[row, col]
-                cell?.isSelected = false
+                cell?.setSelected( false )
             }
         }
         let cell = sender
-        cell?.isSelected = true
+        cell?.setSelected( true )
         selectedDate = (cell?.representedDate!)!
         delegate?.didSelectDate(selectedDate)
     }
@@ -218,7 +217,7 @@ final class MLCalendarView: NSViewController {
     }
     
     func layoutCalendar() {
-//        guard view  != nil else { return }
+
         for row in 0..<6 {
             for col in 0..<7 {
                 let cell = dayCells?[row, col]
@@ -227,7 +226,6 @@ final class MLCalendarView: NSViewController {
                 
                 cell?.row = row
                 cell?.col = col
-
             }
         }
         
@@ -252,16 +250,15 @@ final class MLCalendarView: NSViewController {
                     cell?.setRepresentedDate( date )
                     let selected = isSameDate(date, date: selectedDate)
                     cell?.setSelected( selected)
+                    
                     cell?.row = row
                     cell?.col = col
-
                 }
                 day += 1
 
             }
             colFirstDay = 0
         }
-//        print( dayCells! )
     }
     
     func stepMonth(_ dm: Int) {

@@ -89,7 +89,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     
     @IBAction func showAlert(_ sender: Any) {
         
-        let res = mlAlert.showQuestion("question", title: "showAlert", withCancel: true)
+        let res = mlAlert.showQuestion("question ??", title: "showAlert", withCancel: true)
         switch res {
         case .yes:
             break
@@ -98,7 +98,6 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         case .cancel:
             break
         }
-        
     }
     
     func didSelectDate(_ selectedDate: Date) {
@@ -132,7 +131,6 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
             
         default:
             print(sender.selectedItem )
-            
             break
         }
         win.showContent(vc)
