@@ -10,6 +10,9 @@ import AppKit
 
 class MLTextField: NSTextField {
     
+    @IBInspectable
+    var lineWidth = 2.0
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         commonInit()

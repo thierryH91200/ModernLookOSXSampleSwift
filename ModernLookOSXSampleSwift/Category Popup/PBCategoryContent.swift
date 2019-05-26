@@ -9,7 +9,7 @@
 import Cocoa
 
 @objc
-class PBCategoryContent: MLPopupContent, NSOutlineViewDelegate {
+class PBCategoryContent: MLPopupContent {
     
     @IBOutlet var budgetController: NSObjectController!
     @IBOutlet var categories: NSTreeController!
@@ -30,8 +30,8 @@ class PBCategoryContent: MLPopupContent, NSOutlineViewDelegate {
         
         //    self = [super initWithNibName:@"PBCategoryContent" bundle:[NSBundle bundleForClass:[self class]]];
         //    if(self) {
-            self.budget = budget;
-            self.disableSelectionNotification = false
+        self.budget = budget
+        self.disableSelectionNotification = false
         //    }
         //    return self;
         
@@ -59,17 +59,8 @@ class PBCategoryContent: MLPopupContent, NSOutlineViewDelegate {
         let indexSet = NSIndexSet(index: i)
         tree.selectRowIndexes(indexSet as IndexSet, byExtendingSelection: false)
         makeSelectionVisible()
-        
     }
     
-    func outlineViewSelectionDidChange(_ notification: Notification) {
-        
-        if disableSelectionNotification == false {
-            let sa = categories.selectedObjects
-            delegate?.selectionDidChange(sa.first, fromUpDown: true)
-        }
-        
-    }
     
     func child(byName name: String, children: [PBCategory], indexes: [Int]) -> Bool {
         
@@ -83,7 +74,7 @@ class PBCategoryContent: MLPopupContent, NSOutlineViewDelegate {
                 break
             } else {
                 ret = child(byName: name, children: cat.subCategories, indexes: indexes)
-                if !ret {
+                if ret == false {
                     indexes.removeLast()
                 } else {
                     break
@@ -115,13 +106,24 @@ class PBCategoryContent: MLPopupContent, NSOutlineViewDelegate {
             disableSelectionNotification = false
             return name
         }
+        
         disableSelectionNotification = false
         makeSelectionVisible()
         return nil //i != self.tree.selectedRow;
     }
+}
+
+extension  PBCategoryContent : NSOutlineViewDelegate {
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        
+        if disableSelectionNotification == false {
+            let sa = categories.selectedObjects
+            delegate?.selectionDidChange(sa.first, fromUpDown: true)
+        }
+    }
     
     func outlineView(_ outlineView: NSOutlineView, shouldShowOutlineCellForItem item: Any) -> Bool {
-
         return false
     }
     
