@@ -45,12 +45,12 @@ final class MLCalendarCell: NSButton {
             self.title = ""
             return }
         
-        var cal = Calendar.current
+        var calendar = Calendar.current
         if let time = TimeZone(abbreviation: "UTC") {
-            cal.timeZone = time as TimeZone
+            calendar.timeZone = time as TimeZone
         }
         let unitFlags: Set<Calendar.Component> = [.day]
-        let components = cal.dateComponents(unitFlags, from: self.representedDate!)
+        let components = calendar.dateComponents(unitFlags, from: self.representedDate!)
         let day = components.day!
         self.title = String(format: "%ld", day)
     }
@@ -59,61 +59,60 @@ final class MLCalendarCell: NSButton {
         
         print("draw ", title)
         
-        if((self.owner) != nil) {
-            NSGraphicsContext.saveGraphicsState()
-            
-            let bounds = self.bounds
-            owner!.backgroundColor.set()
-            bounds.fill()
-            
-            if (representedDate != nil) {
-                //selection
-                if isSelected == true {
-                    var circeRect = bounds.insetBy(dx: 3.5, dy: 3.5)
-                    circeRect.origin.y += 1
-                    let bzc = NSBezierPath(ovalIn: circeRect)
-                    owner?.selectionColor.set()
-                    bzc.fill()
-                }
+//        guard self.owner != nil else { return }
+        
+        NSGraphicsContext.saveGraphicsState()
+        
+        let bounds = self.bounds
+        owner!.backgroundColor.set()
+        bounds.fill()
+        
+        if (representedDate != nil) {
+            //selection
+            if isSelected == true {
+                var circeRect = bounds.insetBy(dx: 3.5, dy: 3.5)
+                circeRect.origin.y += 1
+                let bzc = NSBezierPath(ovalIn: circeRect)
+                owner?.selectionColor.set()
+                bzc.fill()
             }
-            
-            let paragraphStyle = NSMutableParagraphStyle()
-            paragraphStyle.lineBreakMode = .byWordWrapping
-            paragraphStyle.alignment = .center
-            
-            //title
-            let attrs : [NSAttributedString.Key : Any] = [
-                .paragraphStyle: paragraphStyle,
-                .font: font!,
-                .foregroundColor: owner?.textColor ?? .black
-            ]
-            
-            let size = title.size(withAttributes: attrs)
-            
-            let r = NSRect(x: bounds.origin.x,
-                           y: bounds.origin.y + ((bounds.size.height - size.height) / 2.0) - 1,
-                           width: bounds.size.width,
-                           height: size.height)
-            
-            self.title.draw(in: r, withAttributes: attrs)
-            
-            //line
-            let topLine = NSBezierPath()
-            topLine.move(to: NSPoint(x: bounds.minX, y: bounds.minY))
-            topLine.line(to: NSPoint(x: bounds.maxX, y: bounds.minY))
-            owner?.dayMarkerColor.set()
-            topLine.lineWidth = 0.3
-            topLine.stroke()
-            if isToday() {
-                owner?.todayMarkerColor.set()
-                let bottomLine = NSBezierPath()
-                bottomLine.move(to: NSPoint(x: bounds.minX, y: bounds.maxY))
-                bottomLine.line(to: NSPoint(x: bounds.maxX, y: bounds.maxY))
-                bottomLine.lineWidth = 4.0
-                bottomLine.stroke()
-            }
-            
         }
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineBreakMode = .byWordWrapping
+        paragraphStyle.alignment = .center
+        
+        //title
+        let attrs : [NSAttributedString.Key : Any] = [
+            .paragraphStyle: paragraphStyle,
+            .font: font!,
+            .foregroundColor: owner?.textColor ?? .black
+        ]
+        
+        let size = title.size(withAttributes: attrs)
+        let r = NSRect(x: bounds.origin.x,
+                       y: bounds.origin.y + ((bounds.size.height - size.height) / 2.0) - 1,
+                       width: bounds.size.width,
+                       height: size.height)
+        
+        self.title.draw(in: r, withAttributes: attrs)
+        
+        //line
+        let topLine = NSBezierPath()
+        topLine.move(to: NSPoint(x: bounds.minX, y: bounds.minY))
+        topLine.line(to: NSPoint(x: bounds.maxX, y: bounds.minY))
+        owner?.dayMarkerColor.set()
+        topLine.lineWidth = 0.3
+        topLine.stroke()
+        if isToday() {
+            owner?.todayMarkerColor.set()
+            let bottomLine = NSBezierPath()
+            bottomLine.move(to: NSPoint(x: bounds.minX, y: bounds.maxY))
+            bottomLine.line(to: NSPoint(x: bounds.maxX, y: bounds.maxY))
+            bottomLine.lineWidth = 4.0
+            bottomLine.stroke()
+        }
+        
         NSGraphicsContext.restoreGraphicsState()
         
     }

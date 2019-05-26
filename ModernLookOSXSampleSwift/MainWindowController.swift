@@ -11,7 +11,6 @@ import AppKit
 class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     
     
-    //@IBOutlet weak var settingsView: MLContentView!
     @IBOutlet weak var mlRadioGroupManager: MLRadioGroupManager!
     
     
@@ -103,7 +102,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     }
     
     func didSelectDate(_ selectedDate: Date) {
-        calendarPopover?.close()
+//        calendarPopover?.close()
     }
     
     @IBAction func pageSelectionChanged(_ sender: MLRadioGroupManager) {

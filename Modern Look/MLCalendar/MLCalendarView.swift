@@ -28,13 +28,14 @@ final class MLCalendarView: NSViewController {
     
     static let shared = MLCalendarView()
     
-    var dayLabels: [Any] = []
+    var dayLabels: [NSTextField] = []
     var dayCells : Matrix<MLCalendarCell>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do view setup here.
-        dayLabels = [Any]()
+        
+        dayLabels = [NSTextField]()
         for i in 1..<8 {
             let day = "day\(i)"
             let textField = view(byID: day) as? NSTextField
@@ -72,8 +73,8 @@ final class MLCalendarView: NSViewController {
         for i in 0..<(days?.count ?? 0) {
             let day = days?[i].uppercased()
             let col = colforDay( day: i + 1)
-            let tf = dayLabels[col] as? NSTextField
-            tf?.stringValue = day!
+            let textField = dayLabels[col]
+            textField.stringValue = day!
         }
         
         //    self.date = [NSDate date];
@@ -101,10 +102,8 @@ final class MLCalendarView: NSViewController {
     
     
     func view(byID id: String?) -> Any? {
-        for subview in view.subviews {
-            if (subview.identifier?.rawValue == id) {
-                return subview
-            }
+        for subview in view.subviews where subview.identifier?.rawValue == id {
+            return subview
         }
         return nil
     }
@@ -156,49 +155,49 @@ final class MLCalendarView: NSViewController {
         
     }
     
-    @objc func cellClicked(_ sender: Any?) {
+    @objc func cellClicked(_ sender: MLCalendarCell?) {
         for row in 0..<6 {
             for col in 0..<7 {
-                let cell: MLCalendarCell? = dayCells?[row, col]
+                let cell = dayCells?[row, col]
                 cell?.isSelected = false
             }
         }
-        let cell = sender as? MLCalendarCell
+        let cell = sender
         cell?.isSelected = true
         selectedDate = (cell?.representedDate!)!
         delegate?.didSelectDate(selectedDate)
     }
     
     func monthDay(_ day: Int) -> Date? {
-        var cal = Calendar.current
+        var calendar = Calendar.current
         if let time = TimeZone(abbreviation: "UTC") {
-            cal.timeZone = time
+            calendar.timeZone = time
         }
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        let components: DateComponents = cal.dateComponents(unitFlags, from: date)
+        let components: DateComponents = calendar.dateComponents(unitFlags, from: date)
         var comps = DateComponents()
         comps.day = day
         comps.year = components.year
         comps.month = components.month
-        return cal.date(from: comps)
+        return calendar.date(from: comps)
     }
     
     func lastDayOfTheMonth() -> Int {
-        var cal = Calendar.current
+        var calendar = Calendar.current
         if let time = TimeZone(abbreviation: "UTC") {
-            cal.timeZone = time
+            calendar.timeZone = time
         }
-        let daysRange = cal.range(of: Calendar.Component.day, in: .month, for: date)
+        let daysRange = calendar.range(of: Calendar.Component.day, in: .month, for: date)
         return daysRange!.upperBound - 1
     }
     
     func colforDay( day: Int) -> Int {
-        var cal = Calendar.current
+        var calendar = Calendar.current
         if let time = TimeZone(abbreviation: "UTC") {
-            cal.timeZone = time
+            calendar.timeZone = time
         }
         
-        var idx = day - cal.firstWeekday
+        var idx = day - calendar.firstWeekday
         if idx < 0 {
             idx = 7 + idx
         }
@@ -257,12 +256,12 @@ final class MLCalendarView: NSViewController {
     }
     
     func stepMonth(_ dm: Int) {
-        var cal = Calendar.current
+        var calendar = Calendar.current
         if let time = TimeZone(abbreviation: "UTC") {
-            cal.timeZone = time
+            calendar.timeZone = time
         }
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        var components: DateComponents = cal.dateComponents(unitFlags, from: date)
+        var components: DateComponents = calendar.dateComponents(unitFlags, from: date)
         
         var month = components.month! + dm
         var year = components.year!
@@ -276,7 +275,7 @@ final class MLCalendarView: NSViewController {
         }
         components.year = year
         components.month = month
-        self.date = cal.date(from: components)!
+        self.setDate( calendar.date(from: components)!)
     }
     
     @IBAction func nextMonth(_ sender: Any) {
