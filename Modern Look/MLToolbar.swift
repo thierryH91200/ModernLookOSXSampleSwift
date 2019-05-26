@@ -209,7 +209,7 @@ final class MLToolbar: MLGlassView {
         bottomLine.line(to: p)
         bottomLine.stroke()
         
-        if isVerticalButtons && !hiddenButtons && !justClose {
+        if isVerticalButtons && !hiddenButtons && justClose == false {
             
             let sepLine = NSBezierPath()
             var origin = bounds.origin

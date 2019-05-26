@@ -30,11 +30,8 @@ final class MLCalendarCell: NSButton {
     }
     
     func isToday() -> Bool {
-        if (representedDate != nil) {
-            return MLCalendarView.shared.isSameDate(representedDate, date: Date())
-        } else {
-            return false
-        }
+        guard representedDate != nil else  { return false }
+        return MLCalendarView.shared.isSameDate(representedDate, date: Date())
     }
     
     func setSelected(_ selected: Bool) {
@@ -50,8 +47,8 @@ final class MLCalendarCell: NSButton {
                 cal.timeZone = time as TimeZone
             }
             let unitFlags: Set<Calendar.Component> = [.day] // | NSCalendarUnitYear | NSCalendarUnitMonth;
-            let components: DateComponents = cal.dateComponents(unitFlags, from: self.representedDate!)
-            let day: Int = components.day!
+            let components = cal.dateComponents(unitFlags, from: self.representedDate!)
+            let day = components.day!
             title = String(format: "%ld", day)
         } else {
             title = ""
@@ -67,7 +64,6 @@ final class MLCalendarCell: NSButton {
             
             owner!.backgroundColor.set()
             bounds.fill()
-            
             
             if (representedDate != nil) {
                 //selection
@@ -94,7 +90,10 @@ final class MLCalendarCell: NSButton {
             
             let size = title.size(withAttributes: attrs)
             
-            let r = NSRect(x: bounds.origin.x, y: bounds.origin.y + ((bounds.size.height - size.height) / 2.0) - 1, width: bounds.size.width, height: size.height)
+            let r = NSRect(x: bounds.origin.x,
+                           y: bounds.origin.y + ((bounds.size.height - size.height) / 2.0) - 1,
+                           width: bounds.size.width,
+                           height: size.height)
             
             title.draw(in: r, withAttributes: attrs)
             

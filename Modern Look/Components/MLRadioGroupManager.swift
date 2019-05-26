@@ -22,13 +22,13 @@ final class MLRadioGroupManager: NSControl {
             return
         }
         if sender.state == .on {
-            for v in groupView.subviews {
-                if v == sender {
+            for view in groupView.subviews {
+                if view == sender {
                     continue
                 }
-                if (v is NSButton) {
-                    let b = v as? NSButton
-                    b?.state = .off
+                if (view is NSButton) {
+                    let b = view as! NSButton
+                    b.state = .off
                 }
             }
         }
@@ -38,13 +38,14 @@ final class MLRadioGroupManager: NSControl {
     
     func setSelectedItem( selectedItem : Int) {
         let selectedItem = selectedItem
-        for v in groupView.subviews {
-            if (v is NSButton) {
-                let b = v as? NSButton
-                if b?.tag == selectedItem {
-                    b?.state = .on
+        
+        for view in groupView.subviews {
+            if (view is NSButton) {
+                let button = view as! NSButton
+                if button.tag == selectedItem {
+                    button.state = .on
                 } else {
-                    b?.state = .off
+                    button.state = .off
                 }
             }
         }

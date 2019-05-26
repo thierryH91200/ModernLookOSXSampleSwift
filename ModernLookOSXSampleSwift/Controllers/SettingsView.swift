@@ -20,7 +20,6 @@ class SettingsView: NSViewController {
         budgets = PBEntityManager.shared.loadBudgets()
         arrayController.content = budgets
     }
-    
 }
 
 class PBBudgetArrayController : NSArrayController {

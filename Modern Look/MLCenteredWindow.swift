@@ -15,7 +15,8 @@ class MLCenteredWindow: MLMainWindow {
     }
     
     override func center() {
-        let mr: NSRect = NSApplication.shared.mainWindow!.frame
+        
+        let mr = NSApplication.shared.mainWindow!.frame
         let mp = NSPoint(x: mr.midX, y: mr.midY)
         
         var r = frame

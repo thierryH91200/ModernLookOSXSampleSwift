@@ -8,17 +8,18 @@
 
 import AppKit
 
-@IBDesignable
 final class MLCheckbox: NSButton {
     
     var backgroundColor: NSColor?
     
     var _hoveredBackgroundColor = NSColor.blue
+    
     @IBInspectable
     var hoveredBackgroundColor : NSColor {
         get { return _hoveredBackgroundColor }
         set { _hoveredBackgroundColor = newValue}
     }
+    
     var foregroundColor = NSColor.blue
     var _hoveredForegroundColor = NSColor.orange
     var circleBorder: CGFloat = 0.0
@@ -45,7 +46,7 @@ final class MLCheckbox: NSButton {
     }
     
     func commonInit() {
-        //    self.wantsLayer = YES;
+
         createTrackingArea()
         justTurnedOff = false
         hoovered = false
@@ -68,7 +69,6 @@ final class MLCheckbox: NSButton {
         if let trackingArea = trackingArea {
             addTrackingArea(trackingArea)
         }
-        
     }
     
     override func mouseEntered(with theEvent: NSEvent) {
@@ -85,7 +85,7 @@ final class MLCheckbox: NSButton {
     
     override func mouseDown(with theEvent: NSEvent) {
         super.mouseDown(with: theEvent)
-        if hoovered {
+        if hoovered == true{
             justTurnedOff = state == .off
         }
     }

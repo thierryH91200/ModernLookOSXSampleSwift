@@ -73,9 +73,9 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     @IBAction func showCalendar(_ sender: Any) {
         createCalendarPopover()
         let btn = sender as? NSButton
-        let cellRect: NSRect? = btn?.bounds
+        let cellRect = btn?.bounds
         if let btn = btn {
-            calendarPopover?.show(relativeTo: cellRect ?? NSRect.zero, of: btn, preferredEdge: .minX)
+            calendarPopover?.show(relativeTo: cellRect ?? NSRect.zero, of: btn, preferredEdge: .maxY)
         }
     }
     

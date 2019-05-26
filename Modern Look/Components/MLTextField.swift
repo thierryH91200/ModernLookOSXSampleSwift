@@ -10,8 +10,13 @@ import AppKit
 
 class MLTextField: NSTextField {
     
+    var _lineWidth : CGFloat = 2.0
+    
     @IBInspectable
-    var lineWidth = 2.0
+    var lineWidth : CGFloat  {
+        get { return _lineWidth }
+        set { _lineWidth = newValue}
+    }
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -44,7 +49,7 @@ class MLTextField: NSTextField {
         bottomLine.move(to: p)
         p.x += bounds.size.width
         bottomLine.line(to: p)
-        bottomLine.lineWidth = 2
+        bottomLine.lineWidth = _lineWidth
         bottomLine.stroke()
         
         let heightLine = NSBezierPath()
@@ -52,7 +57,7 @@ class MLTextField: NSTextField {
         heightLine.move(to: p2)
         p2.y = bounds.size.height
         heightLine.line(to: p2)
-        heightLine.lineWidth = 2
+        heightLine.lineWidth = _lineWidth
         heightLine.stroke()
 
         NSGraphicsContext.restoreGraphicsState()

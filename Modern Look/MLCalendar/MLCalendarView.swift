@@ -27,9 +27,9 @@ final class MLCalendarView: NSViewController {
     var selectedDate = Date()
     
     static let shared = MLCalendarView()
-
+    
     var dayLabels: [Any] = []
-    var dayCells :Matrix<MLCalendarCell>?
+    var dayCells : Matrix<MLCalendarCell>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,7 +47,7 @@ final class MLCalendarView: NSViewController {
         let button = view(byID: cell) as? MLCalendarCell
         button?.target = self
         button?.action = #selector(self.cellClicked(_:))
-
+        
         dayCells = Matrix(rows: 10, columns: 10,defaultValue:button!)
         
         for row in 0..<6 {
@@ -68,7 +68,7 @@ final class MLCalendarView: NSViewController {
         var days = dateFormatter.shortStandaloneWeekdaySymbols
         for i in 0..<(days?.count ?? 0) {
             let day = days?[i].uppercased()
-            let col: Int = colforDay( day: i + 1)
+            let col = colforDay( day: i + 1)
             let tf = dayLabels[col] as? NSTextField
             tf?.stringValue = day!
         }
@@ -77,7 +77,25 @@ final class MLCalendarView: NSViewController {
         let bv = view as? MLCalendarBackground
         bv?.backgroundColor = backgroundColor
         layoutCalendar()
+        commonInit()
     }
+    
+    func commonInit() {
+        backgroundColor = NSColor.white
+        textColor = NSColor.black
+        selectionColor = NSColor.red
+        todayMarkerColor = NSColor.green
+        dayMarkerColor = NSColor.darkGray
+        
+        let cell = "c1"
+        let button = view(byID: cell) as? MLCalendarCell
+        button?.target = self
+        button?.action = #selector(self.cellClicked(_:))
+        
+        dayCells = Matrix(rows: 10, columns: 10,defaultValue:button!)
+        date = Date()
+    }
+    
     
     func view(byID _id: String?) -> Any? {
         for subview in view.subviews {
@@ -97,7 +115,7 @@ final class MLCalendarView: NSViewController {
         }
         
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        let components: DateComponents = cal.dateComponents(unitFlags, from: self.date)
+        let components = cal.dateComponents(unitFlags, from: self.date)
         let month = components.month!
         let year: Int = components.year!
         
@@ -122,7 +140,6 @@ final class MLCalendarView: NSViewController {
         }
         return nil
     }
-    
     
     func setSelectedDate(_ selectedDate: Date?) {
         self.selectedDate = toUTC(selectedDate)!
@@ -244,8 +261,9 @@ final class MLCalendarView: NSViewController {
         }
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
         var components: DateComponents = cal.dateComponents(unitFlags, from: date)
-        var month: Int = components.month! + dm
-        var year: Int = components.year!
+        
+        var month = components.month! + dm
+        var year = components.year!
         if month > 12 {
             month = 1
             year += 1
@@ -256,60 +274,40 @@ final class MLCalendarView: NSViewController {
         }
         components.year = year
         components.month = month
-        date = cal.date(from: components)!
+        self.date = cal.date(from: components)!
     }
     
     @IBAction func nextMonth(_ sender: Any) {
         stepMonth(1)
+        view.needsDisplay = true
     }
     
     @IBAction func prevMonth(_ sender: Any) {
         stepMonth(-1)
     }
     
-    func commonInit() {
-        backgroundColor = NSColor.white
-        textColor = NSColor.black
-        selectionColor = NSColor.red
-        todayMarkerColor = NSColor.green
-        dayMarkerColor = NSColor.darkGray
-        
-        let cell = "c1"
-        let button = view(byID: cell) as? MLCalendarCell
-        button?.target = self
-        button?.action = #selector(self.cellClicked(_:))
-
-        dayCells = Matrix(rows: 10, columns: 10,defaultValue:button!)
-        date = Date()
-    }
-    
-    
     func isSameDate(_ d1: Date?, date d2: Date?) -> Bool {
-        if d1 != nil && d2 != nil {
-            var cal = Calendar.current
-            if let time = TimeZone(abbreviation: "UTC") {
-                cal.timeZone = time
-            }
-            let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-            var components: DateComponents? = nil
-            if let d1 = d1 {
-                components = cal.dateComponents(unitFlags, from: d1)
-            }
-            let ry: Int? = components?.year
-            let rm: Int? = components?.month
-            let rd: Int? = components?.day
-            if let d2 = d2 {
-                components = cal.dateComponents(unitFlags, from: d2)
-            }
-            let ty: Int? = components?.year
-            let tm: Int? = components?.month
-            let td: Int? = components?.day
-            return ry == ty && rm == tm && rd == td
-        } else {
-            return false
+        guard d1 != nil && d2 != nil else { return false }
+        var cal = Calendar.current
+        if let time = TimeZone(abbreviation: "UTC") {
+            cal.timeZone = time
         }
+        let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
+        var components: DateComponents? = nil
+        if let d1 = d1 {
+            components = cal.dateComponents(unitFlags, from: d1)
+        }
+        let ry = components?.year
+        let rm = components?.month
+        let rd = components?.day
+        if let d2 = d2 {
+            components = cal.dateComponents(unitFlags, from: d2)
+        }
+        let ty = components?.year
+        let tm = components?.month
+        let td = components?.day
+        return ry == ty && rm == tm && rd == td
     }
-    
     
 }
 

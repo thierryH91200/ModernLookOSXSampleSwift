@@ -238,7 +238,7 @@ Change the toolbar title to be a hyperlink. When clicked it will log out a messa
 3. MLTextField text selection covers the bottom thin line.
 
 # License
-MIT
+Apache License 2.0
 
 
  

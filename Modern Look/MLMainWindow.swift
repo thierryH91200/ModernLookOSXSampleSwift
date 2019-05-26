@@ -16,13 +16,11 @@ class MLMainWindow: NSWindow {
     @IBOutlet weak var pbToolbar: MLToolbar!
     
     var mlTextView: MLTextView?
-    
     var fieldEditorMarker = NSColor.clear
     
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreType, defer flag: Bool)
     {
         super.init(contentRect: contentRect, styleMask: [.borderless , .resizable], backing: bufferingType, defer: flag)
-        
         
         self.isOpaque = false
         backgroundColor = NSColor.clear
@@ -73,7 +71,6 @@ class MLMainWindow: NSWindow {
         
         let viewsDictionary = [ "c" : cv ]
         pbContent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[c]|", options: [], metrics: nil, views: viewsDictionary))
-        
         pbContent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[c]|", options: [], metrics: nil, views: viewsDictionary))
         
         NSAnimationContext.beginGrouping()
