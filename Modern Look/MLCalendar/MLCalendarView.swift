@@ -54,7 +54,6 @@ final class MLCalendarView: NSViewController {
         for row in 0..<6 {
             for col in 0..<7 {
                 let i = (row * 7) + col + 1
-                print(i)
 
                 let cell = "c\(i)"
                 let button = view(byID: cell) as? MLCalendarCell
@@ -69,6 +68,7 @@ final class MLCalendarView: NSViewController {
         }
         
         let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "FR-fr")
         var days = dateFormatter.shortStandaloneWeekdaySymbols
         for i in 0..<(days?.count ?? 0) {
             let day = days?[i].uppercased()
@@ -77,7 +77,6 @@ final class MLCalendarView: NSViewController {
             textField.stringValue = day!
         }
         
-        //    self.date = [NSDate date];
         let bv = view as? MLCalendarBackground
         bv?.backgroundColor = backgroundColor
         layoutCalendar()
@@ -96,13 +95,14 @@ final class MLCalendarView: NSViewController {
         button?.target = self
         button?.action = #selector(self.cellClicked(_:))
         
-        dayCells = Matrix(rows: 10, columns: 10,defaultValue:button!)
+//        dayCells = Matrix(rows: 10, columns: 10,defaultValue:button!)
         date = Date()
     }
     
     
     func view(byID id: String?) -> Any? {
-        for subview in view.subviews where subview.identifier?.rawValue == id {
+        
+        if let subview = view.subviews.first(where: { $0.identifier?.rawValue == id }) {
             return subview
         }
         return nil
@@ -222,8 +222,12 @@ final class MLCalendarView: NSViewController {
         for row in 0..<6 {
             for col in 0..<7 {
                 let cell = dayCells?[row, col]
-                cell?.representedDate = nil
+                cell?.setRepresentedDate( nil )
                 cell?.isSelected = false
+                
+                cell?.row = row
+                cell?.col = col
+
             }
         }
         
@@ -248,11 +252,16 @@ final class MLCalendarView: NSViewController {
                     cell?.setRepresentedDate( date )
                     let selected = isSameDate(date, date: selectedDate)
                     cell?.setSelected( selected)
-                    day += 1
+                    cell?.row = row
+                    cell?.col = col
+
                 }
+                day += 1
+
             }
             colFirstDay = 0
         }
+//        print( dayCells! )
     }
     
     func stepMonth(_ dm: Int) {

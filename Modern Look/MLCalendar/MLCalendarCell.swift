@@ -13,6 +13,8 @@ final class MLCalendarCell: NSButton {
     var owner: MLCalendarView?
     var representedDate: Date?
     var isSelected = false
+    var col = -1
+    var row = -1
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -53,21 +55,22 @@ final class MLCalendarCell: NSButton {
         let components = calendar.dateComponents(unitFlags, from: self.representedDate!)
         let day = components.day!
         self.title = String(format: "%ld", day)
+
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        
-        print("draw ", title)
-        
+                
 //        guard self.owner != nil else { return }
         
         NSGraphicsContext.saveGraphicsState()
         
+        
         let bounds = self.bounds
         owner!.backgroundColor.set()
+        NSColor.white.set()
         bounds.fill()
         
-        if (representedDate != nil) {
+        if representedDate != nil {
             //selection
             if isSelected == true {
                 var circeRect = bounds.insetBy(dx: 3.5, dy: 3.5)
@@ -76,27 +79,29 @@ final class MLCalendarCell: NSButton {
                 owner?.selectionColor.set()
                 bzc.fill()
             }
+        } else {
+            title = ""
         }
-        
+
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = .byWordWrapping
         paragraphStyle.alignment = .center
-        
+
         //title
         let attrs : [NSAttributedString.Key : Any] = [
             .paragraphStyle: paragraphStyle,
             .font: font!,
             .foregroundColor: owner?.textColor ?? .black
         ]
-        
+
         let size = title.size(withAttributes: attrs)
         let r = NSRect(x: bounds.origin.x,
                        y: bounds.origin.y + ((bounds.size.height - size.height) / 2.0) - 1,
                        width: bounds.size.width,
                        height: size.height)
-        
+
         self.title.draw(in: r, withAttributes: attrs)
-        
+
         //line
         let topLine = NSBezierPath()
         topLine.move(to: NSPoint(x: bounds.minX, y: bounds.minY))
