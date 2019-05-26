@@ -10,6 +10,7 @@ import AppKit
 
 class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     
+    
     //@IBOutlet weak var settingsView: MLContentView!
     @IBOutlet weak var mlRadioGroupManager: MLRadioGroupManager!
     
@@ -18,6 +19,9 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     var accountsView: AccountsView?
     var budgetView: BudgetView?
     var predictionView: PredicitionView?
+    
+    var calendarView: MLCalendarView?
+
     
     var budgets = [PBBudget]()
     
@@ -56,22 +60,27 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     
     func createCalendarPopover() {
         
-        var myPopover = calendarPopover
+        var myPopover = self.calendarPopover
         if myPopover == nil {
+            
             myPopover = NSPopover()
-            let cp = MLCalendarView()
-            cp.delegate = self
-            myPopover?.contentViewController = cp
-            myPopover?.appearance = NSAppearance(named: .aqua) //]LightContent];
+            calendarView = MLCalendarView()
+            calendarView?.delegate = self
+            
+            myPopover?.contentViewController = calendarView
+            myPopover?.appearance = NSAppearance(named: .aqua)
             myPopover?.animates = true
             myPopover?.behavior = .transient
-            //        myPopover.delegate = self;
         }
-        calendarPopover = myPopover
+        self.calendarPopover = myPopover
     }
     
     @IBAction func showCalendar(_ sender: Any) {
         createCalendarPopover()
+        
+        calendarView?.setDate( Date() )
+        calendarView?.setSelectedDate( Date() )
+
         let btn = sender as? NSButton
         let cellRect = btn?.bounds
         if let btn = btn {
@@ -81,7 +90,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     
     @IBAction func showAlert(_ sender: Any) {
         
-        let res = mlAlert.showQuestion("question", title: "hello", withCancel: true)
+        let res = mlAlert.showQuestion("question", title: "showAlert", withCancel: true)
         switch res {
         case .yes:
             break
@@ -93,7 +102,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         
     }
     
-    func didSelectDate(_ selectedDate: Date?) {
+    func didSelectDate(_ selectedDate: Date) {
         calendarPopover?.close()
     }
     
@@ -175,7 +184,6 @@ class PBAccount :  PBEntity {
     var budgeted = true
     var budget: PBBudget?
     
-    
     override init () {
     }
     
@@ -207,7 +215,7 @@ class PBBudget : NSObject {
     }
 }
 
-class PBPayee :  PBEntity{
+class PBPayee :  PBEntity {
     var budget: PBBudget?
     var name = ""
     var categories: [PBCategory] = []
@@ -227,7 +235,6 @@ class PBCategory: PBEntity {
     init(name: String) {
         self.name = name
     }
-    
     
     func isLeaf() -> Bool {
         return subCategories.isEmpty

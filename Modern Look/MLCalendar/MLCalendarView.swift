@@ -9,7 +9,7 @@
 import AppKit
 
 protocol MLCalendarViewDelegate: NSObjectProtocol {
-    func didSelectDate(_ selectedDate: Date?)
+    func didSelectDate(_ selectedDate: Date)
 }
 
 final class MLCalendarView: NSViewController {
@@ -48,19 +48,22 @@ final class MLCalendarView: NSViewController {
         button?.target = self
         button?.action = #selector(self.cellClicked(_:))
         
-        dayCells = Matrix(rows: 10, columns: 10,defaultValue:button!)
+        dayCells = Matrix(rows: 6, columns: 7, defaultValue:button!)
         
         for row in 0..<6 {
             for col in 0..<7 {
                 let i = (row * 7) + col + 1
+                print(i)
+
                 let cell = "c\(i)"
                 let button = view(byID: cell) as? MLCalendarCell
                 button?.target = self
                 button?.action = #selector(self.cellClicked(_:))
+                button?.owner = self
+
                 if let button = button {
                     dayCells?[row, col] = button
                 }
-                button?.owner = self
             }
         }
         
@@ -97,9 +100,9 @@ final class MLCalendarView: NSViewController {
     }
     
     
-    func view(byID _id: String?) -> Any? {
+    func view(byID id: String?) -> Any? {
         for subview in view.subviews {
-            if (subview.identifier?.rawValue == _id) {
+            if (subview.identifier?.rawValue == id) {
                 return subview
             }
         }
@@ -162,7 +165,7 @@ final class MLCalendarView: NSViewController {
         }
         let cell = sender as? MLCalendarCell
         cell?.isSelected = true
-        selectedDate = cell!.representedDate!
+        selectedDate = (cell?.representedDate!)!
         delegate?.didSelectDate(selectedDate)
     }
     
@@ -186,7 +189,7 @@ final class MLCalendarView: NSViewController {
             cal.timeZone = time
         }
         let daysRange = cal.range(of: Calendar.Component.day, in: .month, for: date)
-        return daysRange!.upperBound
+        return daysRange!.upperBound - 1
     }
     
     func colforDay( day: Int) -> Int {
@@ -216,10 +219,10 @@ final class MLCalendarView: NSViewController {
     }
     
     func layoutCalendar() {
-        //        guard view  != nil else { return }
+//        guard view  != nil else { return }
         for row in 0..<6 {
             for col in 0..<7 {
-                let cell: MLCalendarCell? = dayCells?[row, col]
+                let cell = dayCells?[row, col]
                 cell?.representedDate = nil
                 cell?.isSelected = false
             }
@@ -232,25 +235,24 @@ final class MLCalendarView: NSViewController {
         
         let unitFlags = Set<Calendar.Component>([.weekday])
         var components = cal.dateComponents(unitFlags, from: monthDay(1)!)
-        let firstDay: Int = components.weekday!
-        let lastDay: Int = lastDayOfTheMonth()
-        var col: Int = colforDay( day: firstDay)
-        var day: Int = 1
+        let firstDay = components.weekday!
+        let lastDay = lastDayOfTheMonth()
+        var colFirstDay = colforDay( day: firstDay)
+        var day = 1
         
         for row in 0..<6 {
-            
-            while col < 7 {
+            for col in colFirstDay..<7 {
                 if day <= lastDay {
-                    let cell: MLCalendarCell? = dayCells?[row, col]
-                    let d: Date? = monthDay(day)
-                    cell?.representedDate = d
-                    let selected: Bool = isSameDate(d, date: selectedDate)
-                    cell?.isSelected = selected
+                    
+                    let cell = dayCells?[row, col]
+                    let date = monthDay(day)
+                    cell?.setRepresentedDate( date )
+                    let selected = isSameDate(date, date: selectedDate)
+                    cell?.setSelected( selected)
                     day += 1
                 }
-                col += 1
             }
-            col = 0
+            colFirstDay = 0
         }
     }
     

@@ -10,10 +10,10 @@ import AppKit
 
 final class MLCalendarCell: NSButton {
     
-    weak var owner: MLCalendarView?
+    var owner: MLCalendarView?
     var representedDate: Date?
     var isSelected = false
-
+    
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         commonInit()
@@ -41,27 +41,28 @@ final class MLCalendarCell: NSButton {
     
     func setRepresentedDate(_ representedDate: Date?) {
         self.representedDate = representedDate
-        if (self.representedDate != nil) {
-            var cal = Calendar.current
-            if let time = TimeZone(abbreviation: "UTC") {
-                cal.timeZone = time as TimeZone
-            }
-            let unitFlags: Set<Calendar.Component> = [.day] // | NSCalendarUnitYear | NSCalendarUnitMonth;
-            let components = cal.dateComponents(unitFlags, from: self.representedDate!)
-            let day = components.day!
-            title = String(format: "%ld", day)
-        } else {
-            title = ""
+        guard self.representedDate != nil else  {
+            self.title = ""
+            return }
+        
+        var cal = Calendar.current
+        if let time = TimeZone(abbreviation: "UTC") {
+            cal.timeZone = time as TimeZone
         }
+        let unitFlags: Set<Calendar.Component> = [.day]
+        let components = cal.dateComponents(unitFlags, from: self.representedDate!)
+        let day = components.day!
+        self.title = String(format: "%ld", day)
     }
     
     override func draw(_ dirtyRect: NSRect) {
         
+        print("draw ", title)
+        
         if((self.owner) != nil) {
             NSGraphicsContext.saveGraphicsState()
-
-            let bounds = self.bounds
             
+            let bounds = self.bounds
             owner!.backgroundColor.set()
             bounds.fill()
             
@@ -79,7 +80,6 @@ final class MLCalendarCell: NSButton {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineBreakMode = .byWordWrapping
             paragraphStyle.alignment = .center
-
             
             //title
             let attrs : [NSAttributedString.Key : Any] = [
@@ -95,8 +95,7 @@ final class MLCalendarCell: NSButton {
                            width: bounds.size.width,
                            height: size.height)
             
-            title.draw(in: r, withAttributes: attrs)
-            
+            self.title.draw(in: r, withAttributes: attrs)
             
             //line
             let topLine = NSBezierPath()
