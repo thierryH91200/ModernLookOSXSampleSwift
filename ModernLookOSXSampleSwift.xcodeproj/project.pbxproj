@@ -359,10 +359,10 @@
 		03DE6820226CAC280034AACB /* MLCalendar */ = {
 			isa = PBXGroup;
 			children = (
-				03DE67DF226BA55F0034AACB /* MLCalendarView.xib */,
-				03DE67E1226BA5B20034AACB /* MLCalendarView.swift */,
-				03DE67E3226BA87C0034AACB /* MLCalendarCell.swift */,
 				03DE67E5226C1C910034AACB /* MLCalendarBackground.swift */,
+				03DE67E3226BA87C0034AACB /* MLCalendarCell.swift */,
+				03DE67E1226BA5B20034AACB /* MLCalendarView.swift */,
+				03DE67DF226BA55F0034AACB /* MLCalendarView.xib */,
 			);
 			path = MLCalendar;
 			sourceTree = "<group>";

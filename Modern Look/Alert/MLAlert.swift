@@ -16,25 +16,26 @@ enum MLAlertResponse : Int {
 
 final class MLAlert: NSWindowController {
     
-@IBOutlet weak var title: NSTextField!
-@IBOutlet weak var message: NSTextField!
-@IBOutlet weak var cancel: NSButton!
-@IBOutlet weak var yes: NSButton!
-@IBOutlet weak var no: NSButton!
-@IBOutlet weak var toolbar: MLToolbar!
-
+    @IBOutlet weak var title: NSTextField!
+    @IBOutlet weak var message: NSTextField!
+    @IBOutlet weak var cancel: NSButton!
+    @IBOutlet weak var yes: NSButton!
+    @IBOutlet weak var no: NSButton!
+    @IBOutlet weak var toolbar: MLToolbar!
     
+    override var windowNibName: NSNib.Name? {
+        return  "MLAlertYesNoCancel"
+    }
+
     override func windowDidLoad() {
         super.windowDidLoad()
         
-        window?.styleMask = .borderless
-
-        
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+        window?.styleMask = .borderless
     }
     
     func showQuestion(_ question: String?, title: String?, withCancel: Bool, buttonsTitle titles: [String]) -> MLAlertResponse {
-//        let alert = MLAlert()
+        //        let alert = MLAlert()
         if !withCancel {
             cancel.isHidden = true
         }
@@ -59,7 +60,7 @@ final class MLAlert: NSWindowController {
     }
     
     func showError(_ question: String, title: String, buttonsTitle butonTitle: String) -> MLAlertResponse {
-
+        
         toolbar.backgroundColor = NSColor.red
         cancel.isHidden = true
         yes.isHidden = true
@@ -67,23 +68,16 @@ final class MLAlert: NSWindowController {
         message.stringValue = question
         no.title = butonTitle
         resizeButtons()
-        let res: MLAlertResponse = runAlert()
+        
+        let res = runAlert()
         window?.close()
         return res
-        
     }
     
     func showError(_ question: String, title: String) -> MLAlertResponse {
         return showError(question, title: title, buttonsTitle: "Back")
     }
     
-    override var windowNibName: NSNib.Name? {
-        return  "MLAlertYesNoCancel"
-    }
-
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     func resizeButtons() {
         //    [self.no sizeToFit];
@@ -140,5 +134,5 @@ final class MLAlert: NSWindowController {
     @IBAction func doNo(_ sender: Any) {
         NSApp.stopModal(withCode: .alertSecondButtonReturn)
     }
-
+    
 }

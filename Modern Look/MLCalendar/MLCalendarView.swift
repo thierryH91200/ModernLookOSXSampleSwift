@@ -95,7 +95,6 @@ final class MLCalendarView: NSViewController {
         button?.target = self
         button?.action = #selector(self.cellClicked(_:))
         
-//        dayCells = Matrix(rows: 10, columns: 10,defaultValue:button!)
         date = Date()
     }
     
@@ -148,8 +147,8 @@ final class MLCalendarView: NSViewController {
         for row in 0..<6 {
             for col in 0..<7 {
                 let cell: MLCalendarCell? = dayCells?[row, col]
-                let selected = isSameDate(cell?.representedDate, date: self.selectedDate)
-                cell?.setSelected( selected )
+                let isSelected = isSameDate(cell?.representedDate, date: self.selectedDate)
+                cell?.isSelected = isSelected
             }
         }
     }
@@ -158,11 +157,11 @@ final class MLCalendarView: NSViewController {
         for row in 0..<6 {
             for col in 0..<7 {
                 let cell = dayCells?[row, col]
-                cell?.setSelected( false )
+                cell?.isSelected = false
             }
         }
         let cell = sender
-        cell?.setSelected( true )
+        cell?.isSelected = true
         selectedDate = (cell?.representedDate!)!
         delegate?.didSelectDate(selectedDate)
     }
@@ -221,7 +220,7 @@ final class MLCalendarView: NSViewController {
         for row in 0..<6 {
             for col in 0..<7 {
                 let cell = dayCells?[row, col]
-                cell?.setRepresentedDate( nil )
+                cell?.representedDate = nil
                 cell?.isSelected = false
                 
                 cell?.row = row
@@ -247,9 +246,9 @@ final class MLCalendarView: NSViewController {
                     
                     let cell = dayCells?[row, col]
                     let date = monthDay(day)
-                    cell?.setRepresentedDate( date )
-                    let selected = isSameDate(date, date: selectedDate)
-                    cell?.setSelected( selected)
+                    cell?.representedDate = date
+                    let isSelected = isSameDate(date, date: selectedDate)
+                    cell?.isSelected = isSelected
                     
                     cell?.row = row
                     cell?.col = col
@@ -286,7 +285,6 @@ final class MLCalendarView: NSViewController {
     
     @IBAction func nextMonth(_ sender: Any) {
         stepMonth(1)
-        view.needsDisplay = true
     }
     
     @IBAction func prevMonth(_ sender: Any) {
