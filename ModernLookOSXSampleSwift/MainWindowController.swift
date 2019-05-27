@@ -71,19 +71,19 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     @IBAction func showCalendar(_ sender: Any) {
         createCalendarPopover()
         
-        calendarView?.setDate( Date() )
-        calendarView?.setSelectedDate( Date() )
+        calendarView?.date = Date()
+        calendarView?.selectedDate = Date() 
         
-        let btn = sender as? NSButton
-        let cellRect = btn?.bounds
-        if let btn = btn {
-            calendarPopover?.show(relativeTo: cellRect ?? NSRect.zero, of: btn, preferredEdge: .maxY)
+        let button = sender as? NSButton
+        let cellRect = button?.bounds
+        if let button = button {
+            calendarPopover?.show(relativeTo: cellRect ?? NSRect.zero, of: button, preferredEdge: .maxY)
         }
     }
     
     @IBAction func showAlert(_ sender: Any) {
         
-        let vi = mlAlert.window?.contentView
+       _ = mlAlert.window?.contentView
         
         let res = mlAlert.showQuestion("question ??", title: "showAlert", withCancel: true)
         switch res {
