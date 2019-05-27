@@ -1,0 +1,39 @@
+
+/* Class = "NSTextFieldCell"; title = "Accounts"; ObjectID = "Kvf-EO-CnH"; */
+"Kvf-EO-CnH.title" = "Accounts";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "N8P-CN-MPF"; */
+"N8P-CN-MPF.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Budgets"; ObjectID = "O0f-ca-2ZD"; */
+"O0f-ca-2ZD.title" = "Budgets";
+
+/* Class = "NSTextFieldCell"; title = "Create New Category"; ObjectID = "UGL-UE-Wl6"; */
+"UGL-UE-Wl6.title" = "Create New Category";
+
+/* Class = "NSTextFieldCell"; title = "Create New Budget"; ObjectID = "Xtz-le-auS"; */
+"Xtz-le-auS.title" = "Create New Budget";
+
+/* Class = "NSTableColumn"; headerCell.title = "Categories"; ObjectID = "YLD-NV-6vf"; */
+"YLD-NV-6vf.headerCell.title" = "Categories";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "aTv-kc-9hc"; */
+"aTv-kc-9hc.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Budgets"; ObjectID = "bWd-58-tnG"; */
+"bWd-58-tnG.headerCell.title" = "Budgets";
+
+/* Class = "NSTextFieldCell"; title = "Settings"; ObjectID = "hAS-D9-i14"; */
+"hAS-D9-i14.title" = "Settings";
+
+/* Class = "NSTableColumn"; headerCell.title = "Accounts"; ObjectID = "o1R-Ag-MH6"; */
+"o1R-Ag-MH6.headerCell.title" = "Accounts";
+
+/* Class = "NSTextFieldCell"; title = "Create New Account"; ObjectID = "tRh-IN-fdR"; */
+"tRh-IN-fdR.title" = "Create New Account";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "vJj-xj-yNe"; */
+"vJj-xj-yNe.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Categories"; ObjectID = "wnw-xe-4fc"; */
+"wnw-xe-4fc.title" = "Categories";

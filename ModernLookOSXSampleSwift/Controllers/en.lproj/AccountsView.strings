@@ -1,0 +1,42 @@
+
+/* Class = "NSTextFieldCell"; title = "Unicredit Card"; ObjectID = "AM2-du-p5m"; */
+"AM2-du-p5m.title" = "Unicredit Card";
+
+/* Class = "NSTextFieldCell"; title = "February, 2015"; ObjectID = "AaC-os-XGU"; */
+"AaC-os-XGU.title" = "February, 2015";
+
+/* Class = "NSTextFieldCell"; title = "Accounts"; ObjectID = "AkU-5h-iUS"; */
+"AkU-5h-iUS.title" = "Accounts";
+
+/* Class = "NSTableColumn"; headerCell.title = "In Flow"; ObjectID = "OSz-0f-GlJ"; */
+"OSz-0f-GlJ.headerCell.title" = "In Flow";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Pm9-qq-pBR"; */
+"Pm9-qq-pBR.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "QdL-qc-Pv1"; */
+"QdL-qc-Pv1.title" = "Table View Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Out Flow"; ObjectID = "RQ3-Qa-Xs6"; */
+"RQ3-Qa-Xs6.headerCell.title" = "Out Flow";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "cZU-xj-yKv"; */
+"cZU-xj-yKv.title" = "Text Cell";
+
+/* Class = "NSTableColumn"; headerCell.title = "Date"; ObjectID = "gC0-yP-kSa"; */
+"gC0-yP-kSa.headerCell.title" = "Date";
+
+/* Class = "NSTextFieldCell"; title = "Table View Cell"; ObjectID = "hE9-G2-FkS"; */
+"hE9-G2-FkS.title" = "Table View Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Select category"; ObjectID = "mWx-1t-9kO"; */
+"mWx-1t-9kO.placeholderString" = "Select category";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "sr5-8D-uOM"; */
+"sr5-8D-uOM.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Select category"; ObjectID = "yF5-U5-d7i"; */
+"yF5-U5-d7i.placeholderString" = "Select category";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "zAH-cu-0C9"; */
+"zAH-cu-0C9.title" = "Text Cell";

@@ -30,7 +30,7 @@ final class MLCalendarView: NSViewController {
     var dayCells : Matrix<MLCalendarCell>?
     
     var _date =  Date()
-    var date : Date? {
+    var date : Date {
         
         get { return _date }
         set {
@@ -57,7 +57,6 @@ final class MLCalendarView: NSViewController {
         
         get { return _selectedDate }
         set {
-
             _selectedDate = toUTC(newValue)!
             for row in 0..<6 {
                 for col in 0..<7 {
@@ -106,9 +105,18 @@ final class MLCalendarView: NSViewController {
             }
         }
         
+//let df = DateFormatter()
+//df.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages[0]) as Locale
+//let weekdays = df.shortStandaloneWeekdaySymbols
+//if let weekdays = weekdays {
+//    print("\(weekdays)")
+//}
+
+        
         let dateFormatter = DateFormatter()
-        //        dateFormatter.locale = Locale(identifier: "FR-fr")
+        dateFormatter.locale = Locale(identifier: Locale.preferredLanguages[0])
         var days = dateFormatter.shortStandaloneWeekdaySymbols
+        
         for i in 0..<(days?.count ?? 0) {
             let day = days?[i].uppercased()
             let col = colforDay( day: i + 1)
@@ -182,7 +190,7 @@ final class MLCalendarView: NSViewController {
             calendar.timeZone = time
         }
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        let components: DateComponents = calendar.dateComponents(unitFlags, from: date!)
+        let components: DateComponents = calendar.dateComponents(unitFlags, from: date)
         var dateComponents = DateComponents()
         dateComponents.day = day
         dateComponents.year = components.year
@@ -195,7 +203,7 @@ final class MLCalendarView: NSViewController {
         if let time = TimeZone(abbreviation: "UTC") {
             calendar.timeZone = time
         }
-        let daysRange = calendar.range(of: Calendar.Component.day, in: .month, for: date!)
+        let daysRange = calendar.range(of: Calendar.Component.day, in: .month, for: date)
         return daysRange!.upperBound - 1
     }
     
@@ -275,7 +283,7 @@ final class MLCalendarView: NSViewController {
             calendar.timeZone = time
         }
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        var components: DateComponents = calendar.dateComponents(unitFlags, from: date!)
+        var components: DateComponents = calendar.dateComponents(unitFlags, from: date)
         
         var month = components.month! + dm
         var year = components.year!

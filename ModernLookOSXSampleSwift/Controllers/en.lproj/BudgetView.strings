@@ -1,0 +1,39 @@
+
+/* Class = "NSTextFieldCell"; title = "Category"; ObjectID = "0DB-5P-UuQ"; */
+"0DB-5P-UuQ.title" = "Category";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Select category"; ObjectID = "2ib-b7-ByS"; */
+"2ib-b7-ByS.placeholderString" = "Select category";
+
+/* Class = "NSTableColumn"; headerCell.title = "Category"; ObjectID = "7pM-qa-4pl"; */
+"7pM-qa-4pl.headerCell.title" = "Category";
+
+/* Class = "NSTextFieldCell"; placeholderString = "Select category"; ObjectID = "Gzg-zk-gkA"; */
+"Gzg-zk-gkA.placeholderString" = "Select category";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Vgf-BD-lEl"; */
+"Vgf-BD-lEl.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "My budget"; ObjectID = "WVm-CK-BBA"; */
+"WVm-CK-BBA.title" = "My budget";
+
+/* Class = "NSTableColumn"; headerCell.title = "Available"; ObjectID = "WWG-2l-Zgr"; */
+"WWG-2l-Zgr.headerCell.title" = "Available";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "Xq9-wG-clt"; */
+"Xq9-wG-clt.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "Budgets"; ObjectID = "YWZ-bt-qd6"; */
+"YWZ-bt-qd6.title" = "Budgets";
+
+/* Class = "NSTableColumn"; headerCell.title = "Spent"; ObjectID = "fNv-v5-ugz"; */
+"fNv-v5-ugz.headerCell.title" = "Spent";
+
+/* Class = "NSTableColumn"; headerCell.title = "Budgeted"; ObjectID = "faA-vR-adn"; */
+"faA-vR-adn.headerCell.title" = "Budgeted";
+
+/* Class = "NSTextFieldCell"; title = "Text Cell"; ObjectID = "k0h-Kj-sVh"; */
+"k0h-Kj-sVh.title" = "Text Cell";
+
+/* Class = "NSTextFieldCell"; title = "November, 2019"; ObjectID = "tWI-oi-ieA"; */
+"tWI-oi-ieA.title" = "November, 2019";

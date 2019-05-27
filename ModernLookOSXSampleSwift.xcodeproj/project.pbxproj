@@ -16,21 +16,24 @@
 		031349EE226E41410083077A /* MLGlassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 031349ED226E41410083077A /* MLGlassView.swift */; };
 		03236F94229834C900BDF4A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 03236F93229834C900BDF4A6 /* README.md */; };
 		0344319D2297C0C5007C3837 /* MLRadioGroupManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344319C2297C0C5007C3837 /* MLRadioGroupManager.swift */; };
-		034431A02297CA9E007C3837 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0344319E2297CA9E007C3837 /* BudgetView.xib */; };
 		034431A12297CA9E007C3837 /* BudgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0344319F2297CA9E007C3837 /* BudgetView.swift */; };
-		034431A42297D440007C3837 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034431A22297D440007C3837 /* SettingsView.xib */; };
 		034431A52297D440007C3837 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034431A32297D440007C3837 /* SettingsView.swift */; };
-		034431A82297D494007C3837 /* AccountsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034431A62297D494007C3837 /* AccountsView.xib */; };
 		034431A92297D494007C3837 /* AccountsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034431A72297D494007C3837 /* AccountsView.swift */; };
-		034431AC2297D53C007C3837 /* PredicitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 034431AA2297D53C007C3837 /* PredicitionView.xib */; };
 		034431AD2297D53C007C3837 /* PredicitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 034431AB2297D53C007C3837 /* PredicitionView.swift */; };
 		034431B22297D8D1007C3837 /* line.html in Resources */ = {isa = PBXBuildFile; fileRef = 034431B12297D8D1007C3837 /* line.html */; };
 		034431B52297D8EA007C3837 /* Chart.js in Resources */ = {isa = PBXBuildFile; fileRef = 034431B32297D8EA007C3837 /* Chart.js */; };
 		034431B62297D8EA007C3837 /* Chart.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 034431B42297D8EA007C3837 /* Chart.min.js */; };
+		03465C98229C6FBF006FA587 /* AccessibilityImageDescriptions.strings in Resources */ = {isa = PBXBuildFile; fileRef = 03465C97229C6FBF006FA587 /* AccessibilityImageDescriptions.strings */; };
+		03465C99229C6FE2006FA587 /* MLCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03465C9B229C6FE2006FA587 /* MLCalendarView.xib */; };
 		035F0F5222991C18006311FA /* PBBudgetTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F0F5122991C18006311FA /* PBBudgetTemplates.swift */; };
 		035F0F5B22992E8D006311FA /* PBEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F0F5A22992E8D006311FA /* PBEntityManager.swift */; };
 		0370D76F229BCC73009FD706 /* MLHyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370D76E229BCC73009FD706 /* MLHyperlink.swift */; };
 		039A6F3B2297B6E0004FDA8D /* MLHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */; };
+		03A25D17229C46A100AD1404 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A25D19229C46A100AD1404 /* MainWindowController.xib */; };
+		03A25D1C229C46B400AD1404 /* BudgetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A25D1E229C46B400AD1404 /* BudgetView.xib */; };
+		03A25D21229C46C200AD1404 /* SettingsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A25D23229C46C200AD1404 /* SettingsView.xib */; };
+		03A25D26229C46D000AD1404 /* AccountsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A25D28229C46D000AD1404 /* AccountsView.xib */; };
+		03A25D29229C46D500AD1404 /* PredicitionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A25D2B229C46D500AD1404 /* PredicitionView.xib */; };
 		03A347DA2295337600BC1D5E /* MLAlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347D92295337600BC1D5E /* MLAlertWindow.swift */; };
 		03A347DC229533A600BC1D5E /* MLCenteredWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */; };
 		03A347DE2295850400BC1D5E /* MLAlertYesNoCancel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A347DD2295850400BC1D5E /* MLAlertYesNoCancel.xib */; };
@@ -45,7 +48,6 @@
 		03DE67BA226BA5300034AACB /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DE67B8226BA5300034AACB /* MainMenu.xib */; };
 		03DE67C6226BA5300034AACB /* ModernLookOSXSampleSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67C5226BA5300034AACB /* ModernLookOSXSampleSwiftTests.swift */; };
 		03DE67D1226BA5300034AACB /* ModernLookOSXSampleSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67D0226BA5300034AACB /* ModernLookOSXSampleSwiftUITests.swift */; };
-		03DE67E0226BA55F0034AACB /* MLCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DE67DF226BA55F0034AACB /* MLCalendarView.xib */; };
 		03DE67E2226BA5B20034AACB /* MLCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67E1226BA5B20034AACB /* MLCalendarView.swift */; };
 		03DE67E4226BA87C0034AACB /* MLCalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67E3226BA87C0034AACB /* MLCalendarCell.swift */; };
 		03DE67E6226C1C910034AACB /* MLCalendarBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67E5226C1C910034AACB /* MLCalendarBackground.swift */; };
@@ -57,7 +59,6 @@
 		03DE67FC226C55900034AACB /* MLToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67FB226C55900034AACB /* MLToolbar.swift */; };
 		03DE67FE226C5ED00034AACB /* MLTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67FD226C5ED00034AACB /* MLTextView.swift */; };
 		03DE6800226C630F0034AACB /* MLTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE67FF226C630F0034AACB /* MLTableView.swift */; };
-		03DE6803226C9EBE0034AACB /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03DE6801226C9EBE0034AACB /* MainWindowController.xib */; };
 		03DE6804226C9EBE0034AACB /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE6802226C9EBE0034AACB /* MainWindowController.swift */; };
 		03DE6806226C9F840034AACB /* MLWindowContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DE6805226C9F840034AACB /* MLWindowContent.swift */; };
 		03DE6815226CA5550034AACB /* PiggyTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DE680A226CA5540034AACB /* PiggyTemplate.png */; };
@@ -100,21 +101,31 @@
 		031349ED226E41410083077A /* MLGlassView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MLGlassView.swift; sourceTree = "<group>"; };
 		03236F93229834C900BDF4A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0344319C2297C0C5007C3837 /* MLRadioGroupManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLRadioGroupManager.swift; sourceTree = "<group>"; };
-		0344319E2297CA9E007C3837 /* BudgetView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BudgetView.xib; sourceTree = "<group>"; };
 		0344319F2297CA9E007C3837 /* BudgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BudgetView.swift; sourceTree = "<group>"; };
-		034431A22297D440007C3837 /* SettingsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsView.xib; sourceTree = "<group>"; };
 		034431A32297D440007C3837 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		034431A62297D494007C3837 /* AccountsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountsView.xib; sourceTree = "<group>"; };
 		034431A72297D494007C3837 /* AccountsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountsView.swift; sourceTree = "<group>"; };
-		034431AA2297D53C007C3837 /* PredicitionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PredicitionView.xib; sourceTree = "<group>"; };
 		034431AB2297D53C007C3837 /* PredicitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredicitionView.swift; sourceTree = "<group>"; };
 		034431B12297D8D1007C3837 /* line.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = line.html; sourceTree = "<group>"; };
 		034431B32297D8EA007C3837 /* Chart.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.js; sourceTree = "<group>"; };
 		034431B42297D8EA007C3837 /* Chart.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.min.js; sourceTree = "<group>"; };
+		03465C97229C6FBF006FA587 /* AccessibilityImageDescriptions.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = AccessibilityImageDescriptions.strings; sourceTree = "<group>"; };
+		03465C9A229C6FE2006FA587 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MLCalendarView.xib; sourceTree = "<group>"; };
+		03465C9D229C6FE4006FA587 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MLCalendarView.strings; sourceTree = "<group>"; };
 		035F0F5122991C18006311FA /* PBBudgetTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBBudgetTemplates.swift; sourceTree = "<group>"; };
 		035F0F5A22992E8D006311FA /* PBEntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBEntityManager.swift; sourceTree = "<group>"; };
 		0370D76E229BCC73009FD706 /* MLHyperlink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHyperlink.swift; sourceTree = "<group>"; };
 		039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHoverButton.swift; sourceTree = "<group>"; };
+		03A25D16229C468F00AD1404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
+		03A25D18229C46A100AD1404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainWindowController.xib; sourceTree = "<group>"; };
+		03A25D1B229C46A800AD1404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainWindowController.strings; sourceTree = "<group>"; };
+		03A25D1D229C46B400AD1404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/BudgetView.xib; sourceTree = "<group>"; };
+		03A25D20229C46BA00AD1404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/BudgetView.strings; sourceTree = "<group>"; };
+		03A25D22229C46C200AD1404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SettingsView.xib; sourceTree = "<group>"; };
+		03A25D25229C46C900AD1404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SettingsView.strings; sourceTree = "<group>"; };
+		03A25D27229C46D000AD1404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/AccountsView.xib; sourceTree = "<group>"; };
+		03A25D2A229C46D500AD1404 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PredicitionView.xib; sourceTree = "<group>"; };
+		03A25D2D229C46DB00AD1404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/PredicitionView.strings; sourceTree = "<group>"; };
+		03A25D2F229C46E000AD1404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/AccountsView.strings; sourceTree = "<group>"; };
 		03A347D92295337600BC1D5E /* MLAlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAlertWindow.swift; sourceTree = "<group>"; };
 		03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCenteredWindow.swift; sourceTree = "<group>"; };
 		03A347DD2295850400BC1D5E /* MLAlertYesNoCancel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLAlertYesNoCancel.xib; sourceTree = "<group>"; };
@@ -136,7 +147,6 @@
 		03DE67CC226BA5300034AACB /* ModernLookOSXSampleSwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ModernLookOSXSampleSwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		03DE67D0226BA5300034AACB /* ModernLookOSXSampleSwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModernLookOSXSampleSwiftUITests.swift; sourceTree = "<group>"; };
 		03DE67D2226BA5300034AACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		03DE67DF226BA55F0034AACB /* MLCalendarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLCalendarView.xib; sourceTree = "<group>"; };
 		03DE67E1226BA5B20034AACB /* MLCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCalendarView.swift; sourceTree = "<group>"; };
 		03DE67E3226BA87C0034AACB /* MLCalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCalendarCell.swift; sourceTree = "<group>"; };
 		03DE67E5226C1C910034AACB /* MLCalendarBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCalendarBackground.swift; sourceTree = "<group>"; };
@@ -148,7 +158,6 @@
 		03DE67FB226C55900034AACB /* MLToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLToolbar.swift; sourceTree = "<group>"; };
 		03DE67FD226C5ED00034AACB /* MLTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTextView.swift; sourceTree = "<group>"; };
 		03DE67FF226C630F0034AACB /* MLTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLTableView.swift; sourceTree = "<group>"; };
-		03DE6801226C9EBE0034AACB /* MainWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainWindowController.xib; sourceTree = "<group>"; };
 		03DE6802226C9EBE0034AACB /* MainWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		03DE6805226C9F840034AACB /* MLWindowContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLWindowContent.swift; sourceTree = "<group>"; };
 		03DE680A226CA5540034AACB /* PiggyTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PiggyTemplate.png; sourceTree = "<group>"; };
@@ -214,13 +223,13 @@
 		035F0F5422991C3D006311FA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0344319E2297CA9E007C3837 /* BudgetView.xib */,
+				03A25D1E229C46B400AD1404 /* BudgetView.xib */,
 				0344319F2297CA9E007C3837 /* BudgetView.swift */,
-				034431A22297D440007C3837 /* SettingsView.xib */,
+				03A25D23229C46C200AD1404 /* SettingsView.xib */,
 				034431A32297D440007C3837 /* SettingsView.swift */,
-				034431A62297D494007C3837 /* AccountsView.xib */,
+				03A25D28229C46D000AD1404 /* AccountsView.xib */,
 				034431A72297D494007C3837 /* AccountsView.swift */,
-				034431AA2297D53C007C3837 /* PredicitionView.xib */,
+				03A25D2B229C46D500AD1404 /* PredicitionView.xib */,
 				034431AB2297D53C007C3837 /* PredicitionView.swift */,
 			);
 			path = Controllers;
@@ -275,7 +284,8 @@
 				035F0F5422991C3D006311FA /* Controllers */,
 				035F0F5322991C25006311FA /* Entities */,
 				03DE6809226CA5430034AACB /* Assets */,
-				03DE6801226C9EBE0034AACB /* MainWindowController.xib */,
+				03A25D19229C46A100AD1404 /* MainWindowController.xib */,
+				03465C97229C6FBF006FA587 /* AccessibilityImageDescriptions.strings */,
 				03DE6802226C9EBE0034AACB /* MainWindowController.swift */,
 				03DE67B4226BA52F0034AACB /* AppDelegate.swift */,
 				03DE67B6226BA5300034AACB /* Assets.xcassets */,
@@ -365,7 +375,7 @@
 				03DE67E5226C1C910034AACB /* MLCalendarBackground.swift */,
 				03DE67E3226BA87C0034AACB /* MLCalendarCell.swift */,
 				03DE67E1226BA5B20034AACB /* MLCalendarView.swift */,
-				03DE67DF226BA55F0034AACB /* MLCalendarView.xib */,
+				03465C9B229C6FE2006FA587 /* MLCalendarView.xib */,
 			);
 			path = MLCalendar;
 			sourceTree = "<group>";
@@ -480,28 +490,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				03DE681D226CA5550034AACB /* DollarTemplate.png in Resources */,
-				03DE67E0226BA55F0034AACB /* MLCalendarView.xib in Resources */,
+				03465C99229C6FE2006FA587 /* MLCalendarView.xib in Resources */,
 				03DE681A226CA5550034AACB /* CentsTemplate.png in Resources */,
 				03DE67B7226BA5300034AACB /* Assets.xcassets in Resources */,
 				034431B62297D8EA007C3837 /* Chart.min.js in Resources */,
-				034431A82297D494007C3837 /* AccountsView.xib in Resources */,
+				03A25D26229C46D000AD1404 /* AccountsView.xib in Resources */,
 				03236F94229834C900BDF4A6 /* README.md in Resources */,
 				03DE681B226CA5550034AACB /* ChartTemplate.png in Resources */,
 				03DE6816226CA5550034AACB /* ScaleTemplate.png in Resources */,
 				03D7A74122995783004B6251 /* PBCategoryContent.xib in Resources */,
 				03DE681C226CA5550034AACB /* CalendarTemplate.png in Resources */,
-				03DE6803226C9EBE0034AACB /* MainWindowController.xib in Resources */,
+				03A25D17229C46A100AD1404 /* MainWindowController.xib in Resources */,
 				034431B52297D8EA007C3837 /* Chart.js in Resources */,
-				034431AC2297D53C007C3837 /* PredicitionView.xib in Resources */,
+				03A25D29229C46D500AD1404 /* PredicitionView.xib in Resources */,
 				03DE6819226CA5550034AACB /* BuyTemplate.png in Resources */,
 				034431B22297D8D1007C3837 /* line.html in Resources */,
+				03465C98229C6FBF006FA587 /* AccessibilityImageDescriptions.strings in Resources */,
 				03DE6818226CA5550034AACB /* CoinsTemplate.png in Resources */,
-				034431A02297CA9E007C3837 /* BudgetView.xib in Resources */,
+				03A25D1C229C46B400AD1404 /* BudgetView.xib in Resources */,
 				03DE67BA226BA5300034AACB /* MainMenu.xib in Resources */,
 				03DE6817226CA5550034AACB /* TimerTemplate.png in Resources */,
 				03A347DE2295850400BC1D5E /* MLAlertYesNoCancel.xib in Resources */,
 				03DE6815226CA5550034AACB /* PiggyTemplate.png in Resources */,
-				034431A42297D440007C3837 /* SettingsView.xib in Resources */,
+				03A25D21229C46C200AD1404 /* SettingsView.xib in Resources */,
 				03DE681E226CA5550034AACB /* PursueTemplate.png in Resources */,
 				03DE681F226CA5550034AACB /* SettingsTemplate.png in Resources */,
 			);
@@ -600,10 +611,65 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		03465C9B229C6FE2006FA587 /* MLCalendarView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03465C9A229C6FE2006FA587 /* Base */,
+				03465C9D229C6FE4006FA587 /* en */,
+			);
+			name = MLCalendarView.xib;
+			sourceTree = "<group>";
+		};
+		03A25D19229C46A100AD1404 /* MainWindowController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03A25D18229C46A100AD1404 /* Base */,
+				03A25D1B229C46A800AD1404 /* en */,
+			);
+			name = MainWindowController.xib;
+			sourceTree = "<group>";
+		};
+		03A25D1E229C46B400AD1404 /* BudgetView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03A25D1D229C46B400AD1404 /* Base */,
+				03A25D20229C46BA00AD1404 /* en */,
+			);
+			name = BudgetView.xib;
+			sourceTree = "<group>";
+		};
+		03A25D23229C46C200AD1404 /* SettingsView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03A25D22229C46C200AD1404 /* Base */,
+				03A25D25229C46C900AD1404 /* en */,
+			);
+			name = SettingsView.xib;
+			sourceTree = "<group>";
+		};
+		03A25D28229C46D000AD1404 /* AccountsView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03A25D27229C46D000AD1404 /* Base */,
+				03A25D2F229C46E000AD1404 /* en */,
+			);
+			name = AccountsView.xib;
+			sourceTree = "<group>";
+		};
+		03A25D2B229C46D500AD1404 /* PredicitionView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				03A25D2A229C46D500AD1404 /* Base */,
+				03A25D2D229C46DB00AD1404 /* en */,
+			);
+			name = PredicitionView.xib;
+			sourceTree = "<group>";
+		};
 		03DE67B8226BA5300034AACB /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				03DE67B9226BA5300034AACB /* Base */,
+				03A25D16229C468F00AD1404 /* en */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
