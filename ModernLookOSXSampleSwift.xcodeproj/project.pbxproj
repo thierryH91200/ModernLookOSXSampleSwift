@@ -29,6 +29,7 @@
 		034431B62297D8EA007C3837 /* Chart.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 034431B42297D8EA007C3837 /* Chart.min.js */; };
 		035F0F5222991C18006311FA /* PBBudgetTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F0F5122991C18006311FA /* PBBudgetTemplates.swift */; };
 		035F0F5B22992E8D006311FA /* PBEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F0F5A22992E8D006311FA /* PBEntityManager.swift */; };
+		0370D76F229BCC73009FD706 /* MLHyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370D76E229BCC73009FD706 /* MLHyperlink.swift */; };
 		039A6F3B2297B6E0004FDA8D /* MLHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */; };
 		03A347DA2295337600BC1D5E /* MLAlertWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347D92295337600BC1D5E /* MLAlertWindow.swift */; };
 		03A347DC229533A600BC1D5E /* MLCenteredWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */; };
@@ -112,6 +113,7 @@
 		034431B42297D8EA007C3837 /* Chart.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = Chart.min.js; sourceTree = "<group>"; };
 		035F0F5122991C18006311FA /* PBBudgetTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBBudgetTemplates.swift; sourceTree = "<group>"; };
 		035F0F5A22992E8D006311FA /* PBEntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBEntityManager.swift; sourceTree = "<group>"; };
+		0370D76E229BCC73009FD706 /* MLHyperlink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHyperlink.swift; sourceTree = "<group>"; };
 		039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHoverButton.swift; sourceTree = "<group>"; };
 		03A347D92295337600BC1D5E /* MLAlertWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLAlertWindow.swift; sourceTree = "<group>"; };
 		03A347DB229533A600BC1D5E /* MLCenteredWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLCenteredWindow.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				03DE67FF226C630F0034AACB /* MLTableView.swift */,
 				03DE67EA226C41E40034AACB /* MLTextField.swift */,
 				03DE67FD226C5ED00034AACB /* MLTextView.swift */,
+				0370D76E229BCC73009FD706 /* MLHyperlink.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				031349EC226E41390083077A /* MLContentView.swift in Sources */,
 				034431AD2297D53C007C3837 /* PredicitionView.swift in Sources */,
 				03DE67E6226C1C910034AACB /* MLCalendarBackground.swift in Sources */,
+				0370D76F229BCC73009FD706 /* MLHyperlink.swift in Sources */,
 				031349D3226D9F840083077A /* MLComboField.swift in Sources */,
 				03DE6800226C630F0034AACB /* MLTableView.swift in Sources */,
 				03DE67EF226C48D60034AACB /* MLTableHeaderCell.swift in Sources */,

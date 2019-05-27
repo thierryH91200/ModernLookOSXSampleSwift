@@ -146,7 +146,9 @@ final class MLCalendarView: NSViewController {
         self.selectedDate = toUTC(selectedDate)!
         for row in 0..<6 {
             for col in 0..<7 {
-                let cell: MLCalendarCell? = dayCells?[row, col]
+                let cell = dayCells?[row, col]
+                
+//                let sel = Calendar.current.isDate(cell!.representedDate!, inSameDayAs: self.selectedDate)
                 let isSelected = isSameDate(cell?.representedDate, date: self.selectedDate)
                 cell?.isSelected = isSelected
             }
@@ -195,25 +197,24 @@ final class MLCalendarView: NSViewController {
             calendar.timeZone = time
         }
         
-        var idx = day - calendar.firstWeekday
-        if idx < 0 {
-            idx = 7 + idx
+        var index = day - calendar.firstWeekday
+        if index < 0 {
+            index = 7 + index
         }
-        return idx
+        return index
     }
     
-    func dd(_ d: Date?) -> String? {
-        var cal = Calendar.current
-        if let time = TimeZone(abbreviation: "UTC") {
-            cal.timeZone = time
-        }
-        let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        var cpt: DateComponents? = nil
-        if let d = d {
-            cpt = cal.dateComponents(unitFlags, from: d)
-        }
-        return String(format: "%ld-%ld-%ld", cpt?.year ?? 0, cpt?.month ?? 0, cpt?.day ?? 0)
-    }
+//    func dd(_ date: Date) -> String {
+//        
+//        var cal = Calendar.current
+//        if let time = TimeZone(abbreviation: "UTC") {
+//            cal.timeZone = time
+//        }
+//        let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
+//        let  cpt = cal.dateComponents(unitFlags, from: date)
+//        
+//        return String(format: "%ld-%ld-%ld", cpt.year!, cpt.month!, cpt.day!)
+//    }
     
     func layoutCalendar() {
 

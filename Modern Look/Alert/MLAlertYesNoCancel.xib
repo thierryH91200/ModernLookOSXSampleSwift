@@ -10,7 +10,7 @@
                 <outlet property="cancel" destination="1VS-YW-anM" id="OQt-DA-yzb"/>
                 <outlet property="message" destination="WVl-N5-6Px" id="0V6-a5-Wpn"/>
                 <outlet property="no" destination="X5U-LN-WrO" id="rkB-jM-oo8"/>
-                <outlet property="title" destination="OEn-fO-laH" id="zoU-vm-4dR"/>
+                <outlet property="title" destination="OEn-fO-laH" id="3W2-0a-ZKn"/>
                 <outlet property="toolbar" destination="D4K-MO-rYw" id="goD-Hr-a2S"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
                 <outlet property="yes" destination="Vcr-UG-FoQ" id="q29-wZ-bl1"/>
@@ -131,7 +131,7 @@ Gw
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
             </connections>
-            <point key="canvasLocation" x="-259" y="89"/>
+            <point key="canvasLocation" x="-130" y="67"/>
         </window>
     </objects>
     <resources>

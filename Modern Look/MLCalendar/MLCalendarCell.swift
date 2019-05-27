@@ -18,19 +18,19 @@ final class MLCalendarCell: NSButton {
     var representedDate : Date? {
         get { return _representedDate }
         set {
-        self._representedDate = newValue
-        guard self.representedDate != nil else  {
-            self.title = ""
-            return }
-        
-        var calendar = Calendar.current
-        if let time = TimeZone(abbreviation: "UTC") {
-            calendar.timeZone = time as TimeZone
-        }
-        let unitFlags: Set<Calendar.Component> = [.day]
-        let components = calendar.dateComponents(unitFlags, from: self._representedDate!)
-        let day = components.day!
-        self.title = String(format: "%ld", day)
+            self._representedDate = newValue
+            guard newValue != nil else  {
+                self.title = ""
+                return }
+            
+            var calendar = Calendar.current
+            if let time = TimeZone(abbreviation: "UTC") {
+                calendar.timeZone = time as TimeZone
+            }
+            let unitFlags: Set<Calendar.Component> = [.day]
+            let components = calendar.dateComponents(unitFlags, from: newValue!)
+            let day = components.day!
+            self.title = String(format: "%ld", day)
         }
     }
     
@@ -81,8 +81,6 @@ final class MLCalendarCell: NSButton {
                 owner?.selectionColor.set()
                 bzc.fill()
             }
-        } else {
-            title = ""
         }
         
         let paragraphStyle = NSMutableParagraphStyle()
@@ -123,6 +121,5 @@ final class MLCalendarCell: NSButton {
         NSGraphicsContext.restoreGraphicsState()
         
     }
-    
-    
+
 }

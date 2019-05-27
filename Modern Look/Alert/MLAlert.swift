@@ -8,10 +8,10 @@
 
 import AppKit
 
-enum MLAlertResponse : Int {
-    case yes
-    case no
-    case cancel
+enum MLAlertResponse : NSApplication.ModalResponse.RawValue {
+    case no = -1000
+    case cancel = 0
+    case yes = 1
 }
 
 final class MLAlert: NSWindowController {
@@ -34,13 +34,13 @@ final class MLAlert: NSWindowController {
         window?.styleMask = .borderless
     }
     
-    func showQuestion(_ question: String?, title: String?, withCancel: Bool, buttonsTitle titles: [String]) -> MLAlertResponse {
-        //        let alert = MLAlert()
-        if !withCancel {
+    func showQuestion(_ question: String, title: String, withCancel: Bool, buttonsTitle titles: [String]) -> MLAlertResponse {
+
+        if withCancel == false {
             cancel.isHidden = true
         }
-        self.title.stringValue = title ?? ""
-        message.stringValue = question ?? ""
+        self.title.stringValue = title
+        message.stringValue = question
         if titles.count == 3 {
             cancel.title = titles[0]
             yes.title = titles[1]
@@ -50,6 +50,7 @@ final class MLAlert: NSWindowController {
             no.title = titles[1]
         }
         resizeButtons()
+        
         let res = runAlert()
         window?.close()
         return res
@@ -64,6 +65,7 @@ final class MLAlert: NSWindowController {
         toolbar.backgroundColor = NSColor.red
         cancel.isHidden = true
         yes.isHidden = true
+        
         self.title.stringValue = title
         message.stringValue = question
         no.title = butonTitle
@@ -77,7 +79,6 @@ final class MLAlert: NSWindowController {
     func showError(_ question: String, title: String) -> MLAlertResponse {
         return showError(question, title: title, buttonsTitle: "Back")
     }
-    
     
     func resizeButtons() {
         //    [self.no sizeToFit];
@@ -116,7 +117,8 @@ final class MLAlert: NSWindowController {
         let runSessionRes = NSApplication.shared.runModal(for: window!)
         window?.close()
         
-        return (MLAlertResponse(rawValue: runSessionRes.rawValue)!)
+        let response = MLAlertResponse(rawValue: runSessionRes.rawValue)!
+        return response
     }
     
     func windowWillClose(_ notification: Notification) {
@@ -132,7 +134,7 @@ final class MLAlert: NSWindowController {
     }
     
     @IBAction func doNo(_ sender: Any) {
-        NSApp.stopModal(withCode: .alertSecondButtonReturn)
+        NSApp.stopModal()
     }
     
 }

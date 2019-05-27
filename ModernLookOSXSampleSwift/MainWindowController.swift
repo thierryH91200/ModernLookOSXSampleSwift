@@ -44,12 +44,6 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         
-//        budgets = PBEntityManager.shared.loadBudgets()
-//        if PBEntityManager.shared.budgets.count > 0 {
-//            budgets.setSelectionIndex(0)
-//        }
-        
-        
         self.budgetView = BudgetView()
         let vc = (self.budgetView?.view)!
         
@@ -79,7 +73,7 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         
         calendarView?.setDate( Date() )
         calendarView?.setSelectedDate( Date() )
-
+        
         let btn = sender as? NSButton
         let cellRect = btn?.bounds
         if let btn = btn {
@@ -88,6 +82,8 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     }
     
     @IBAction func showAlert(_ sender: Any) {
+        
+        let vi = mlAlert.window?.contentView
         
         let res = mlAlert.showQuestion("question ??", title: "showAlert", withCancel: true)
         switch res {
@@ -100,8 +96,14 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         }
     }
     
+    @IBAction func hyperlinkAction(_ sender: Any) {
+
+        print("Hyperlink Clicked")
+    }
+    
+    
     func didSelectDate(_ selectedDate: Date) {
-//        calendarPopover?.close()
+        //        calendarPopover?.close()
     }
     
     @IBAction func pageSelectionChanged(_ sender: MLRadioGroupManager) {
@@ -144,10 +146,10 @@ extension  MainWindowController : NSPopoverDelegate {
     }
     
     func detachableWindow(for popover: NSPopover) -> NSWindow? {
-//        disableDetachButton()
+        //        disableDetachButton()
         return nil
     }
-
+    
 }
 
 
