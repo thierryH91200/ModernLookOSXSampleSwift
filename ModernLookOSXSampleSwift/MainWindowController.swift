@@ -15,12 +15,11 @@ class MainWindowController: NSWindowController {
     var accountsView: AccountsView?
     var budgetView: BudgetView?
     var predictionView: PredicitionView?
-    
     var toolBar: ToolBar?
     
     var budgets = [PBBudget]()
     
-    
+    @IBOutlet weak var pbToolBar: MLToolbar!
     @IBOutlet weak var pbContentView: MLContentView!
     
     @IBOutlet var win: MLMainWindow!
@@ -46,15 +45,4 @@ class MainWindowController: NSWindowController {
     }
 }
 
-    
-
-
-
-//class PBCategoryPopupManager : MLComboFieldDelegate{
-//    override func createPopupContent() -> MLPopupContent? {
-//        let b = (budgets.arrangedObjects)[budgets.selectionIndex] as? PBBudget
-//        let c = PBCategoryContent(budget: b)
-//        return c
-//    }
-//}
 

@@ -8,6 +8,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="MainWindowController" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
             <connections>
                 <outlet property="pbContentView" destination="bPg-Z3-Mcc" id="pg6-U2-IJ7"/>
+                <outlet property="pbToolBar" destination="whW-lX-rz4" id="XTe-d6-tYF"/>
                 <outlet property="win" destination="F0z-JX-Cv5" id="RQ7-lF-gqR"/>
                 <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
             </connections>
