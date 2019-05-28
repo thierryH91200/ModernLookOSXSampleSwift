@@ -63,7 +63,6 @@ class PBBudget : NSObject {
     var payees: [PBPayee] = []
     @objc var categories: [PBCategory] = []
     
-    
     override init () {
     }
     

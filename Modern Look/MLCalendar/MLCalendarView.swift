@@ -105,14 +105,6 @@ final class MLCalendarView: NSViewController {
             }
         }
         
-//let df = DateFormatter()
-//df.locale = NSLocale(localeIdentifier: NSLocale.preferredLanguages[0]) as Locale
-//let weekdays = df.shortStandaloneWeekdaySymbols
-//if let weekdays = weekdays {
-//    print("\(weekdays)")
-//}
-
-        
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Locale.preferredLanguages[0])
         var days = dateFormatter.shortStandaloneWeekdaySymbols

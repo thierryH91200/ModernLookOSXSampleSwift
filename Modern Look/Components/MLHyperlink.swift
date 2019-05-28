@@ -10,12 +10,11 @@ import AppKit
 
 class MLHyperlink: NSTextField {
     
-    var hoveredTextColor: NSColor?
+    var hoveredTextColor = NSColor.blue
+    var isHovered = false
     var hasUnderline = false
     
     var trackingArea: NSTrackingArea?
-    var hoovered = false
-    
     
     required init?(coder: NSCoder) {
         
@@ -34,8 +33,6 @@ class MLHyperlink: NSTextField {
     
     override init(frame frameRect: NSRect) {
         
-        
-        
         super.init(frame: frameRect)
         commonInit()
     }
@@ -50,7 +47,7 @@ class MLHyperlink: NSTextField {
         isBordered = false
         focusRingType = .none
         createTrackingArea()
-        hoovered = false
+        isHovered = false
         hoveredTextColor = NSColor.blue
         backgroundColor = NSColor.clear
     }
@@ -71,13 +68,13 @@ class MLHyperlink: NSTextField {
     
     override func mouseEntered(with theEvent: NSEvent) {
         
-        hoovered = true
+        isHovered = true
         needsDisplay = true
     }
     
     override func mouseExited(with theEvent: NSEvent) {
         
-        hoovered = false
+        isHovered = false
         needsDisplay = true
     }
     
@@ -96,8 +93,8 @@ class MLHyperlink: NSTextField {
         let bounds: NSRect = self.bounds
         var drawColor = NSColor.clear
         
-        if hoovered == true {
-            drawColor = hoveredTextColor!
+        if isHovered == true {
+            drawColor = hoveredTextColor
         } else {
             if stringValue != "" {
                 drawColor = textColor!
@@ -126,7 +123,7 @@ class MLHyperlink: NSTextField {
         
         if self.hasUnderline {
             
-            let bounds: NSRect = bounds
+            let bounds = bounds
             textColor?.set()
             
             let bottomLine = NSBezierPath()
@@ -138,12 +135,12 @@ class MLHyperlink: NSTextField {
             bottomLine.stroke()
             
             
-        } else if self.hoovered {
-            let size: NSSize = text.size(withAttributes: attrs)
+        } else if self.isHovered == true {
+            
+            let size = text.size(withAttributes: attrs)
             
             var x1: CGFloat = 0.0
             var x2: CGFloat = 0.0
-            
             
             switch alignment {
             case .natural, .justified, .left:
@@ -169,8 +166,6 @@ class MLHyperlink: NSTextField {
             bottomLine.stroke()
             
         }
-        
         NSGraphicsContext.restoreGraphicsState()
-        
     }
 }

@@ -68,8 +68,8 @@ class MLOutlineView: NSOutlineView {
         
         for i in 0..<numberOfRows {
             let node = item(atRow: i) as? NSTreeNode
-            let expanded: Bool = isItemExpanded(node)
-            savedTreeState.append(NSNumber(value: expanded))
+            let isExpanded = isItemExpanded(node)
+            savedTreeState.append(NSNumber(value: isExpanded))
         }
     }
     

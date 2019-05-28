@@ -72,6 +72,8 @@
 		03DE681D226CA5550034AACB /* DollarTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DE6812226CA5550034AACB /* DollarTemplate.png */; };
 		03DE681E226CA5550034AACB /* PursueTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DE6813226CA5550034AACB /* PursueTemplate.png */; };
 		03DE681F226CA5550034AACB /* SettingsTemplate.png in Resources */ = {isa = PBXBuildFile; fileRef = 03DE6814226CA5550034AACB /* SettingsTemplate.png */; };
+		03FB4C21229D15F100F0C4BC /* ToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FB4C20229D15F100F0C4BC /* ToolBar.xib */; };
+		03FB4C23229D312D00F0C4BC /* ToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03FB4C22229D312D00F0C4BC /* ToolBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +173,8 @@
 		03DE6812226CA5550034AACB /* DollarTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DollarTemplate.png; sourceTree = "<group>"; };
 		03DE6813226CA5550034AACB /* PursueTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PursueTemplate.png; sourceTree = "<group>"; };
 		03DE6814226CA5550034AACB /* SettingsTemplate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SettingsTemplate.png; sourceTree = "<group>"; };
+		03FB4C20229D15F100F0C4BC /* ToolBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ToolBar.xib; sourceTree = "<group>"; };
+		03FB4C22229D312D00F0C4BC /* ToolBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +235,8 @@
 				034431A72297D494007C3837 /* AccountsView.swift */,
 				03A25D2B229C46D500AD1404 /* PredicitionView.xib */,
 				034431AB2297D53C007C3837 /* PredicitionView.swift */,
+				03FB4C20229D15F100F0C4BC /* ToolBar.xib */,
+				03FB4C22229D312D00F0C4BC /* ToolBar.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -505,6 +511,7 @@
 				03A25D29229C46D500AD1404 /* PredicitionView.xib in Resources */,
 				03DE6819226CA5550034AACB /* BuyTemplate.png in Resources */,
 				034431B22297D8D1007C3837 /* line.html in Resources */,
+				03FB4C21229D15F100F0C4BC /* ToolBar.xib in Resources */,
 				03465C98229C6FBF006FA587 /* AccessibilityImageDescriptions.strings in Resources */,
 				03DE6818226CA5550034AACB /* CoinsTemplate.png in Resources */,
 				03A25D1C229C46B400AD1404 /* BudgetView.xib in Resources */,
@@ -546,6 +553,7 @@
 				034431AD2297D53C007C3837 /* PredicitionView.swift in Sources */,
 				03DE67E6226C1C910034AACB /* MLCalendarBackground.swift in Sources */,
 				0370D76F229BCC73009FD706 /* MLHyperlink.swift in Sources */,
+				03FB4C23229D312D00F0C4BC /* ToolBar.swift in Sources */,
 				031349D3226D9F840083077A /* MLComboField.swift in Sources */,
 				03DE6800226C630F0034AACB /* MLTableView.swift in Sources */,
 				03DE67EF226C48D60034AACB /* MLTableHeaderCell.swift in Sources */,

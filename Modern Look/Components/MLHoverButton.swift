@@ -10,8 +10,8 @@ import AppKit
 
 final class MLHoverButton: NSButton {
     
-    var backgroundColor: NSColor?
-    var hoveredBackgroundColor: NSColor?
+    var backgroundColor = NSColor.clear
+    var hoveredBackgroundColor  = NSColor.selectedTextBackgroundColor
     var foregroundColor: NSColor = NSColor.blue
     var _hoveredForegroundColor = NSColor.blue
     
@@ -140,92 +140,131 @@ final class MLHoverButton: NSButton {
         var circleRect: NSRect = bounds
         
         if circleRect.size.width > circleRect.size.height {
-            //        CGFloat originalW = circleRect.size.width;
             circleRect.size.width = circleRect.size.height
-            //        circleRect.origin.x = ((originalW - circleRect.size.width)/2.0);
         } else if circleRect.size.width < circleRect.size.height {
             let originalH: CGFloat = circleRect.size.height
             circleRect.size.height = circleRect.size.width
             circleRect.origin.y = (originalH - circleRect.size.height) / 2.0
         }
         
-        var textRect: NSRect = bounds
-textRect.origin.x += circleRect.size.width + 4
-textRect.size.width -= circleRect.size.width + 4
-
-var bg = backgroundColor
-var fc: NSColor? = nil
-isOn = hoovered && !isHighlighted // || (self.state == NSOnState);
-if drawsOn && (state == .on) {
-    isOn = true
-}
-if isOn {
-    bg = hoveredBackgroundColor
-    fc = hoveredForegroundColor
-} else {
-    bg = backgroundColor
-    fc = foregroundColor
-}
-
-let bgPath = NSBezierPath(ovalIn: circleRect)
-bg?.set()
-bgPath.fill()
-
-        //    if(self.image) {
-        //
-        //    NSRect targetRect = NSInsetRect(circleRect, self.circleBorder, self.circleBorder);
-        //
-        //    NSImage* i = nil;
-        //
-        //    if(isOn) {
-        //    i = self.tintedImage;
-        //    } else {
-        //    i = self.image;
-        //    }
-        //
-        //    NSRect imageRect = NSZeroRect;
-        //    CGFloat w = i.size.width;
-        //    CGFloat h = i.size.height;
-        //    if(w > targetRect.size.width) w = targetRect.size.width;
-        //    if(h > targetRect.size.height) h = targetRect.size.height;
-        //    imageRect.size.width = w;
-        //    imageRect.size.height = h;
-        //
-        //    imageRect.origin.x = (circleRect.size.width - imageRect.size.width)/2.0f;
-        //    imageRect.origin.y = (circleRect.size.height - imageRect.size.height)/2.0f;
-        //
-        //    [i drawInRect:imageRect];
-        //    [self drawText:self.title inRect:textRect withColor:fc];
-        //
-        //    } else {
-        //    NSString* sign = nil;
-        //    NSString* text = nil;
-        //    NSArray* components = [self.title componentsSeparatedByString:@"|"];
-        //    if(components.count == 2) {
-        //    sign = components[0];
-        //    text = components[1];
-        //    } else {
-        //    sign = [self.title substringToIndex:1];
-        //    text = [self.title substringFromIndex:1];
-        //    }
-        //    NSMutableParagraphStyle * aParagraphStyle = [[NSMutableParagraphStyle alloc] init];
-        //    [aParagraphStyle setLineBreakMode:NSLineBreakByWordWrapping];
-        //    [aParagraphStyle setAlignment:NSCenterTextAlignment];
-        //
-        //    NSDictionary *attrs = @{NSParagraphStyleAttributeName: aParagraphStyle,NSFontAttributeName: self.font,NSForegroundColorAttributeName: fc};
-        //
-        //    NSSize size = [sign sizeWithAttributes:attrs];
-        //
-        //    NSRect r = NSMakeRect(circleRect.origin.x,// + (bounds.size.width - size.width)/2.0,
-        //    circleRect.origin.y + ((circleRect.size.height - size.height)/2.0) - 2,
-        //    circleRect.size.width,
-        //    size.height);
-        //
-        //    [sign drawInRect:r withAttributes:attrs];
-        //    [self drawText:text inRect:textRect withColor:fc];
-        //    }
-        //    [NSGraphicsContext restoreGraphicsState];
-        //    }
+        var textRect = bounds
+        textRect.origin.x += circleRect.size.width + 4
+        textRect.size.width -= circleRect.size.width + 4
         
+        var bg = backgroundColor
+        var fc: NSColor? = nil
+        isOn = hoovered && !isHighlighted // || (self.state == NSOnState);
+        if drawsOn && (state == .on) {
+            isOn = true
+        }
+        if isOn {
+            bg = hoveredBackgroundColor
+            fc = hoveredForegroundColor
+        } else {
+            bg = backgroundColor
+            fc = foregroundColor
+        }
+        
+        let bgPath = NSBezierPath(ovalIn: circleRect)
+        bg.set()
+        bgPath.fill()
+        
+        if (image != nil) {
+            
+            let targetRect: NSRect = circleRect.insetBy(dx: circleBorder, dy: circleBorder)
+            
+            var i: NSImage? = nil
+            
+            if isOn {
+                i = tintedImage
+            } else {
+                i = image
+            }
+            
+            var imageRect = NSRect.zero
+            var w: CGFloat? = i?.size.width
+            var h: CGFloat? = i?.size.height
+            if (w ?? 0.0) > targetRect.size.width {
+                w = targetRect.size.width
+            }
+            if (h ?? 0.0) > targetRect.size.height {
+                h = targetRect.size.height
+            }
+            imageRect.size.width = w ?? 0.0
+            imageRect.size.height = h ?? 0.0
+            
+            imageRect.origin.x = (circleRect.size.width - imageRect.size.width) / 2.0
+            imageRect.origin.y = (circleRect.size.height - imageRect.size.height) / 2.0
+            
+            i?.draw(in: imageRect)
+            drawText(title, in: textRect, with: fc!)
+        }
+            
+        else {
+            var sign: String? = nil
+            var text: String? = nil
+            let components = title.components(separatedBy: "|")
+            if components.count == 2 {
+                sign = components[0]
+                text = components[1]
+            } else {
+                sign = title.substring(to: 1)
+                text = title.substring(from: 1)
+            }
+            
+            let aParagraphStyle = NSMutableParagraphStyle()
+            aParagraphStyle.lineBreakMode = .byWordWrapping
+            aParagraphStyle.alignment = .center
+            
+            let attrs : [NSAttributedString.Key : Any ] = [
+                .paragraphStyle: aParagraphStyle,
+                .font: font!,
+                .foregroundColor: fc!
+            ]
+            
+            let size = (sign?.size(withAttributes: attrs))!
+            
+            let r = NSRect(x: circleRect.origin.x, y: circleRect.origin.y + ((circleRect.size.height - size.height) / 2.0) - 2, width: circleRect.size.width, height: size.height)
+            
+            sign?.draw(in: r, withAttributes: attrs)
+            drawText(text!, in: textRect, with: fc!)
+            
+            
+        }
+        NSGraphicsContext.restoreGraphicsState()
+    }
+    
+}
+
+// https://stackoverflow.com/questions/45562662/how-can-i-use-string-slicing-subscripts-in-swift-4
+extension String {
+    func index(from: Int) -> Index {
+        return self.index(startIndex, offsetBy: from)
+    }
+    
+//    let newStr = str.substring(from: index) // Swift 3
+//    let newStr = String(str[index...]) // Swift 4
+    func substring(from: Int) -> String {
+        let fromIndex = index(from: from)
+        return String(self[fromIndex...])
+    }
+    
+//    let newStr = str.substring(to: index) // Swift 3
+//    let newStr = String(str[..<index]) // Swift 4
+    func substring(to: Int) -> String {
+        let toIndex = index(from: to)
+        return String(self[..<toIndex])
+    }
+    
+//    let range = firstIndex..<secondIndex // If you have a range
+//    let newStr = = str.substring(with: range) // Swift 3
+//    let newStr = String(str[range])  // Swift 4
+    func substring(with r: Range<Int>) -> String {
+        let startIndex = index(from: r.lowerBound)
+        let endIndex = index(from: r.upperBound)
+        let range = startIndex..<endIndex
+        return String(self[range]) 
     }
 }
+
+

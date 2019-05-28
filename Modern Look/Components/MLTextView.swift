@@ -41,7 +41,7 @@ final class MLTextView: NSTextView {
         get {
             return super.focusRingType
         }
-        set(focusRingType) {
+        set {
             super.focusRingType = .none
         }
     }
@@ -60,7 +60,6 @@ final class MLTextView: NSTextView {
         bottomLine.line(to: p)
         bottomLine.lineWidth = 2.0
         bottomLine.stroke()
-        
     }
     
 }
