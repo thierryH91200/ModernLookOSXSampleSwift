@@ -15,8 +15,8 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="saveWin" animationBehavior="default" id="F0z-JX-Cv5" customClass="MLMainWindow" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+        <window title="ModernLook" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="saveWin" animationBehavior="default" id="F0z-JX-Cv5" customClass="MLMainWindow" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <windowStyleMask key="styleMask" titled="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="798" height="425"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
@@ -24,8 +24,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="798" height="425"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="whW-lX-rz4" customClass="MLToolbar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="360" width="798" height="65"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="bPg-Z3-Mcc" customClass="MLContentView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="798" height="360"/>
+                    </customView>
+                    <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whW-lX-rz4" customClass="MLToolbar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                        <rect key="frame" x="-8" y="360" width="798" height="65"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="H6X-CI-trH"/>
                         </constraints>
@@ -35,9 +38,6 @@
                                 <color key="value" name="controlColor" catalog="System" colorSpace="catalog"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
-                    </customView>
-                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="bPg-Z3-Mcc" customClass="MLContentView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="798" height="360"/>
                     </customView>
                 </subviews>
                 <constraints>

@@ -17,8 +17,6 @@ class ToolBar: NSViewController, MLCalendarViewDelegate {
     
     var mainWindowController : MainWindowController!
 
-    
-    
     @IBOutlet weak var mlRadioGroupManager: MLRadioGroupManager!
 
     
@@ -32,6 +30,23 @@ class ToolBar: NSViewController, MLCalendarViewDelegate {
         super.viewDidLoad()
         // Do view setup here.
     }
+    
+//    override func viewWillAppear() {
+//        
+//        self.view.window?.titleVisibility = .hidden
+//        self.view.window?.titlebarAppearsTransparent = true
+//        
+//        self.view.window?.styleMask.insert(.fullSizeContentView)
+//        
+//        self.view.window?.styleMask.remove(.closable)
+//        self.view.window?.styleMask.remove(.fullScreen)
+//        self.view.window?.styleMask.remove(.miniaturizable)
+//        self.view.window?.styleMask.remove(.resizable)
+//        
+//        //self.view.window?.isMovable = false
+//    }
+    
+
     
     func createCalendarPopover() {
         

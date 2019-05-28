@@ -13,10 +13,68 @@ let ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS = CGFloat(5)
 
 final class MLToolbar: MLGlassView {
     
-    @objc var isVerticalButtons = true
-    var hiddenButtons = false
-    var justClose = false
+    var _isVerticalButtons = true
+    @objc var isVerticalButtons : Bool {
+        get { return _isVerticalButtons }
+        set {
+            _isVerticalButtons = newValue
+            
+            let b = bounds
+            if newValue == true {
+                
+                var y = b.size.height
+                let bh = closeButton.bounds.size.height
+                y = y - bh - 5
+                let x = CGFloat(8)
+                
+                closeButton.setFrameOrigin(CGPoint(x: x, y: y))
+                minimizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3))
+                maximizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3 - bh - 3))
+                
+            } else {
+                
+                var y = b.size.height
+                let bh = closeButton.bounds.size.height
+                let bw: CGFloat = closeButton.bounds.size.width
+                y = y - bh - 5
+                let x = CGFloat(8)
+                
+                closeButton.setFrameOrigin(CGPoint(x: x, y: y))
+                minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw, y: y))
+                maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw + 2 + bw, y: y))
+            }
+            createTrackingArea()
+        }
+    }
+
+    var _hiddenButtons = false
+    var hiddenButtons : Bool {
+        get { return _hiddenButtons }
+        set {
+            
+            _hiddenButtons = newValue
+            if newValue == true {
+                closeButton.removeFromSuperviewWithoutNeedingDisplay()
+                minimizeButton.removeFromSuperviewWithoutNeedingDisplay()
+                maximizeButton.removeFromSuperviewWithoutNeedingDisplay()
+            }
+            createTrackingArea()
+        }
+    }
     
+    var _justClose = false
+    var justClose : Bool {
+        get { return _justClose }
+        set {
+            _justClose = newValue
+            if newValue == true  {
+                minimizeButton.isHidden = newValue
+                maximizeButton.isHidden = newValue
+            }
+            createTrackingArea()
+        }
+    }
+
     var closeButton = NSButton()
     var minimizeButton = NSButton()
     var maximizeButton = NSButton()
@@ -24,146 +82,36 @@ final class MLToolbar: MLGlassView {
     var trackingArea : NSTrackingArea?
     
     override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+
         if frameRect.size.height > 20 {
             isVerticalButtons = true
         } else {
             isVerticalButtons = false
         }
-        
-        super.init(frame: frameRect)
-        //        self.verticalButtons = verticalButtons
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+            isVerticalButtons = true
+
         commonInit()
+        isVerticalButtons = true
     }
 
-    @objc func setHiddenButtons(_ hiddenButtons: Bool) {
-        self.hiddenButtons = hiddenButtons
-        if self.hiddenButtons {
-            closeButton.removeFromSuperviewWithoutNeedingDisplay()
-            minimizeButton.removeFromSuperviewWithoutNeedingDisplay()
-            maximizeButton.removeFromSuperviewWithoutNeedingDisplay()
-        }
-        createTrackingArea()
-    }
-    
-    func setVerticalButtons(_ verticalButtons: Bool) {
-        
-        self.isVerticalButtons = verticalButtons
-        let b = bounds
-
-        if self.isVerticalButtons == true {
-            
-            var y = b.size.height
-            let bh = closeButton.bounds.size.height
-            y = y - bh - 5
-            let x = CGFloat(8)
-            
-            closeButton.setFrameOrigin(CGPoint(x: x, y: y))
-            minimizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3))
-            maximizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3 - bh - 3))
-            
-        } else {
-            
-            var y = b.size.height
-            let bh = closeButton.bounds.size.height
-            let bw: CGFloat = closeButton.bounds.size.width
-            y = y - bh - 5
-            let x = CGFloat(8)
-
-            closeButton.setFrameOrigin(CGPoint(x: x, y: y))
-            minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw, y: y))
-            maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw + 2 + bw, y: y))
-        }
-        createTrackingArea()
-    }
-    
-    func createTrackingArea() {
-        
-        if trackingArea != nil {
-            if let trackingArea = trackingArea {
-                removeTrackingArea(trackingArea)
-            }
-        }
-        
-        guard hiddenButtons == false else { return }
-        
-        var buttonsRect = NSRect.zero
-        let b = bounds
-        
-        if isVerticalButtons == true {
-            
-            var y = b.size.height
-            let bh = closeButton.bounds.size.height
-            let bw = closeButton.bounds.size.width
-            y = y - bh - 5
-            let x = CGFloat(8)
-            
-            if self.justClose == true{
-                buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(bw, bh + 3)
-            } else {
-                buttonsRect.origin = CGPoint(x: x, y: y - bh - 3 - bh - 3)
-                buttonsRect.size = NSMakeSize(bw, bh + 3 + bh + 3 + bh)
-                
-            }
-        } else {
-            
-            var y = b.size.height
-            let bh = closeButton.bounds.size.height
-            let bw = closeButton.bounds.size.width
-            y = y - bh - 5
-            let x = CGFloat(8)
-
-            if self.justClose == true {
-                buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(bw + 2, bh)
-            } else {
-                buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(bw + 2 + bw + bw, bh)
-            }
-        }
-        
-        trackingArea = NSTrackingArea(rect: buttonsRect, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
-        addTrackingArea(trackingArea!)
-    }
-    
-    override func mouseEntered(with theEvent: NSEvent) {
-        closeButton.isHighlighted = true
-        minimizeButton.isHighlighted = true
-        maximizeButton.isHighlighted = true
-    }
-    
-    override func mouseExited(with theEvent: NSEvent) {
-        closeButton.isHighlighted = false
-        minimizeButton.isHighlighted = false
-        maximizeButton.isHighlighted = false
-    }
-    
-    func setJustClose(_ justClose: Bool) {
-        self.justClose = justClose
-        if justClose {
-            minimizeButton.isHidden = justClose
-            maximizeButton.isHidden = justClose
-        }
-        createTrackingArea()
-    }
-    
     override func commonInit() {
         
         super.commonInit()
         
-        setVerticalButtons(true) // ?????????
+        isVerticalButtons = true
         hiddenButtons = false
         justClose = false
         
         if self.hiddenButtons == false {
-
-            closeButton = NSWindow.standardWindowButton(.closeButton, for: NSWindow.StyleMask.closable)!
-            minimizeButton = NSWindow.standardWindowButton(.miniaturizeButton, for: NSWindow.StyleMask.miniaturizable)!
-            maximizeButton = NSWindow.standardWindowButton(.zoomButton, for: NSWindow.StyleMask.resizable)!
+            
+            closeButton = NSWindow.standardWindowButton(.closeButton, for: .closable)!
+            minimizeButton = NSWindow.standardWindowButton(.miniaturizeButton, for: .miniaturizable)!
+            maximizeButton = NSWindow.standardWindowButton(.zoomButton, for: .resizable)!
             
             closeButton.setButtonType(.momentaryChange)
             
@@ -185,7 +133,70 @@ final class MLToolbar: MLGlassView {
             addSubview(maximizeButton)
         }
         createTrackingArea()
+    }
+    
+
+    func createTrackingArea() {
         
+        if trackingArea != nil {
+            if let trackingArea = trackingArea {
+                removeTrackingArea(trackingArea)
+            }
+        }
+        
+        guard hiddenButtons == false else { return }
+        
+        var buttonsRect = NSRect.zero
+        let b = bounds
+        
+        if isVerticalButtons == true {
+            
+            var y = b.size.height
+            let bh = closeButton.bounds.size.height
+            let bw = closeButton.bounds.size.width
+            y = y - bh - 5
+            let x = CGFloat(8)
+            
+            if self.justClose == true {
+                buttonsRect.origin = CGPoint(x: x, y: y)
+                buttonsRect.size = NSMakeSize(bw, bh + 3)
+            } else {
+                buttonsRect.origin = CGPoint(x: x, y: y - bh - 3 - bh - 3)
+                buttonsRect.size = NSMakeSize(bw, bh + 3 + bh + 3 + bh)
+            }
+        } else {
+
+            var y = b.size.height
+            let bh = closeButton.bounds.size.height
+            let bw = closeButton.bounds.size.width
+            y = y - bh - 5
+            let x = CGFloat(8)
+
+            if self.justClose == true {
+                buttonsRect.origin = CGPoint(x: x, y: y)
+                buttonsRect.size = NSMakeSize(bw + 2, bh)
+            } else {
+                buttonsRect.origin = CGPoint(x: x, y: y)
+                buttonsRect.size = NSMakeSize(bw + 2 + bw + bw, bh)
+            }
+        }
+    
+        trackingArea = NSTrackingArea(rect: buttonsRect, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+        addTrackingArea(trackingArea!)
+    }
+    
+    override func mouseEntered(with theEvent: NSEvent) {
+        
+        closeButton.isHighlighted = true
+        minimizeButton.isHighlighted = true
+        maximizeButton.isHighlighted = true
+    }
+    
+    override func mouseExited(with theEvent: NSEvent) {
+        
+        closeButton.isHighlighted = false
+        minimizeButton.isHighlighted = false
+        maximizeButton.isHighlighted = false
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -200,7 +211,6 @@ final class MLToolbar: MLGlassView {
         backgroundColor.set()
         borderPath.fill()
         
-        
         NSColor.black.set()
         let bottomLine = NSBezierPath()
         var p = bounds.origin
@@ -209,7 +219,7 @@ final class MLToolbar: MLGlassView {
         bottomLine.line(to: p)
         bottomLine.stroke()
         
-        if isVerticalButtons && !hiddenButtons && justClose == false {
+        if isVerticalButtons == true && hiddenButtons == false && justClose == false {
             
             let sepLine = NSBezierPath()
             var origin = bounds.origin
@@ -220,6 +230,10 @@ final class MLToolbar: MLGlassView {
             sepLine.lineWidth = 0.4
             sepLine.stroke()
         }
+        
+        NSColor.red.set()
+        __NSFrameRect(trackingArea!.rect)
+
         NSGraphicsContext.restoreGraphicsState()
     }
     

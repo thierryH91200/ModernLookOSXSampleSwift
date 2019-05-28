@@ -10,10 +10,7 @@ import AppKit
 
 class MainWindowController: NSWindowController {
     
-    var settingsView: SettingsView?
-    var accountsView: AccountsView?
     var budgetView: BudgetView?
-    var predictionView: PredicitionView?
     var toolBar: ToolBar?
     
     var budgets = [PBBudget]()
@@ -28,6 +25,7 @@ class MainWindowController: NSWindowController {
     override var windowNibName: NSNib.Name? {
         return "MainWindowController"
     }
+    
     
     override func windowDidLoad() {
         super.windowDidLoad()
