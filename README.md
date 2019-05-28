@@ -8,7 +8,7 @@ A translation Modern Look OSX (Version 5.0) into Swift
 
 # Update
 
-A Objective C version available [ModernLookOSXSampleSwift](https://github.com/gyetvan-andras/ModernLook-OSX) by [gyetvan-andras](https://github.com/gyetvan-andras/)
+A Objective C version available [ModernLook-OSX](https://github.com/gyetvan-andras/ModernLook-OSX) by [gyetvan-andras](https://github.com/gyetvan-andras/)
 
 https://github.com/gyetvan-andras/ModernLook-OSX
 
