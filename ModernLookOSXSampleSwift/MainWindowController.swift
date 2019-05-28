@@ -8,10 +8,7 @@
 
 import AppKit
 
-class MainWindowController: NSWindowController , MLCalendarViewDelegate{
-    
-    
-    @IBOutlet weak var mlRadioGroupManager: MLRadioGroupManager!
+class MainWindowController: NSWindowController {
     
     
     var settingsView: SettingsView?
@@ -19,20 +16,15 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
     var budgetView: BudgetView?
     var predictionView: PredicitionView?
     
-    var calendarView: MLCalendarView?
+    var toolBar: ToolBar?
     
     var budgets = [PBBudget]()
     
     
     @IBOutlet weak var pbContentView: MLContentView!
     
-    var calendarPopover: NSPopover?
     @IBOutlet var win: MLMainWindow!
-    
-    @IBOutlet weak var comboBox: NSComboBox!
-    @IBOutlet weak var popUp: NSPopUpButton!
-    @IBOutlet weak var combo: MLComboField!
-    
+        
     let mlAlert = MLAlert()
     
     override var windowNibName: NSNib.Name? {
@@ -44,113 +36,18 @@ class MainWindowController: NSWindowController , MLCalendarViewDelegate{
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         
+        self.toolBar = ToolBar()
+        let vc1 = (self.toolBar?.view)!
+        win.showToolBar( vc1)
+        
         self.budgetView = BudgetView()
         let vc = (self.budgetView?.view)!
-        
-        win.showContent(vc)
-    }
-    
-    func createCalendarPopover() {
-        
-        var myPopover = self.calendarPopover
-        if myPopover == nil {
-            
-            myPopover = NSPopover()
-            calendarView = MLCalendarView()
-            calendarView?.delegate = self
-            
-            myPopover?.contentViewController = calendarView
-            myPopover?.appearance = NSAppearance(named: .aqua)
-            myPopover?.animates = true
-            myPopover?.behavior = .transient
-            myPopover?.delegate = self
-        }
-        self.calendarPopover = myPopover
-    }
-    
-    @IBAction func showCalendar(_ sender: Any) {
-        createCalendarPopover()
-        
-        calendarView?.date = Date()
-        calendarView?.selectedDate = Date() 
-        
-        let button = sender as? NSButton
-        let cellRect = button?.bounds
-        if let button = button {
-            calendarPopover?.show(relativeTo: cellRect ?? NSRect.zero, of: button, preferredEdge: .maxY)
-        }
-    }
-    
-    @IBAction func showAlert(_ sender: Any) {
-        
-       _ = mlAlert.window?.contentView
-        
-        let res = mlAlert.showQuestion("question ??", title: "showAlert", withCancel: true)
-        switch res {
-        case .yes:
-            break
-        case .no:
-            break
-        case .cancel:
-            break
-        }
-    }
-    
-    @IBAction func hyperlinkAction(_ sender: Any) {
-
-        print("Hyperlink Clicked")
-    }
-    
-    
-    func didSelectDate(_ selectedDate: Date) {
-        //        calendarPopover?.close()
-    }
-    
-    @IBAction func pageSelectionChanged(_ sender: MLRadioGroupManager) {
-        
-        var  vc = NSView()
-        
-        switch sender.selectedItem {
-        case 1:
-            print("settingsView" )
-            self.settingsView = SettingsView()
-            vc = (self.settingsView?.view)!
-            
-        case 2:
-            print("accountsView" )
-            self.accountsView = AccountsView()
-            vc = (self.accountsView?.view)!
-            
-        case 3:
-            print("budgetView" )
-            self.budgetView = BudgetView()
-            vc = (self.budgetView?.view)!
-            
-        case 4:
-            print("predictionView" )
-            self.predictionView = PredicitionView()
-            vc = (self.predictionView?.view)!
-            
-        default:
-            print(sender.selectedItem )
-            break
-        }
         win.showContent(vc)
     }
 }
 
-extension  MainWindowController : NSPopoverDelegate {
     
-    func popoverShouldDetach(_ popover: NSPopover) -> Bool {
-        return true
-    }
-    
-    func detachableWindow(for popover: NSPopover) -> NSWindow? {
-        //        disableDetachButton()
-        return nil
-    }
-    
-}
+
 
 
 //class PBCategoryPopupManager : MLComboFieldDelegate{

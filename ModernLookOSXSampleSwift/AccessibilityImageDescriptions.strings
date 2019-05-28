@@ -1,5 +1,20 @@
 /* Map Image Name to Accessibility Description */
 
+
+// MLCalendar
 "NSRightFacingTriangleTemplate" = "NSRightFacingTriangleTemplate";
 "NSLeftFacingTriangleTemplate" = "NSLeftFacingTriangleTemplate";
+
+// ToolBar
 "CalendarTemplate" = "CalendarTemplate";
+"TimerTemplate" = "TimerTemplate";
+"SettingsTemplate" = "SettingsTemplate";
+"NSActionTemplate" = "NSActionTemplate";
+"BuyTemplate" = "BuyTemplate";
+"PursueTemplate" = "PursueTemplate";
+
+// MLAlert
+"NSCloseButton" = "NSCloseButton";
+//"BuyTemplate" = "BuyTemplate";
+//"PursueTemplate" = "PursueTemplate";
+

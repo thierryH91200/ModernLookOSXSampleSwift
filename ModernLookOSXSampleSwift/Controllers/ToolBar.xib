@@ -5,50 +5,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="ToolBar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="ToolBar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <connections>
+                <outlet property="mlRadioGroupManager" destination="7wC-jl-k1p" id="1RF-Tf-rfF"/>
+                <outlet property="view" destination="c22-O7-iKe" id="9Zr-FB-vFL"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="599" height="127"/>
+        <customView id="c22-O7-iKe" customClass="MLToolbar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="743" height="102"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="none" translatesAutoresizingMaskIntoConstraints="NO" id="dZz-3v-kmg">
-                    <rect key="frame" x="0.0" y="0.0" width="599" height="127"/>
+                    <rect key="frame" x="0.0" y="0.0" width="743" height="102"/>
                     <constraints>
-                        <constraint firstItem="Ldw-te-Nya" firstAttribute="leading" secondItem="jCk-N5-vW5" secondAttribute="trailing" constant="6" id="4BB-J0-FNa"/>
-                        <constraint firstItem="jCk-N5-vW5" firstAttribute="leading" secondItem="Ev6-n5-Vsp" secondAttribute="trailing" constant="6" id="d0l-Ki-jzb"/>
                         <constraint firstItem="F0z-Fg-PCb" firstAttribute="leading" secondItem="UIM-RW-r5x" secondAttribute="trailing" constant="6" id="yme-Qs-OWJ"/>
                     </constraints>
                     <rows>
-                        <gridRow height="32" id="8E7-li-jLr"/>
+                        <gridRow height="25" id="8E7-li-jLr"/>
                         <gridRow height="40" id="k9r-E5-2wk"/>
-                        <gridRow yPlacement="center" height="43" id="Jjf-LP-hNf"/>
+                        <gridRow yPlacement="center" height="25" id="Jjf-LP-hNf"/>
                     </rows>
                     <columns>
-                        <gridColumn id="bTG-6H-XzX"/>
-                        <gridColumn id="Vf5-at-Muo"/>
-                        <gridColumn width="114" id="xOe-xH-81b"/>
+                        <gridColumn width="30" id="Kfg-pT-2LX"/>
+                        <gridColumn width="200" id="bTG-6H-XzX"/>
+                        <gridColumn width="21" id="78L-28-c0g"/>
+                        <gridColumn width="30" id="Vf5-at-Muo"/>
+                        <gridColumn width="20" id="OTS-Jl-7hi"/>
+                        <gridColumn width="150" id="xOe-xH-81b"/>
                         <gridColumn id="DZP-Oh-WPY"/>
                         <gridColumn id="FSc-K7-Yxq"/>
                     </columns>
                     <gridCells>
+                        <gridCell row="8E7-li-jLr" column="Kfg-pT-2LX" id="AtY-sb-GhR"/>
                         <gridCell row="8E7-li-jLr" column="bTG-6H-XzX" xPlacement="fill" id="YDd-t4-gh6">
                             <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="g7a-jy-bZD">
-                                <rect key="frame" x="-2" y="95" width="170" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" id="th1-gj-RAH">
+                                <rect key="frame" x="34" y="77" width="204" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="th1-gj-RAH">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </gridCell>
+                        <gridCell row="8E7-li-jLr" column="78L-28-c0g" id="p8y-Bo-5JQ"/>
                         <gridCell row="8E7-li-jLr" column="Vf5-at-Muo" id="H9G-6e-jMc"/>
+                        <gridCell row="8E7-li-jLr" column="OTS-Jl-7hi" id="FD6-RS-Hvz"/>
                         <gridCell row="8E7-li-jLr" column="xOe-xH-81b" id="lsk-tL-bns"/>
                         <gridCell row="8E7-li-jLr" column="DZP-Oh-WPY" id="CFK-ZE-7QE"/>
                         <gridCell row="8E7-li-jLr" column="FSc-K7-Yxq" id="bRA-ho-chl"/>
+                        <gridCell row="k9r-E5-2wk" column="Kfg-pT-2LX" id="lpL-XQ-MWO"/>
                         <gridCell row="k9r-E5-2wk" column="bTG-6H-XzX" id="Vba-Jm-mze">
-                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ev6-n5-Vsp" customClass="MLHyperlink" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                                <rect key="frame" x="-2" y="49" width="170" height="29"/>
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Ev6-n5-Vsp" customClass="MLHyperlink" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                                <rect key="frame" x="34" y="31" width="170" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="aB7-Q0-qnt"/>
                                 </constraints>
@@ -57,11 +67,15 @@
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <action selector="hyperlinkAction:" target="-2" id="trr-0O-MRs"/>
+                                </connections>
                             </textField>
                         </gridCell>
+                        <gridCell row="k9r-E5-2wk" column="78L-28-c0g" id="YvI-p1-G1n"/>
                         <gridCell row="k9r-E5-2wk" column="Vf5-at-Muo" id="ugB-8l-fY2">
                             <button key="contentView" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jCk-N5-vW5">
-                                <rect key="frame" x="172" y="49" width="27" height="30"/>
+                                <rect key="frame" x="269" y="31" width="27" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="d5d-fu-H4d"/>
                                     <constraint firstAttribute="width" constant="27" id="n7X-S6-eGx"/>
@@ -70,11 +84,15 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="showCalendar:" target="-2" id="oMH-fg-67v"/>
+                                </connections>
                             </button>
                         </gridCell>
+                        <gridCell row="k9r-E5-2wk" column="OTS-Jl-7hi" id="cwQ-R6-9Bq"/>
                         <gridCell row="k9r-E5-2wk" column="xOe-xH-81b" xPlacement="fill" id="kg6-tE-zUQ">
                             <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="Ldw-te-Nya" customClass="MLHoverButton" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                                <rect key="frame" x="203" y="46" width="118" height="31"/>
+                                <rect key="frame" x="329" y="28" width="154" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="IKW-gf-A0d"/>
                                 </constraints>
@@ -94,7 +112,7 @@
                         </gridCell>
                         <gridCell row="k9r-E5-2wk" column="DZP-Oh-WPY" id="vml-Jf-ZT7">
                             <button key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="UIM-RW-r5x" customClass="MLCheckbox" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                                <rect key="frame" x="323" y="46" width="108" height="31"/>
+                                <rect key="frame" x="485" y="28" width="108" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="26" id="flC-li-yxO"/>
                                     <constraint firstAttribute="width" constant="104" id="m4f-pa-2VZ"/>
@@ -103,11 +121,14 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="showAlert:" target="-2" id="2Tg-fS-9DL"/>
+                                </connections>
                             </button>
                         </gridCell>
                         <gridCell row="k9r-E5-2wk" column="FSc-K7-Yxq" id="tYI-dp-o10">
                             <customView key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="F0z-Fg-PCb">
-                                <rect key="frame" x="435" y="49" width="130" height="34"/>
+                                <rect key="frame" x="597" y="31" width="130" height="34"/>
                                 <subviews>
                                     <button fixedFrame="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooJ-gr-tiO">
                                         <rect key="frame" x="5" y="2" width="27" height="30"/>
@@ -148,17 +169,20 @@
                                 </constraints>
                             </customView>
                         </gridCell>
+                        <gridCell row="Jjf-LP-hNf" column="Kfg-pT-2LX" id="Qan-kT-uM1"/>
                         <gridCell row="Jjf-LP-hNf" column="bTG-6H-XzX" xPlacement="fill" id="rRZ-YC-7sA">
                             <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ljt-o2-dx6">
-                                <rect key="frame" x="-2" y="13" width="170" height="17"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" id="vFs-x7-9ma">
+                                <rect key="frame" x="34" y="4" width="204" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="vFs-x7-9ma">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </gridCell>
+                        <gridCell row="Jjf-LP-hNf" column="78L-28-c0g" id="cwj-76-BqC"/>
                         <gridCell row="Jjf-LP-hNf" column="Vf5-at-Muo" id="Plf-ki-b31"/>
+                        <gridCell row="Jjf-LP-hNf" column="OTS-Jl-7hi" id="U12-4a-Akb"/>
                         <gridCell row="Jjf-LP-hNf" column="xOe-xH-81b" id="6bn-gt-gjX"/>
                         <gridCell row="Jjf-LP-hNf" column="DZP-Oh-WPY" id="1Bz-oB-rHb"/>
                         <gridCell row="Jjf-LP-hNf" column="FSc-K7-Yxq" id="Zan-3V-rth"/>
@@ -171,7 +195,7 @@
                 <constraint firstAttribute="bottom" secondItem="dZz-3v-kmg" secondAttribute="bottom" id="cs7-8q-tGd"/>
                 <constraint firstItem="dZz-3v-kmg" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" id="fwr-cg-zdf"/>
             </constraints>
-            <point key="canvasLocation" x="79.5" y="154"/>
+            <point key="canvasLocation" x="150.5" y="153.5"/>
         </customView>
         <customObject id="7wC-jl-k1p" customClass="MLRadioGroupManager" customModule="ModernLookOSXSampleSwift" customModuleProvider="target"/>
     </objects>

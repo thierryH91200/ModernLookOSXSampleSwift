@@ -76,9 +76,31 @@ class MLMainWindow: NSWindow {
         NSAnimationContext.beginGrouping()
         cv.animator().alphaValue = 1.0
         NSAnimationContext.endGrouping()
-        
     }
     
+    func showToolBar(_ cv: NSView) {
+        
+        cv.alphaValue = 0
+        
+        pbToolbar.removeConstraints(pbToolbar.constraints)
+        NSAnimationContext.current.duration = 1.0
+        
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        if pbToolbar.subviews.count > 0 {
+            pbToolbar.subviews[0].alphaValue = 0.0
+        }
+        
+        pbToolbar.subviews = [cv]
+        
+        let viewsDictionary = [ "c" : cv ]
+        pbToolbar.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[c]|", options: [], metrics: nil, views: viewsDictionary))
+        pbToolbar.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[c]|", options: [], metrics: nil, views: viewsDictionary))
+        
+        NSAnimationContext.beginGrouping()
+        cv.animator().alphaValue = 1.0
+        NSAnimationContext.endGrouping()
+    }
+
     override func sendEvent(_ event: NSEvent) {
         if event.type == .leftMouseUp {
             MLPopupWindowManager.shared.hidePopup()

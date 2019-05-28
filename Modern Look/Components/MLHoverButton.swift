@@ -11,8 +11,8 @@ import AppKit
 final class MLHoverButton: NSButton {
     
     var backgroundColor = NSColor.clear
-    var hoveredBackgroundColor  = NSColor.selectedTextBackgroundColor
-    var foregroundColor: NSColor = NSColor.blue
+    @objc var hoveredBackgroundColor  = NSColor.selectedTextBackgroundColor
+    @objc var foregroundColor: NSColor = NSColor.blue
     var _hoveredForegroundColor = NSColor.blue
     
     var circleBorder: CGFloat = 0.0
@@ -72,7 +72,7 @@ final class MLHoverButton: NSButton {
         needsDisplay = true
     }
     
-    var hoveredForegroundColor : NSColor  {
+    @objc var hoveredForegroundColor : NSColor  {
         get { return _hoveredForegroundColor }
         set {
             _hoveredForegroundColor = newValue
