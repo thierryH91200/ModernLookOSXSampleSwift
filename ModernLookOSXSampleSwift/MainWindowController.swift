@@ -10,7 +10,6 @@ import AppKit
 
 class MainWindowController: NSWindowController {
     
-    
     var settingsView: SettingsView?
     var accountsView: AccountsView?
     var budgetView: BudgetView?
@@ -36,6 +35,7 @@ class MainWindowController: NSWindowController {
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         
         self.toolBar = ToolBar()
+        toolBar?.mainWindowController = self
         let vc1 = (self.toolBar?.view)!
         win.showToolBar( vc1)
         

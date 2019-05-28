@@ -10,6 +10,14 @@ import AppKit
 
 class ToolBar: NSViewController, MLCalendarViewDelegate {
     
+    var settingsView: SettingsView?
+    var accountsView: AccountsView?
+    var budgetView: BudgetView?
+    var predictionView: PredicitionView?
+    
+    var mainWindowController : MainWindowController!
+
+    
     
     @IBOutlet weak var mlRadioGroupManager: MLRadioGroupManager!
 
@@ -58,34 +66,34 @@ class ToolBar: NSViewController, MLCalendarViewDelegate {
     
     @IBAction func pageSelectionChanged(_ sender: MLRadioGroupManager) {
         
-//        var  vc = NSView()
+        var  vc = NSView()
         
         switch sender.selectedItem {
         case 1:
             print("settingsView" )
-//            self.settingsView = SettingsView()
-//            vc = (self.settingsView?.view)!
+            self.settingsView = SettingsView()
+            vc = (self.settingsView?.view)!
             
         case 2:
             print("accountsView" )
-//            self.accountsView = AccountsView()
-//            vc = (self.accountsView?.view)!
+            self.accountsView = AccountsView()
+            vc = (self.accountsView?.view)!
             
         case 3:
             print("budgetView" )
-//            self.budgetView = BudgetView()
-//            vc = (self.budgetView?.view)!
+            self.budgetView = BudgetView()
+            vc = (self.budgetView?.view)!
             
         case 4:
             print("predictionView" )
-//            self.predictionView = PredicitionView()
-//            vc = (self.predictionView?.view)!
+            self.predictionView = PredicitionView()
+            vc = (self.predictionView?.view)!
             
         default:
             print(sender.selectedItem )
             break
         }
-//        win.showContent(vc)
+        mainWindowController.win.showContent(vc)
     }
     
     @IBAction func hyperlinkAction(_ sender: Any) {

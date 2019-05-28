@@ -130,14 +130,6 @@
                             <customView key="contentView" translatesAutoresizingMaskIntoConstraints="NO" id="F0z-Fg-PCb">
                                 <rect key="frame" x="597" y="16" width="130" height="34"/>
                                 <subviews>
-                                    <button fixedFrame="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooJ-gr-tiO">
-                                        <rect key="frame" x="5" y="2" width="27" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="SettingsTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="5DY-bR-UBg">
-                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                            <font key="font" metaFont="system"/>
-                                        </buttonCell>
-                                    </button>
                                     <button fixedFrame="YES" tag="2" translatesAutoresizingMaskIntoConstraints="NO" id="uMN-Tq-7AG">
                                         <rect key="frame" x="34" y="0.0" width="31" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -145,6 +137,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="7wC-jl-k1p" id="5Au-rY-90U"/>
+                                        </connections>
                                     </button>
                                     <button fixedFrame="YES" tag="3" translatesAutoresizingMaskIntoConstraints="NO" id="CKD-Xr-fSe">
                                         <rect key="frame" x="68" y="5" width="25" height="25"/>
@@ -153,6 +148,9 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="7wC-jl-k1p" id="5y7-nu-8vp"/>
+                                        </connections>
                                     </button>
                                     <button fixedFrame="YES" tag="4" translatesAutoresizingMaskIntoConstraints="NO" id="vRx-GG-dIs">
                                         <rect key="frame" x="100" y="5" width="25" height="25"/>
@@ -161,6 +159,20 @@
                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="7wC-jl-k1p" id="jxw-Tx-VLi"/>
+                                        </connections>
+                                    </button>
+                                    <button fixedFrame="YES" tag="1" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ooJ-gr-tiO">
+                                        <rect key="frame" x="8" y="2" width="27" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="SettingsTemplate" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="5DY-bR-UBg">
+                                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="buttonClicked:" target="7wC-jl-k1p" id="v7Y-CY-jtT"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -197,7 +209,12 @@
             </constraints>
             <point key="canvasLocation" x="150.5" y="153.5"/>
         </customView>
-        <customObject id="7wC-jl-k1p" customClass="MLRadioGroupManager" customModule="ModernLookOSXSampleSwift" customModuleProvider="target"/>
+        <customObject id="7wC-jl-k1p" customClass="MLRadioGroupManager" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <connections>
+                <action selector="pageSelectionChanged:" target="-2" id="OF6-D3-3pG"/>
+                <outlet property="groupView" destination="F0z-Fg-PCb" id="j51-5F-aSj"/>
+            </connections>
+        </customObject>
     </objects>
     <resources>
         <image name="BuyTemplate" width="512" height="512"/>
