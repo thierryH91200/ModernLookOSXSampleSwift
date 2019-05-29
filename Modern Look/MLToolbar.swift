@@ -11,6 +11,7 @@ import AppKit
 let ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS = CGFloat(5)
 
 
+@IBDesignable
 final class MLToolbar: MLGlassView {
     
     var closeButton = NSButton()
@@ -20,6 +21,7 @@ final class MLToolbar: MLGlassView {
     var trackingArea : NSTrackingArea?
     
     var _isVerticalButtons = true
+    @IBInspectable 
     var isVerticalButtons : Bool {
         get { return _isVerticalButtons }
         set {
@@ -89,7 +91,7 @@ final class MLToolbar: MLGlassView {
             let bw = closeButton.bounds.size.width
             
             y = y - bh - 5
-            let x: CGFloat = 8
+            let x : CGFloat = 8
             
             closeButton.setFrameOrigin(NSPoint(x: x, y: y))
             minimizeButton.setFrameOrigin(NSPoint(x: x + 2 + bw, y: y))
@@ -117,44 +119,48 @@ final class MLToolbar: MLGlassView {
         
         if isVerticalButtons == true {
             
-            var y = b.size.height
-            let bh = closeButton.bounds.size.height
-            let bw = closeButton.bounds.size.width
-            y = y - bh - 5
             let x = CGFloat(8)
+            var y = b.size.height
+            
+            let buttonHeight = closeButton.bounds.size.height
+            let buttonWidth = closeButton.bounds.size.width
+            y = y - buttonHeight - 5
             
             if self.justClose == true {
                 buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(bw, bh + 3)
+                buttonsRect.size = NSMakeSize(buttonWidth, buttonHeight + 3)
             } else {
-                buttonsRect.origin = CGPoint(x: x, y: y - bh - 3 - bh - 3)
-                buttonsRect.size = NSMakeSize(bw, bh + 3 + bh + 3 + bh)
+                buttonsRect.origin = CGPoint(x: x, y: y - buttonHeight - 3 - buttonHeight - 3)
+                buttonsRect.size = NSMakeSize(buttonWidth, buttonHeight + 3 + buttonHeight + 3 + buttonHeight)
             }
 
             closeButton.setFrameOrigin(CGPoint(x: x, y: y))
-            minimizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3))
-            maximizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3 - bh - 3))
+            minimizeButton.setFrameOrigin(CGPoint(x: x, y: y - buttonHeight - 3))
+            maximizeButton.setFrameOrigin(CGPoint(x: x, y: y - buttonHeight - 3 - buttonHeight - 3))
 
         } else {
 
-            var y = b.size.height
-            let bh = closeButton.bounds.size.height
-            let bw = closeButton.bounds.size.width
-            y = y - bh - 5
             let x = CGFloat(8)
+            var y = b.size.height
+            
+            let buttonHeight = closeButton.bounds.size.height
+            let buttonWidth = closeButton.bounds.size.width
+            y = y - buttonHeight - 5
 
             if self.justClose == true {
                 buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(bw + 2, bh)
+                buttonsRect.size = NSMakeSize(buttonWidth + 2, buttonHeight)
             } else {
                 buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(bw + 2 + bw + bw, bh)
+                buttonsRect.size = NSMakeSize(buttonWidth + 2 + buttonWidth + buttonWidth, buttonHeight)
             }
             
             closeButton.setFrameOrigin(CGPoint(x: x, y: y))
-            minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw, y: y))
-            maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw + 2 + bw, y: y))
+            minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + buttonWidth, y: y))
+            maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + buttonWidth + 2 + buttonWidth, y: y))
         }
+        
+        print( buttonsRect )
     
         trackingArea = NSTrackingArea(rect: buttonsRect, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
         addTrackingArea(trackingArea!)
@@ -178,7 +184,7 @@ final class MLToolbar: MLGlassView {
         
         NSGraphicsContext.saveGraphicsState()
         
-        var lowerBounds: NSRect = bounds
+        var lowerBounds = bounds
         lowerBounds.size.height -= 10
         
         let borderPath = NSBezierPath(roundedRect: bounds, xRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS, yRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS)
