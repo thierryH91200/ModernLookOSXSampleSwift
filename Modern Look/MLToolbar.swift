@@ -13,36 +13,17 @@ let ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS = CGFloat(5)
 
 final class MLToolbar: MLGlassView {
     
+    var closeButton = NSButton()
+    var minimizeButton = NSButton()
+    var maximizeButton = NSButton()
+    
+    var trackingArea : NSTrackingArea?
+    
     var _isVerticalButtons = true
-    @objc var isVerticalButtons : Bool {
+    var isVerticalButtons : Bool {
         get { return _isVerticalButtons }
         set {
             _isVerticalButtons = newValue
-            
-            let b = bounds
-            if newValue == true {
-                
-                var y = b.size.height
-                let bh = closeButton.bounds.size.height
-                y = y - bh - 5
-                let x = CGFloat(8)
-                
-                closeButton.setFrameOrigin(CGPoint(x: x, y: y))
-                minimizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3))
-                maximizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3 - bh - 3))
-                
-            } else {
-                
-                var y = b.size.height
-                let bh = closeButton.bounds.size.height
-                let bw: CGFloat = closeButton.bounds.size.width
-                y = y - bh - 5
-                let x = CGFloat(8)
-                
-                closeButton.setFrameOrigin(CGPoint(x: x, y: y))
-                minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw, y: y))
-                maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw + 2 + bw, y: y))
-            }
             createTrackingArea()
         }
     }
@@ -51,7 +32,6 @@ final class MLToolbar: MLGlassView {
     var hiddenButtons : Bool {
         get { return _hiddenButtons }
         set {
-            
             _hiddenButtons = newValue
             if newValue == true {
                 closeButton.removeFromSuperviewWithoutNeedingDisplay()
@@ -74,38 +54,25 @@ final class MLToolbar: MLGlassView {
             createTrackingArea()
         }
     }
-
-    var closeButton = NSButton()
-    var minimizeButton = NSButton()
-    var maximizeButton = NSButton()
-    
-    var trackingArea : NSTrackingArea?
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
 
-        if frameRect.size.height > 20 {
-            isVerticalButtons = true
-        } else {
-            isVerticalButtons = false
-        }
+//        if frameRect.size.height > 20 {
+//            isVerticalButtons = true
+//        } else {
+//            isVerticalButtons = false
+//        }
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-            isVerticalButtons = true
-
         commonInit()
-        isVerticalButtons = true
     }
 
     override func commonInit() {
         
         super.commonInit()
-        
-        isVerticalButtons = true
-        hiddenButtons = false
-        justClose = false
         
         if self.hiddenButtons == false {
             
@@ -115,15 +82,15 @@ final class MLToolbar: MLGlassView {
             
             closeButton.setButtonType(.momentaryChange)
             
-            let b: NSRect = bounds
-            var y: CGFloat = b.size.height
+            let b = bounds
+            var y = b.size.height
             
             let bh = closeButton.bounds.size.height
             let bw = closeButton.bounds.size.width
             
             y = y - bh - 5
-            
             let x: CGFloat = 8
+            
             closeButton.setFrameOrigin(NSPoint(x: x, y: y))
             minimizeButton.setFrameOrigin(NSPoint(x: x + 2 + bw, y: y))
             maximizeButton.setFrameOrigin(NSPoint(x: x + 2 + bw + 2 + bw, y: y))
@@ -135,7 +102,6 @@ final class MLToolbar: MLGlassView {
         createTrackingArea()
     }
     
-
     func createTrackingArea() {
         
         if trackingArea != nil {
@@ -164,6 +130,11 @@ final class MLToolbar: MLGlassView {
                 buttonsRect.origin = CGPoint(x: x, y: y - bh - 3 - bh - 3)
                 buttonsRect.size = NSMakeSize(bw, bh + 3 + bh + 3 + bh)
             }
+
+            closeButton.setFrameOrigin(CGPoint(x: x, y: y))
+            minimizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3))
+            maximizeButton.setFrameOrigin(CGPoint(x: x, y: y - bh - 3 - bh - 3))
+
         } else {
 
             var y = b.size.height
@@ -179,6 +150,10 @@ final class MLToolbar: MLGlassView {
                 buttonsRect.origin = CGPoint(x: x, y: y)
                 buttonsRect.size = NSMakeSize(bw + 2 + bw + bw, bh)
             }
+            
+            closeButton.setFrameOrigin(CGPoint(x: x, y: y))
+            minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw, y: y))
+            maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw + 2 + bw, y: y))
         }
     
         trackingArea = NSTrackingArea(rect: buttonsRect, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
@@ -231,8 +206,8 @@ final class MLToolbar: MLGlassView {
             sepLine.stroke()
         }
         
-        NSColor.red.set()
-        __NSFrameRect(trackingArea!.rect)
+//        NSColor.red.set()
+//        __NSFrameRect(trackingArea!.rect)
 
         NSGraphicsContext.restoreGraphicsState()
     }

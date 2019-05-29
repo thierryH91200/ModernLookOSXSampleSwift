@@ -19,12 +19,10 @@ class ToolBar: NSViewController, MLCalendarViewDelegate {
 
     @IBOutlet weak var mlRadioGroupManager: MLRadioGroupManager!
 
-    
     var calendarPopover: NSPopover?
     var calendarView: MLCalendarView?
 
     let mlAlert = MLAlert()
-
 
     override func viewDidLoad() {
         super.viewDidLoad()

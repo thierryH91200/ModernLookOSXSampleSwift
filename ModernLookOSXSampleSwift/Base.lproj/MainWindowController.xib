@@ -27,17 +27,11 @@
                     <customView translatesAutoresizingMaskIntoConstraints="NO" id="bPg-Z3-Mcc" customClass="MLContentView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="798" height="360"/>
                     </customView>
-                    <customView misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="whW-lX-rz4" customClass="MLToolbar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                        <rect key="frame" x="-8" y="360" width="798" height="65"/>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="whW-lX-rz4" customClass="MLToolbar" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="360" width="798" height="65"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="65" id="H6X-CI-trH"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="verticalButtons" value="YES"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="backgroundColor">
-                                <color key="value" name="controlColor" catalog="System" colorSpace="catalog"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </customView>
                 </subviews>
                 <constraints>
