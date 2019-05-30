@@ -24,10 +24,23 @@ class SettingsView: NSViewController {
 
 class PBBudgetArrayController : NSArrayController {
     
-    override func add(_ sender: Any?) {
+    @IBAction override func add(_ sender: Any?) {
         let b = PBBudget()
         b.name = "New Budget"
-        self.add(b)
+//        self.add(b)
         PBEntityManager.shared.budgets.append(b)
     }
 }
+
+class PBAccountArrayController : NSArrayController {
+
+
+@IBAction override func add(_ sender: Any?) {
+    
+    let a = PBAccount()
+    a.name = "New Account"
+    a.budgeted = true
+//    self.add(a)
+}
+}
+

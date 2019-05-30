@@ -91,6 +91,9 @@
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
+                                        <connections>
+                                            <binding destination="hvI-jQ-SIc" name="value" keyPath="arrangedObjects.name" id="Gzo-jV-hV9"/>
+                                        </connections>
                                     </tableColumn>
                                     <tableColumn width="31" minWidth="10" maxWidth="3.4028234663852886e+38" id="lP6-Xr-J0x">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center">
@@ -224,6 +227,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="add:" target="kMO-Fq-8MI" id="iEI-16-UEj"/>
+                    </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4bA-Vs-WxN">
                     <rect key="frame" x="57" y="196" width="124" height="24"/>
@@ -247,6 +253,9 @@
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="add:" target="hvI-jQ-SIc" id="DaE-wh-CnJ"/>
+                    </connections>
                 </button>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ifo-lX-3n4">
                     <rect key="frame" x="57" y="25" width="130" height="24"/>
@@ -322,13 +331,17 @@
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-26" y="290"/>
         </customView>
-        <arrayController objectClassName="PBBudget" id="kMO-Fq-8MI" userLabel="Budgets"/>
+        <arrayController objectClassName="PBAccount" id="hvI-jQ-SIc" userLabel="Accounts" customClass="PBAccountArrayController" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+            <connections>
+                <binding destination="kMO-Fq-8MI" name="contentArray" keyPath="selection.accounts" id="8rI-4C-hGx"/>
+            </connections>
+        </arrayController>
+        <arrayController objectClassName="PBBudget" id="kMO-Fq-8MI" userLabel="Budgets" customClass="PBBudgetArrayController" customModule="ModernLookOSXSampleSwift" customModuleProvider="target"/>
         <treeController objectClassName="PBCategory" childrenKeyPath="subCategories" id="ou7-OM-aAO" userLabel="Categories">
             <connections>
                 <binding destination="kMO-Fq-8MI" name="contentArray" keyPath="selection.categories" id="XTs-3J-grn"/>
             </connections>
         </treeController>
-        <arrayController objectClassName="PBAccount" id="hvI-jQ-SIc" userLabel="Accounts"/>
     </objects>
     <resources>
         <image name="NSAddTemplate" width="11" height="11"/>

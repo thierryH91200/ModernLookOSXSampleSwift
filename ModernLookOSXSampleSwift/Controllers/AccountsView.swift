@@ -15,4 +15,7 @@ class AccountsView: NSViewController {
         // Do view setup here.
     }
     
+    
+
+    
 }

@@ -15,6 +15,13 @@
 
 // MLAlert
 "NSCloseButton" = "NSCloseButton";
+
+// Account
+"NSFollowLinkFreestandingTemplate" = "NSFollowLinkFreestandingTemplate";
+
+// Setting
+"NSAddTemplate" = "NSAddTemplate";
+
 //"BuyTemplate" = "BuyTemplate";
 //"PursueTemplate" = "PursueTemplate";
 

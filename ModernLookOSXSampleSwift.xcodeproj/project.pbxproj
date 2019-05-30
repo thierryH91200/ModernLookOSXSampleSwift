@@ -27,6 +27,7 @@
 		03465C99229C6FE2006FA587 /* MLCalendarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03465C9B229C6FE2006FA587 /* MLCalendarView.xib */; };
 		035F0F5222991C18006311FA /* PBBudgetTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F0F5122991C18006311FA /* PBBudgetTemplates.swift */; };
 		035F0F5B22992E8D006311FA /* PBEntityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035F0F5A22992E8D006311FA /* PBEntityManager.swift */; };
+		0362E21D229E744F009E0ACF /* Datas.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0362E21B229E744F009E0ACF /* Datas.xcdatamodeld */; };
 		0370D76F229BCC73009FD706 /* MLHyperlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0370D76E229BCC73009FD706 /* MLHyperlink.swift */; };
 		039A6F3B2297B6E0004FDA8D /* MLHoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */; };
 		03A25D17229C46A100AD1404 /* MainWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03A25D19229C46A100AD1404 /* MainWindowController.xib */; };
@@ -115,6 +116,7 @@
 		03465C9D229C6FE4006FA587 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MLCalendarView.strings; sourceTree = "<group>"; };
 		035F0F5122991C18006311FA /* PBBudgetTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBBudgetTemplates.swift; sourceTree = "<group>"; };
 		035F0F5A22992E8D006311FA /* PBEntityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBEntityManager.swift; sourceTree = "<group>"; };
+		0362E21C229E744F009E0ACF /* Datas.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Datas.xcdatamodel; sourceTree = "<group>"; };
 		0370D76E229BCC73009FD706 /* MLHyperlink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHyperlink.swift; sourceTree = "<group>"; };
 		039A6F3A2297B6E0004FDA8D /* MLHoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLHoverButton.swift; sourceTree = "<group>"; };
 		03A25D16229C468F00AD1404 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/MainMenu.strings; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 				03DE67B8226BA5300034AACB /* MainMenu.xib */,
 				03DE67BB226BA5300034AACB /* Info.plist */,
 				03DE67BC226BA5300034AACB /* ModernLookOSXSampleSwift.entitlements */,
+				0362E21B229E744F009E0ACF /* Datas.xcdatamodeld */,
 			);
 			path = ModernLookOSXSampleSwift;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				03DE67B5226BA52F0034AACB /* AppDelegate.swift in Sources */,
 				03DE67E4226BA87C0034AACB /* MLCalendarCell.swift in Sources */,
 				03A347DC229533A600BC1D5E /* MLCenteredWindow.swift in Sources */,
+				0362E21D229E744F009E0ACF /* Datas.xcdatamodeld in Sources */,
 				031349D7226DA0020083077A /* MLPopupContent.swift in Sources */,
 				035F0F5222991C18006311FA /* PBBudgetTemplates.swift in Sources */,
 				03DE67F4226C51660034AACB /* MLColoredButton.swift in Sources */,
@@ -952,6 +956,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		0362E21B229E744F009E0ACF /* Datas.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				0362E21C229E744F009E0ACF /* Datas.xcdatamodel */,
+			);
+			currentVersion = 0362E21C229E744F009E0ACF /* Datas.xcdatamodel */;
+			path = Datas.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 03DE67A9226BA52F0034AACB /* Project object */;
 }

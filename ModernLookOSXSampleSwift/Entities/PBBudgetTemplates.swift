@@ -6,7 +6,7 @@
 //  Copyright © 2019 thierry hentic. All rights reserved.
 //
 
-import Cocoa
+import AppKit
 
 class PBBudgetTemplates: NSObject {
     

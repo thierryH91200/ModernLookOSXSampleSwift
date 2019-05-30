@@ -104,12 +104,11 @@ final class MLToolbar: MLGlassView {
         createTrackingArea()
     }
     
+    // Create A region of a view that generates mouse-tracking and cursor-update events when the pointer is over that region.
     func createTrackingArea() {
         
         if trackingArea != nil {
-            if let trackingArea = trackingArea {
-                removeTrackingArea(trackingArea)
-            }
+            removeTrackingArea(trackingArea!)
         }
         
         guard hiddenButtons == false else { return }
@@ -162,18 +161,29 @@ final class MLToolbar: MLGlassView {
         
         print( buttonsRect )
     
-        trackingArea = NSTrackingArea(rect: buttonsRect, options: [.mouseEnteredAndExited, .activeAlways], owner: self, userInfo: nil)
+        trackingArea = NSTrackingArea(rect: buttonsRect, options: [.mouseEnteredAndExited, .activeInKeyWindow], owner: self, userInfo: nil)
         addTrackingArea(trackingArea!)
     }
     
+    // Informs the receiver that the cursor has entered a tracking rectangle.
     override func mouseEntered(with theEvent: NSEvent) {
+        
+//        let styleMask: NSWindow.StyleMask = [.closable, .resizable, .miniaturizable]
+//        self.window?.animator().styleMask = styleMask
+
         
         closeButton.isHighlighted = true
         minimizeButton.isHighlighted = true
         maximizeButton.isHighlighted = true
     }
     
+    // Informs the receiver that the cursor has exited a tracking rectangle.
     override func mouseExited(with theEvent: NSEvent) {
+        
+        
+//        let styleMask: NSWindow.StyleMask = [.closable, .resizable, .miniaturizable]
+//        self.window?.animator().styleMask = styleMask
+
         
         closeButton.isHighlighted = false
         minimizeButton.isHighlighted = false

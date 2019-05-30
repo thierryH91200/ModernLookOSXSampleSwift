@@ -37,7 +37,7 @@ struct Stack<Element> {
     
 }
 
-class PBAccount :  PBEntity {
+@objc class PBAccount :  PBEntity {
     
     var name = "name"
     var budgeted = true
@@ -51,22 +51,18 @@ class PBAccount :  PBEntity {
         self.name = name
         self.budgeted  = budgeted
     }
-    
 }
 
-class PBBudget : NSObject {
+@objcMembers class PBBudget : NSObject {
     
     @objc var name = "name"
-    var budgeted = true
+    @objc var budgeted = true
     
     var accounts: [PBAccount] = []
     var payees: [PBPayee] = []
     @objc var categories: [PBCategory] = []
-    
-    override init () {
-    }
-    
-    init(name: String = "name", budgeted: Bool = true)
+        
+    init(name: String = "Budget", budgeted: Bool = true)
     {
         self.name = name
         self.budgeted  = budgeted

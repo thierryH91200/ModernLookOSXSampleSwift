@@ -33,7 +33,7 @@ final class MLHoverButton: NSButton {
     }
     
     func commonInit() {
-        wantsLayer = true
+
         createTrackingArea()
         hoovered = false
         hoveredForegroundColor = NSColor.white
@@ -50,11 +50,10 @@ final class MLHoverButton: NSButton {
     
     func createTrackingArea() {
         if trackingArea != nil {
-            if let trackingArea = trackingArea {
-                removeTrackingArea(trackingArea)
-            }
+            removeTrackingArea(trackingArea!)
         }
-        let circleRect: NSRect = bounds
+        
+        let circleRect = bounds
         trackingArea = NSTrackingArea(rect: circleRect, options: [.mouseEnteredAndExited, .activeInActiveApp], owner: self, userInfo: nil)
         if let trackingArea = trackingArea {
             addTrackingArea(trackingArea)
@@ -153,7 +152,7 @@ final class MLHoverButton: NSButton {
         
         var bg = backgroundColor
         var fc: NSColor? = nil
-        isOn = hoovered && !isHighlighted // || (self.state == NSOnState);
+        isOn = hoovered && isHighlighted == false  // || (self.state == NSOnState);
         if drawsOn && (state == .on) {
             isOn = true
         }
@@ -171,8 +170,7 @@ final class MLHoverButton: NSButton {
         
         if (image != nil) {
             
-            let targetRect: NSRect = circleRect.insetBy(dx: circleBorder, dy: circleBorder)
-            
+            let targetRect = circleRect.insetBy(dx: circleBorder, dy: circleBorder)
             var i: NSImage? = nil
             
             if isOn {
@@ -182,16 +180,16 @@ final class MLHoverButton: NSButton {
             }
             
             var imageRect = NSRect.zero
-            var w: CGFloat? = i?.size.width
-            var h: CGFloat? = i?.size.height
-            if (w ?? 0.0) > targetRect.size.width {
-                w = targetRect.size.width
+            var width = i?.size.width
+            var height = i?.size.height
+            if (width ?? 0.0) > targetRect.size.width {
+                width = targetRect.size.width
             }
-            if (h ?? 0.0) > targetRect.size.height {
-                h = targetRect.size.height
+            if height! > targetRect.size.height {
+                height = targetRect.size.height
             }
-            imageRect.size.width = w ?? 0.0
-            imageRect.size.height = h ?? 0.0
+            imageRect.size.width = width!
+            imageRect.size.height = height!
             
             imageRect.origin.x = (circleRect.size.width - imageRect.size.width) / 2.0
             imageRect.origin.y = (circleRect.size.height - imageRect.size.height) / 2.0
@@ -224,11 +222,13 @@ final class MLHoverButton: NSButton {
             
             let size = (sign?.size(withAttributes: attrs))!
             
-            let r = NSRect(x: circleRect.origin.x, y: circleRect.origin.y + ((circleRect.size.height - size.height) / 2.0) - 2, width: circleRect.size.width, height: size.height)
+            let r = NSRect(x: circleRect.origin.x,
+                           y: circleRect.origin.y + ((circleRect.size.height - size.height) / 2.0) - 2,
+                           width: circleRect.size.width,
+                           height: size.height)
             
             sign?.draw(in: r, withAttributes: attrs)
             drawText(text!, in: textRect, with: fc!)
-            
             
         }
         NSGraphicsContext.restoreGraphicsState()

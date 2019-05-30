@@ -10,7 +10,7 @@ import AppKit
 
 class MLTextField: NSTextField {
     
-    var _lineWidth : CGFloat = 2.0
+    var _lineWidth : CGFloat = 1.0
     
     @IBInspectable
     var lineWidth : CGFloat  {
