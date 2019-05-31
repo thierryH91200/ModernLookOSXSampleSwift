@@ -10,19 +10,18 @@ import AppKit
 
 class MLTextField: NSTextField {
     
-    var _lineWidth : CGFloat = 1.0
+    @IBInspectable var lineWidth : CGFloat  = 1.0
     
-    @IBInspectable
-    var lineWidth : CGFloat  {
-        get { return _lineWidth }
-        set { _lineWidth = newValue}
-    }
-    
+    @IBInspectable var isBottom: Bool = true
+    @IBInspectable var isLeft: Bool = true
+    @IBInspectable var isTop: Bool = false
+    @IBInspectable var isRight: Bool = false
+
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         commonInit()
     }
-
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()
@@ -43,22 +42,45 @@ class MLTextField: NSTextField {
         let bounds = self.bounds
         textColor?.set()
         
-        let bottomLine = NSBezierPath()
-        var p = NSPoint.zero //bounds.origin;
-        p.y = bounds.size.height
-        bottomLine.move(to: p)
-        p.x += bounds.size.width
-        bottomLine.line(to: p)
-        bottomLine.lineWidth = _lineWidth
-        bottomLine.stroke()
+        let line = NSBezierPath()
+
+        if isBottom == true {
+            var point = NSPoint.zero
+            point.y = bounds.size.height
+            line.move(to: point)
+            point.x += bounds.size.width
+            line.line(to: point)
+            line.lineWidth = lineWidth
+            line.stroke()
+        }
         
-        let heightLine = NSBezierPath()
-        var p2 = NSPoint.zero //bounds.origin;
-        heightLine.move(to: p2)
-        p2.y = bounds.size.height
-        heightLine.line(to: p2)
-        heightLine.lineWidth = _lineWidth
-        heightLine.stroke()
+        if isLeft == true {
+            var point = NSPoint.zero
+            line.move(to: point)
+            point.y = bounds.size.height
+            line.line(to: point)
+            line.lineWidth = lineWidth
+            line.stroke()
+        }
+
+        if isTop == true {
+            var point = NSPoint.zero
+            line.move(to: point)
+            point.x += bounds.size.width
+            line.line(to: point)
+            line.lineWidth = lineWidth
+            line.stroke()
+        }
+
+        if isRight == true {
+            var point = NSPoint.zero
+            point.x += bounds.size.width
+            line.move(to: point)
+            point.y = bounds.size.height
+            line.line(to: point)
+            line.lineWidth = lineWidth
+            line.stroke()
+        }
 
         NSGraphicsContext.restoreGraphicsState()
     }
