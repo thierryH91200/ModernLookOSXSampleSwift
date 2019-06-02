@@ -123,11 +123,11 @@ final class MLCalendarView: NSViewController {
     }
     
     func commonInit() {
-        backgroundColor = NSColor.white
-        textColor = NSColor.black
-        selectionColor = NSColor.red
-        todayMarkerColor = NSColor.green
-        dayMarkerColor = NSColor.darkGray
+        backgroundColor = .white
+        textColor = .black
+        selectionColor = .red
+        todayMarkerColor = .green
+        dayMarkerColor = .darkGray
         
         let cell = "c1"
         let button = view(byID: cell) as? MLCalendarCell

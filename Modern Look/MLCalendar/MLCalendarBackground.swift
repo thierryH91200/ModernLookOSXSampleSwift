@@ -23,7 +23,7 @@ final class MLCalendarBackground: NSView {
     }
     
     func commonInit() {
-        backgroundColor = NSColor.white
+        backgroundColor = .white
     }
     
     override func draw(_ dirtyRect: NSRect) {

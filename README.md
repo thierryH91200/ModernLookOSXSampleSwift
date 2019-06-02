@@ -54,8 +54,8 @@ Here is the code of the MLTextField class.
         textColor?.set()
         
         let bottomLine = NSBezierPath()
-        var p = NSPoint.zero //bounds.origin;
-        p.y = bounds.size.height
+        var p = CGPoint.zero //bounds.origin;
+        p.y = CGPoint.size.height
         bottomLine.move(to: p)
         p.x += bounds.size.width
         bottomLine.line(to: p)
@@ -63,7 +63,7 @@ Here is the code of the MLTextField class.
         bottomLine.stroke()
         
         let heightLine = NSBezierPath()
-        var p2 = NSPoint.zero //bounds.origin;
+        var p2 = CGPoint.zero //bounds.origin;
         heightLine.move(to: p2)
         p2.y = bounds.size.height
         heightLine.line(to: p2)

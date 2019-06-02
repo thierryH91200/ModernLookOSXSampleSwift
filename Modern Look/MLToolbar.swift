@@ -93,9 +93,9 @@ final class MLToolbar: MLGlassView {
             y = y - bh - 5
             let x : CGFloat = 8
             
-            closeButton.setFrameOrigin(NSPoint(x: x, y: y))
-            minimizeButton.setFrameOrigin(NSPoint(x: x + 2 + bw, y: y))
-            maximizeButton.setFrameOrigin(NSPoint(x: x + 2 + bw + 2 + bw, y: y))
+            closeButton.setFrameOrigin(CGPoint(x: x, y: y))
+            minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw, y: y))
+            maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + bw + 2 + bw, y: y))
             
             addSubview(closeButton)
             addSubview(minimizeButton)
@@ -113,7 +113,7 @@ final class MLToolbar: MLGlassView {
         
         guard hiddenButtons == false else { return }
         
-        var buttonsRect = NSRect.zero
+        var buttonsRect = CGRect.zero
         let b = bounds
         
         if isVerticalButtons == true {
@@ -127,10 +127,10 @@ final class MLToolbar: MLGlassView {
             
             if self.justClose == true {
                 buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(buttonWidth, buttonHeight + 3)
+                buttonsRect.size = CGSize(width: buttonWidth, height: buttonHeight + 3)
             } else {
                 buttonsRect.origin = CGPoint(x: x, y: y - buttonHeight - 3 - buttonHeight - 3)
-                buttonsRect.size = NSMakeSize(buttonWidth, buttonHeight + 3 + buttonHeight + 3 + buttonHeight)
+                buttonsRect.size = CGSize(width: buttonWidth, height: buttonHeight + 3 + buttonHeight + 3 + buttonHeight)
             }
 
             closeButton.setFrameOrigin(CGPoint(x: x, y: y))
@@ -148,10 +148,10 @@ final class MLToolbar: MLGlassView {
 
             if self.justClose == true {
                 buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(buttonWidth + 2, buttonHeight)
+                buttonsRect.size = CGSize(width: buttonWidth + 2, height: buttonHeight)
             } else {
                 buttonsRect.origin = CGPoint(x: x, y: y)
-                buttonsRect.size = NSMakeSize(buttonWidth + 2 + buttonWidth + buttonWidth, buttonHeight)
+                buttonsRect.size = CGSize(width: buttonWidth + 2 + buttonWidth + buttonWidth, height: buttonHeight)
             }
             
             closeButton.setFrameOrigin(CGPoint(x: x, y: y))
@@ -168,10 +168,6 @@ final class MLToolbar: MLGlassView {
     // Informs the receiver that the cursor has entered a tracking rectangle.
     override func mouseEntered(with theEvent: NSEvent) {
         
-//        let styleMask: NSWindow.StyleMask = [.closable, .resizable, .miniaturizable]
-//        self.window?.animator().styleMask = styleMask
-
-        
         closeButton.isHighlighted = true
         minimizeButton.isHighlighted = true
         maximizeButton.isHighlighted = true
@@ -180,10 +176,6 @@ final class MLToolbar: MLGlassView {
     // Informs the receiver that the cursor has exited a tracking rectangle.
     override func mouseExited(with theEvent: NSEvent) {
         
-        
-//        let styleMask: NSWindow.StyleMask = [.closable, .resizable, .miniaturizable]
-//        self.window?.animator().styleMask = styleMask
-
         
         closeButton.isHighlighted = false
         minimizeButton.isHighlighted = false

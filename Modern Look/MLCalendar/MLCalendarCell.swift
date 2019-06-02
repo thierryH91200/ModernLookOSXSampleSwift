@@ -95,7 +95,7 @@ final class MLCalendarCell: NSButton {
         ]
         
         let size = title.size(withAttributes: attrs)
-        let r = NSRect(x: bounds.origin.x,
+        let r = CGRect(x: bounds.origin.x,
                        y: bounds.origin.y + ((bounds.size.height - size.height) / 2.0) - 1,
                        width: bounds.size.width,
                        height: size.height)
@@ -104,16 +104,16 @@ final class MLCalendarCell: NSButton {
         
         //line
         let topLine = NSBezierPath()
-        topLine.move(to: NSPoint(x: bounds.minX, y: bounds.minY))
-        topLine.line(to: NSPoint(x: bounds.maxX, y: bounds.minY))
+        topLine.move(to: CGPoint(x: bounds.minX, y: bounds.minY))
+        topLine.line(to: CGPoint(x: bounds.maxX, y: bounds.minY))
         owner?.dayMarkerColor.set()
         topLine.lineWidth = 0.3
         topLine.stroke()
         if isToday() {
             owner?.todayMarkerColor.set()
             let bottomLine = NSBezierPath()
-            bottomLine.move(to: NSPoint(x: bounds.minX, y: bounds.maxY))
-            bottomLine.line(to: NSPoint(x: bounds.maxX, y: bounds.maxY))
+            bottomLine.move(to: CGPoint(x: bounds.minX, y: bounds.maxY))
+            bottomLine.line(to: CGPoint(x: bounds.maxX, y: bounds.maxY))
             bottomLine.lineWidth = 4.0
             bottomLine.stroke()
         }

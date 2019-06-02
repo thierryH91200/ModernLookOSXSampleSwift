@@ -36,10 +36,10 @@ final class MLHoverButton: NSButton {
 
         createTrackingArea()
         hoovered = false
-        hoveredForegroundColor = NSColor.white
-        hoveredBackgroundColor = NSColor.selectedTextBackgroundColor
-        backgroundColor = NSColor.clear
-        foregroundColor = NSColor.controlTextColor
+        hoveredForegroundColor = .white
+        hoveredBackgroundColor = .selectedTextBackgroundColor
+        backgroundColor = .clear
+        foregroundColor = .controlTextColor
         circleBorder = 8
         drawsOn = false
     }
@@ -99,7 +99,7 @@ final class MLHoverButton: NSButton {
             image?.lockFocus()
             tint?.set()
             
-            let imageRect = NSRect(origin: NSPoint.zero, size: image!.size)
+            let imageRect = NSRect(origin: CGPoint.zero, size: image!.size)
             __NSRectFillUsingOperation(imageRect, .sourceAtop)
             image?.unlockFocus()
         }

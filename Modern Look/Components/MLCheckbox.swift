@@ -118,7 +118,7 @@ final class MLCheckbox: NSButton {
             image?.lockFocus()
             tint?.set()
             
-            let imageRect = NSRect(origin: NSPoint.zero, size: image!.size)
+            let imageRect = CGRect(origin: CGPoint.zero, size: image!.size)
             __NSRectFillUsingOperation(imageRect, .sourceAtop)
             image?.unlockFocus()
         }
@@ -143,7 +143,7 @@ final class MLCheckbox: NSButton {
         var size = text.size(withAttributes: attrs)
         size.height = 17.0
         
-        let r = NSRect(x: rect.origin.x,
+        let r = CGRect(x: rect.origin.x,
                        y: rect.origin.y + ((rect.size.height - size.height) / 2.0) - 2,
                        width: rect.size.width,
                        height: size.height)

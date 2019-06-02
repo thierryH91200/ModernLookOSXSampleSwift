@@ -26,14 +26,15 @@ final class MLColoredButton: NSButton {
     }
     
     func commonInit() {
-        backgroundColor = NSColor.clear
-        textColor = NSColor.black
+        backgroundColor = .clear
+        textColor = .black
         isBordered = false
     }
     
     override func draw(_ dirtyRect: NSRect) {
         
         NSGraphicsContext.saveGraphicsState()
+        
         var bounds = self.bounds
         bounds = bounds.insetBy(dx: 0.5, dy: 0.5)
         

@@ -127,10 +127,10 @@ class MLMainWindow: NSWindow {
     func relativeCenter(_ window: NSWindow?) {
         
         let mr = NSApplication.shared.mainWindow!.frame
-        let mp = NSPoint(x: mr.midX, y: mr.midY)
+        let mp = CGPoint(x: mr.midX, y: mr.midY)
         
         let r = window?.frame
-        let wo = NSPoint(x: mp.x - ((r?.size.width ?? 0.0) / 2.0), y: mp.y - ((r?.size.height ?? 0.0) / 2.0))
+        let wo = CGPoint(x: mp.x - ((r?.size.width ?? 0.0) / 2.0), y: mp.y - ((r?.size.height ?? 0.0) / 2.0))
         window?.setFrameOrigin(wo)
     }
 }

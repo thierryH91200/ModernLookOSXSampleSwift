@@ -73,7 +73,7 @@ class ToolBar: NSViewController, MLCalendarViewDelegate {
         let button = sender as? NSButton
         let cellRect = button?.bounds
         if let button = button {
-            calendarPopover?.show(relativeTo: cellRect ?? NSRect.zero, of: button, preferredEdge: .maxY)
+            calendarPopover?.show(relativeTo: cellRect ?? CGRect.zero, of: button, preferredEdge: .maxY)
         }
     }
     

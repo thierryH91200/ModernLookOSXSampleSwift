@@ -33,9 +33,9 @@ class MLOutlineView: NSOutlineView {
     
     func commonInit() {
         
-        selectionColor = NSColor.blue
+        selectionColor = .blue
         savedTreeState = [Any]()
-        oldVisibleRect = NSRect.zero
+        oldVisibleRect = CGRect.zero
         
         enclosingScrollView?.borderType = .noBorder
         

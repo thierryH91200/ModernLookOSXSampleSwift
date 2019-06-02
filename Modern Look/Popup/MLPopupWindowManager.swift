@@ -19,7 +19,7 @@ final class MLPopupWindowManager: NSObject {
     
     override init() {
         super.init()
-        var contentRect = NSRect.zero
+        var contentRect = CGRect.zero
         contentRect.size.height = 200
         popupWindow = MLPopupWindow(contentRect: contentRect, styleMask: .borderless, backing: .buffered, defer: false)
         popupWindow?.isMovableByWindowBackground = false

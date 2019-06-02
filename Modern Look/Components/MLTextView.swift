@@ -53,7 +53,7 @@ final class MLTextView: NSTextView {
         fieldEditorMarker.set()
         
         let bottomLine = NSBezierPath()
-        var p = NSPoint.zero //bounds.origin;
+        var p = CGPoint.zero
         p.y = bounds.size.height - 1
         bottomLine.move(to: p)
         p.x += bounds.size.width

@@ -11,13 +11,29 @@ import AppKit
 final class MLRadioGroupManager: NSControl {
     
     static let shared = MLRadioGroupManager()
-
-    var selectedItem: Int = 0
+    var _selectedItem = 0
+    var selectedItem: Int {
+        get { return _selectedItem }
+        set {
+            _selectedItem = newValue
+            
+            for view in groupView.subviews {
+                if (view is NSButton) {
+                    let button = view as! NSButton
+                    if button.tag == newValue {
+                        button.state = .on
+                    } else {
+                        button.state = .off
+                    }
+                }
+            }
+        }
+    }
     
     @IBOutlet weak var groupView: NSView!
     
     @IBAction func buttonClicked(_ sender: NSButton) {
-        if sender.state != .on {
+        if sender.state == .off {
             sender.state = .on
             return
         }
@@ -36,20 +52,6 @@ final class MLRadioGroupManager: NSControl {
         target?.performSelector(onMainThread: action!, with: self, waitUntilDone: true)
     }
     
-    func setSelectedItem( selectedItem : Int) {
-        let selectedItem = selectedItem
-        
-        for view in groupView.subviews {
-            if (view is NSButton) {
-                let button = view as! NSButton
-                if button.tag == selectedItem {
-                    button.state = .on
-                } else {
-                    button.state = .off
-                }
-            }
-        }
-    }
 }
 
 

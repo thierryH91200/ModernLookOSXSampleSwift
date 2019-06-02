@@ -48,16 +48,14 @@ class MLHyperlink: NSTextField {
         focusRingType = .none
         createTrackingArea()
         isHovered = false
-        hoveredTextColor = NSColor.blue
-        backgroundColor = NSColor.clear
+        hoveredTextColor = .blue
+        backgroundColor = .clear
     }
     
     func createTrackingArea() {
         
         if trackingArea != nil {
-            if let trackingArea = trackingArea {
-                removeTrackingArea(trackingArea)
-            }
+            removeTrackingArea(trackingArea!)
         }
         trackingArea = NSTrackingArea(rect: bounds, options: [.mouseEnteredAndExited, .activeInActiveApp], owner: self, userInfo: nil)
         if let trackingArea = trackingArea {
@@ -90,7 +88,7 @@ class MLHyperlink: NSTextField {
         
         NSGraphicsContext.saveGraphicsState()
         
-        let bounds: NSRect = self.bounds
+        let bounds = self.bounds
         var drawColor = NSColor.clear
         
         if isHovered == true {
@@ -127,7 +125,7 @@ class MLHyperlink: NSTextField {
             textColor?.set()
             
             let bottomLine = NSBezierPath()
-            var p = NSPoint.zero //bounds.origin;
+            var p = CGPoint.zero //bounds.origin;
             p.y = bounds.size.height
             bottomLine.move(to: p)
             p.x += bounds.size.width
@@ -157,7 +155,7 @@ class MLHyperlink: NSTextField {
             }
             
             let bottomLine = NSBezierPath()
-            var p = NSPoint.zero //bounds.origin;
+            var p = CGPoint.zero //bounds.origin;
             p.y = bounds.size.height
             p.x = x1
             bottomLine.move(to: p)

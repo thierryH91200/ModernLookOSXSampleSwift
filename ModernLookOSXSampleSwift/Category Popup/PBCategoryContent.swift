@@ -44,7 +44,7 @@ class PBCategoryContent: MLPopupContent {
     }
     
     func makeSelectionVisible() {
-        let selRect: NSRect = tree.rect(ofRow: tree.selectedRow)
+        let selRect = tree.rect(ofRow: tree.selectedRow)
         tree.scrollToVisible(selRect)
     }
     

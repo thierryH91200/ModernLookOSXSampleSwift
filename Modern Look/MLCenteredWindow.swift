@@ -17,10 +17,10 @@ class MLCenteredWindow: MLMainWindow {
     override func center() {
         
         let mr = NSApplication.shared.mainWindow!.frame
-        let mp = NSPoint(x: mr.midX, y: mr.midY)
+        let mp = CGPoint(x: mr.midX, y: mr.midY)
         
         var r = frame
-        let wo = NSPoint(x: mp.x - (r.size.width / 2.0), y: mp.y - (r.size.height / 2.0))
+        let wo = CGPoint(x: mp.x - (r.size.width / 2.0), y: mp.y - (r.size.height / 2.0))
         r.origin = wo
         setFrameOrigin(wo)
     }

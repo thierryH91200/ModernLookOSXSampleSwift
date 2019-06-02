@@ -45,7 +45,7 @@ class MLTextField: NSTextField {
         let line = NSBezierPath()
 
         if isBottom == true {
-            var point = NSPoint.zero
+            var point = CGPoint.zero
             point.y = bounds.size.height
             line.move(to: point)
             point.x += bounds.size.width
@@ -55,7 +55,7 @@ class MLTextField: NSTextField {
         }
         
         if isLeft == true {
-            var point = NSPoint.zero
+            var point = CGPoint.zero
             line.move(to: point)
             point.y = bounds.size.height
             line.line(to: point)
@@ -64,7 +64,7 @@ class MLTextField: NSTextField {
         }
 
         if isTop == true {
-            var point = NSPoint.zero
+            var point = CGPoint.zero
             line.move(to: point)
             point.x += bounds.size.width
             line.line(to: point)
@@ -73,7 +73,7 @@ class MLTextField: NSTextField {
         }
 
         if isRight == true {
-            var point = NSPoint.zero
+            var point = CGPoint.zero
             point.x += bounds.size.width
             line.move(to: point)
             point.y = bounds.size.height
