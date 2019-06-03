@@ -94,7 +94,6 @@ final class MLCheckbox: NSButton {
         get { return _hoveredForegroundColor }
         set {
             _hoveredForegroundColor = newValue
-            
             if (image != nil) {
                 tintedImage = imageTinted(with: hoveredForegroundColor)
             }

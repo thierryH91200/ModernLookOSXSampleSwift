@@ -32,6 +32,7 @@ final class MLAlert: NSWindowController {
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         window?.styleMask = .borderless
+//        window?.contentView = MLWindowContent()
     }
     
     func showQuestion(_ question: String, title: String, withCancel: Bool, buttonsTitle titles: [String]) -> MLAlertResponse {
@@ -81,10 +82,7 @@ final class MLAlert: NSWindowController {
     }
     
     func resizeButtons() {
-        //    [self.no sizeToFit];
-        //    [self.yes sizeToFit];
-        //    [self.cancel sizeToFit];
-        
+
         var cr = cancel.bounds
         var yr = yes.bounds
         var nr = no.bounds

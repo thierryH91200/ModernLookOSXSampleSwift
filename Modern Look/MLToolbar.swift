@@ -31,7 +31,7 @@ final class MLToolbar: MLGlassView {
     }
 
     var _hiddenButtons = false
-    var hiddenButtons : Bool {
+    @objc var hiddenButtons : Bool {
         get { return _hiddenButtons }
         set {
             _hiddenButtons = newValue
