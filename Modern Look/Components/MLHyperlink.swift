@@ -10,7 +10,7 @@ import AppKit
 
 class MLHyperlink: NSTextField {
     
-    var hoveredTextColor = NSColor.blue
+    var hoveredTextColor = NSColor.linkColor
     var isHovered = false
     var hasUnderline = false
     
@@ -48,8 +48,8 @@ class MLHyperlink: NSTextField {
         focusRingType = .none
         createTrackingArea()
         isHovered = false
-        hoveredTextColor = .blue
-        backgroundColor = .clear
+        hoveredTextColor = NSColor.linkColor
+        backgroundColor = NSColor.controlBackgroundColor
     }
     
     func createTrackingArea() {
@@ -77,11 +77,8 @@ class MLHyperlink: NSTextField {
     }
     
     override func mouseDown(with theEvent: NSEvent) {
-        
-        
+
         sendAction(action, to: target)
-        
-        
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -131,8 +128,7 @@ class MLHyperlink: NSTextField {
             p.x += bounds.size.width
             bottomLine.line(to: p)
             bottomLine.stroke()
-            
-            
+
         } else if self.isHovered == true {
             
             let size = text.size(withAttributes: attrs)

@@ -107,7 +107,7 @@ final class MLCalendarView: NSViewController {
         
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: Locale.preferredLanguages[0])
-        var days = dateFormatter.shortStandaloneWeekdaySymbols
+        let days = dateFormatter.shortStandaloneWeekdaySymbols
         
         for i in 0..<(days?.count ?? 0) {
             let day = days?[i].uppercased()
@@ -243,7 +243,7 @@ final class MLCalendarView: NSViewController {
         }
         
         let unitFlags = Set<Calendar.Component>([.weekday])
-        var components = cal.dateComponents(unitFlags, from: monthDay(1)!)
+        let components = cal.dateComponents(unitFlags, from: monthDay(1)!)
         let firstDay = components.weekday!
         let lastDay = lastDayOfTheMonth()
         var colFirstDay = colforDay( day: firstDay)
@@ -275,7 +275,7 @@ final class MLCalendarView: NSViewController {
             calendar.timeZone = time
         }
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        var components: DateComponents = calendar.dateComponents(unitFlags, from: date)
+        var components = calendar.dateComponents(unitFlags, from: date)
         
         var month = components.month! + dm
         var year = components.year!

@@ -94,6 +94,19 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		03799B3622F6C50100FA5D02 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		031349D2226D9F840083077A /* MLComboField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLComboField.swift; sourceTree = "<group>"; };
 		031349D4226D9FD60083077A /* MLComboFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MLComboFieldDelegate.swift; sourceTree = "<group>"; };
@@ -243,6 +256,13 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		03799B3322F6C50100FA5D02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		03A347D82295330500BC1D5E /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +292,7 @@
 				03DE67C4226BA5300034AACB /* ModernLookOSXSampleSwiftTests */,
 				03DE67CF226BA5300034AACB /* ModernLookOSXSampleSwiftUITests */,
 				03DE67B2226BA52F0034AACB /* Products */,
+				03799B3322F6C50100FA5D02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -399,6 +420,7 @@
 				03DE67AD226BA52F0034AACB /* Sources */,
 				03DE67AE226BA52F0034AACB /* Frameworks */,
 				03DE67AF226BA52F0034AACB /* Resources */,
+				03799B3622F6C50100FA5D02 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -452,7 +474,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1100;
 				ORGANIZATIONNAME = "thierry hentic";
 				TargetAttributes = {
 					03DE67B0226BA52F0034AACB = {
@@ -747,6 +769,7 @@
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -801,6 +824,7 @@
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -808,6 +832,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ModernLookOSXSampleSwift/Info.plist;
@@ -825,6 +850,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = ModernLookOSXSampleSwift/Info.plist;

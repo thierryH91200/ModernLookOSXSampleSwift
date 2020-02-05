@@ -80,7 +80,7 @@ class PBCategory: PBEntity {
     var parent: PBCategory? = nil
     @objc var subCategories: [PBCategory] = []
     @objc var name = ""
-    var seq: NSNumber?
+    var seq: Int = 0
     
     override init() {
         super.init()

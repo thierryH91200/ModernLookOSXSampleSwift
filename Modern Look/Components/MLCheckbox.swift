@@ -29,8 +29,7 @@ final class MLCheckbox: NSButton {
     var hoovered = false
     var justTurnedOff = false
     var tintedImage: NSImage?
-    
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         commonInit()

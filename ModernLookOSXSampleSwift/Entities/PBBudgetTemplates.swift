@@ -66,6 +66,7 @@ class PBBudgetTemplates: NSObject {
         return ret
     }
     
+    // MARK: createSmallOfficeBudget
     func createSmallOfficeBudget() -> PBBudget? {
         
         let ret = PBBudget()
@@ -74,14 +75,7 @@ class PBBudgetTemplates: NSObject {
         
         c = createCategory(withName: "Marketing", andParent: nil)
         ret.categories.append(c!)
-        createSubCategories(withName: [
-            "Printing",
-            "AdWords",
-            "Facebook",
-            "Twitter",
-            "Referral Fees",
-            "Comissions"
-            ], forParent: c)
+        createSubCategories(withName: [ "Printing", "AdWords", "Facebook", "Twitter", "Referral Fees", "Comissions" ], forParent: c)
         
         c = createCategory(withName: "Services", andParent: nil)
         ret.categories.append(c!)

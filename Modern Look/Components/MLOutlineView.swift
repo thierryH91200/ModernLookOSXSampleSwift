@@ -13,7 +13,7 @@ class MLOutlineView: NSOutlineView {
     var savedTreeState: [Any] = []
     var oldVisibleRect = NSRect.zero
     var savedSortDescriptors: [NSSortDescriptor] = []
-    var _selectionColor = NSColor.blue
+    var _selectionColor = NSColor.selectedTextBackgroundColor
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -33,7 +33,7 @@ class MLOutlineView: NSOutlineView {
     
     func commonInit() {
         
-        selectionColor = .blue
+        selectionColor = .selectedTextBackgroundColor
         savedTreeState = [Any]()
         oldVisibleRect = CGRect.zero
         

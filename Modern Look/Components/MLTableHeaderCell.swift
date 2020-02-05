@@ -22,7 +22,7 @@ final class MLTableHeaderCell: NSTableHeaderCell {
     override func draw(withFrame cellFrame: NSRect, in controlView: NSView?) {
         
         //    [self.backgroundColor set];
-        NSColor.white.set()
+        NSColor.controlBackgroundColor.set()
         cellFrame.fill()
         
         var textCell = cellFrame
@@ -35,7 +35,7 @@ final class MLTableHeaderCell: NSTableHeaderCell {
         let attrs : [NSAttributedString.Key : Any] = [
             .paragraphStyle: paragraphStyle,
             .font: font!,
-            .foregroundColor: textColor!
+            .foregroundColor: NSColor.headerTextColor
         ]
         
         stringValue.draw(in: textCell, withAttributes: attrs as [NSAttributedString.Key : Any])

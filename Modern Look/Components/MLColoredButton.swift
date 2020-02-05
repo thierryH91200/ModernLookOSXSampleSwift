@@ -12,8 +12,8 @@ final class MLColoredButton: NSButton {
     
     let ML_COLORED_BUTTON_ROUNDED_RECT_RADIUS = CGFloat(5)
 
-    var backgroundColor = NSColor.white
-    var textColor = NSColor.black
+    var backgroundColor = NSColor.textBackgroundColor
+    var textColor = NSColor.labelColor
 
     override  init(frame frameRect: NSRect) {
         super.init(frame: frameRect)

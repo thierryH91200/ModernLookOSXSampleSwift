@@ -10,10 +10,10 @@ import AppKit
 
 final class MLHoverButton: NSButton {
     
-    var backgroundColor = NSColor.clear
+    var backgroundColor = NSColor.controlBackgroundColor
     @objc var hoveredBackgroundColor  = NSColor.selectedTextBackgroundColor
-    @objc var foregroundColor: NSColor = NSColor.blue
-    var _hoveredForegroundColor = NSColor.blue
+    @objc var foregroundColor: NSColor = NSColor.labelColor
+    var _hoveredForegroundColor = NSColor.selectedTextBackgroundColor
     
     var circleBorder: CGFloat = 0.0
     var drawsOn = false
@@ -36,9 +36,9 @@ final class MLHoverButton: NSButton {
 
         createTrackingArea()
         hoovered = false
-        hoveredForegroundColor = .white
-        hoveredBackgroundColor = .selectedTextBackgroundColor
-        backgroundColor = .clear
+        hoveredForegroundColor = .unemphasizedSelectedTextColor
+        hoveredBackgroundColor = .unemphasizedSelectedTextBackgroundColor
+        backgroundColor = .textBackgroundColor
         foregroundColor = .controlTextColor
         circleBorder = 8
         drawsOn = false
@@ -110,7 +110,7 @@ final class MLHoverButton: NSButton {
     func drawText(_ text: String, in rect: NSRect, with foregroundColor: NSColor) {
         
         let bgPath = NSBezierPath(rect: rect)
-        NSColor.white.set()
+        NSColor.textBackgroundColor.set()
         bgPath.fill()
         
         let aParagraphStyle = NSMutableParagraphStyle()

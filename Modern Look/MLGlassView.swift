@@ -14,18 +14,16 @@ class MLGlassView: NSView {
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        backgroundColor = NSColor.white
-//        commonInit()
+        backgroundColor = NSColor.windowBackgroundColor
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        backgroundColor = NSColor.white
-//        commonInit()
+        backgroundColor = NSColor.windowBackgroundColor
     }
     
     func commonInit() {
-        backgroundColor = NSColor.white
+        backgroundColor = NSColor.windowBackgroundColor
     }
     
     override func draw(_ dirtyRect: NSRect) {

@@ -75,6 +75,7 @@ final class MLToolbar: MLGlassView {
     override func commonInit() {
         
         super.commonInit()
+//        return;
         
         if self.hiddenButtons == false {
             
@@ -106,6 +107,7 @@ final class MLToolbar: MLGlassView {
     
     // Create A region of a view that generates mouse-tracking and cursor-update events when the pointer is over that region.
     func createTrackingArea() {
+//        return;
         
         if trackingArea != nil {
             removeTrackingArea(trackingArea!)
@@ -176,7 +178,6 @@ final class MLToolbar: MLGlassView {
     // Informs the receiver that the cursor has exited a tracking rectangle.
     override func mouseExited(with theEvent: NSEvent) {
         
-        
         closeButton.isHighlighted = false
         minimizeButton.isHighlighted = false
         maximizeButton.isHighlighted = false
@@ -194,7 +195,7 @@ final class MLToolbar: MLGlassView {
         backgroundColor.set()
         borderPath.fill()
         
-        NSColor.black.set()
+        NSColor.gridColor.set()
         let bottomLine = NSBezierPath()
         var p = bounds.origin
         bottomLine.move(to: p)

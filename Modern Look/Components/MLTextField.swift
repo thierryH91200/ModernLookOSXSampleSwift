@@ -30,7 +30,7 @@ class MLTextField: NSTextField {
     func commonInit() {
         font = NSFont(name: "Helvetica Neue Thin", size: 16.0)
         isBordered = false
-        backgroundColor = .clear
+        backgroundColor = .controlBackgroundColor
         focusRingType = .none
     }
     

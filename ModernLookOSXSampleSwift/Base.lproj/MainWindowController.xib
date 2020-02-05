@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14854.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -9,14 +10,14 @@
             <connections>
                 <outlet property="pbContentView" destination="bPg-Z3-Mcc" id="pg6-U2-IJ7"/>
                 <outlet property="pbToolBar" destination="whW-lX-rz4" id="XTe-d6-tYF"/>
-                <outlet property="win" destination="F0z-JX-Cv5" id="RQ7-lF-gqR"/>
-                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
+                <outlet property="win" destination="F0z-JX-Cv5" id="n0B-il-dhr"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="S2g-qf-4hu"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="ModernLook" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="saveWin" animationBehavior="default" id="F0z-JX-Cv5" customClass="MLMainWindow" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-            <windowStyleMask key="styleMask" titled="YES"/>
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="798" height="425"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
@@ -47,7 +48,7 @@
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
                 <outlet property="pbContent" destination="bPg-Z3-Mcc" id="HJG-cR-FBV"/>
-                <outlet property="pbToolbar" destination="whW-lX-rz4" id="gIu-gA-kKm"/>
+                <outlet property="pbToolbar" destination="whW-lX-rz4" id="6IA-iz-Fsa"/>
             </connections>
             <point key="canvasLocation" x="298" y="224.5"/>
         </window>
