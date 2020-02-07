@@ -10,6 +10,11 @@ import AppKit
 
 class MLTextField: NSTextField {
     
+    override var backgroundColor : NSColor?  {
+        get {    return  NSColor.textBackgroundColor   }
+        set {         }
+    }
+    
     @IBInspectable var lineWidth : CGFloat  = 1.0
     
     @IBInspectable var isBottom: Bool = true
@@ -30,7 +35,7 @@ class MLTextField: NSTextField {
     func commonInit() {
         font = NSFont(name: "Helvetica Neue Thin", size: 16.0)
         isBordered = false
-        backgroundColor = .controlBackgroundColor
+        backgroundColor = .textBackgroundColor
         focusRingType = .none
     }
     

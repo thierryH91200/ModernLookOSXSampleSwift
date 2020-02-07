@@ -16,8 +16,8 @@ final class MLCalendarView: NSViewController {
     
     @IBOutlet weak var calendarTitle: NSTextField!
     
-    var backgroundColor = NSColor.white
-    var textColor = NSColor.black
+    var backgroundColor = NSColor.textBackgroundColor
+    var textColor = NSColor.labelColor
     var selectionColor = NSColor.red
     var todayMarkerColor = NSColor.green
     var dayMarkerColor = NSColor.darkGray
@@ -123,8 +123,8 @@ final class MLCalendarView: NSViewController {
     }
     
     func commonInit() {
-        backgroundColor = .white
-        textColor = .black
+        backgroundColor = .textBackgroundColor
+        textColor = .labelColor
         selectionColor = .red
         todayMarkerColor = .green
         dayMarkerColor = .darkGray
@@ -161,7 +161,6 @@ final class MLCalendarView: NSViewController {
         }
         return nil
     }
-    
     
     @objc func cellClicked(_ sender: MLCalendarCell?) {
         for row in 0..<6 {

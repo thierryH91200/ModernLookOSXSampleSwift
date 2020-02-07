@@ -10,7 +10,7 @@ import AppKit
 
 final class MLTableView: NSTableView {
     
-    var _selectionColor = NSColor.blue
+    var _selectionColor = NSColor.selectedControlColor
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)

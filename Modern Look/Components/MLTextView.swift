@@ -12,6 +12,7 @@ final class MLTextView: NSTextView {
     
     var fieldEditorMarker =  NSColor.clear
     
+    
     override init(frame frameRect: NSRect)
     {
         super.init(frame: frameRect)

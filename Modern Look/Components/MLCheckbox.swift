@@ -8,19 +8,17 @@
 
 import AppKit
 
-final class MLCheckbox: NSButton {
+class MLCheckbox: NSButton {
     
-    var backgroundColor: NSColor?
+    var backgroundColor = NSColor.textBackgroundColor
     
-    var _hoveredBackgroundColor = NSColor.blue
-    
-    @IBInspectable
+    var _hoveredBackgroundColor = NSColor.windowBackgroundColor
     var hoveredBackgroundColor : NSColor {
         get { return _hoveredBackgroundColor }
         set { _hoveredBackgroundColor = newValue}
     }
     
-    var foregroundColor = NSColor.blue
+    var foregroundColor = NSColor.controlAccentColor
     var _hoveredForegroundColor = NSColor.orange
     var circleBorder: CGFloat = 0.0
     var onImage: NSImage?
@@ -50,10 +48,10 @@ final class MLCheckbox: NSButton {
         justTurnedOff = false
         hoovered = false
         
-        hoveredForegroundColor = .blue
+        hoveredForegroundColor = .controlAccentColor
         hoveredBackgroundColor = .orange
-        backgroundColor = .clear
-        foregroundColor = .controlTextColor
+        backgroundColor = .windowBackgroundColor
+        foregroundColor = .labelColor
         circleBorder = 0.0
     }
     
@@ -84,7 +82,7 @@ final class MLCheckbox: NSButton {
     
     override func mouseDown(with theEvent: NSEvent) {
         super.mouseDown(with: theEvent)
-        if hoovered == true{
+        if hoovered == true {
             justTurnedOff = state == .off
         }
     }
@@ -136,7 +134,9 @@ final class MLCheckbox: NSButton {
         let attrs: [NSAttributedString.Key : Any] = [
                 .paragraphStyle: aParagraphStyle,
                 .font: font!,
-                .foregroundColor: foregroundColor
+                .foregroundColor: foregroundColor,
+                .backgroundColor : backgroundColor
+
             ]
         var size = text.size(withAttributes: attrs)
         size.height = 17.0
@@ -156,7 +156,7 @@ final class MLCheckbox: NSButton {
         NSGraphicsContext.saveGraphicsState()
         
         let bgPath1 = NSBezierPath(ovalIn: dirtyRect)
-        NSColor.white.set()
+        NSColor.windowBackgroundColor.set()
         bgPath1.fill()
         
 
@@ -184,10 +184,10 @@ final class MLCheckbox: NSButton {
         
         let bgPath = NSBezierPath(ovalIn: circleRect)
         
-        NSColor.white.set()
+        NSColor.textBackgroundColor.set()
         bgPath.fill()
         
-        bg?.set()
+        bg.set()
         bgPath.fill()
 
         var im: NSImage? = nil
@@ -220,6 +220,7 @@ final class MLCheckbox: NSButton {
         textRect.origin.x += circleRect.size.width + 4
         textRect.size.width -= circleRect.size.width + 4
 
+        print(title)
         drawText(title, in: textRect, with: fc)
         NSGraphicsContext.restoreGraphicsState()
     }

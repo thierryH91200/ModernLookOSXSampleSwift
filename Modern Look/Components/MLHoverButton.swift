@@ -8,15 +8,27 @@
 
 import AppKit
 
-final class MLHoverButton: NSButton {
+class MLHoverButton: NSButton {
     
-    var backgroundColor = NSColor.controlBackgroundColor
-    @objc var hoveredBackgroundColor  = NSColor.selectedTextBackgroundColor
-    @objc var foregroundColor: NSColor = NSColor.labelColor
-    var _hoveredForegroundColor = NSColor.selectedTextBackgroundColor
-    
-    var circleBorder: CGFloat = 0.0
-    var drawsOn = false
+    var backgroundColor              = NSColor.windowBackgroundColor
+    @objc var foregroundColor        = NSColor.labelColor
+
+    @objc var hoveredBackgroundColor = NSColor.selectedTextBackgroundColor
+
+    var _hoveredForegroundColor      = NSColor.selectedTextBackgroundColor
+    @objc var hoveredForegroundColor : NSColor  {
+        get { return _hoveredForegroundColor }
+        set {
+            _hoveredForegroundColor = newValue
+            
+            if (image != nil) {
+                tintedImage = imageTinted(with: hoveredForegroundColor)
+            }
+        }
+    }
+
+    var circleBorder: CGFloat = 8.0
+    var isDrawsOn = false
     
     var trackingArea: NSTrackingArea?
     var hoovered = false
@@ -38,10 +50,10 @@ final class MLHoverButton: NSButton {
         hoovered = false
         hoveredForegroundColor = .unemphasizedSelectedTextColor
         hoveredBackgroundColor = .unemphasizedSelectedTextBackgroundColor
-        backgroundColor = .textBackgroundColor
-        foregroundColor = .controlTextColor
+        backgroundColor = .windowBackgroundColor
+        foregroundColor = .labelColor
         circleBorder = 8
-        drawsOn = false
+        isDrawsOn = false
     }
     
     override func viewDidEndLiveResize() {
@@ -71,16 +83,6 @@ final class MLHoverButton: NSButton {
         needsDisplay = true
     }
     
-    @objc var hoveredForegroundColor : NSColor  {
-        get { return _hoveredForegroundColor }
-        set {
-            _hoveredForegroundColor = newValue
-            
-            if (image != nil) {
-                tintedImage = imageTinted(with: hoveredForegroundColor)
-            }
-        }
-    }
     
     override var image : NSImage?  {
         get { return super.image }
@@ -120,7 +122,8 @@ final class MLHoverButton: NSButton {
         let attrs: [NSAttributedString.Key : Any] = [
             .paragraphStyle: aParagraphStyle,
             .font: font!,
-            .foregroundColor: foregroundColor
+            .foregroundColor: foregroundColor,
+            .backgroundColor : backgroundColor
         ]
         var size = text.size(withAttributes: attrs)
         size.height = 17.0
@@ -136,12 +139,12 @@ final class MLHoverButton: NSButton {
         
         var isOn = false
         NSGraphicsContext.saveGraphicsState()
-        var circleRect: NSRect = bounds
-        
+
+        var circleRect = bounds
         if circleRect.size.width > circleRect.size.height {
             circleRect.size.width = circleRect.size.height
         } else if circleRect.size.width < circleRect.size.height {
-            let originalH: CGFloat = circleRect.size.height
+            let originalH = circleRect.size.height
             circleRect.size.height = circleRect.size.width
             circleRect.origin.y = (originalH - circleRect.size.height) / 2.0
         }
@@ -150,38 +153,38 @@ final class MLHoverButton: NSButton {
         textRect.origin.x += circleRect.size.width + 4
         textRect.size.width -= circleRect.size.width + 4
         
-        var bg = backgroundColor
-        var fc: NSColor? = nil
-        isOn = hoovered && isHighlighted == false  // || (self.state == NSOnState);
-        if drawsOn && (state == .on) {
+        var backGroundColor = backgroundColor
+        var foregroundcolor: NSColor? = nil
+        isOn = hoovered && isHighlighted == false  || (self.state == .on)
+        if isDrawsOn == true && (state == .on) {
             isOn = true
         }
-        if isOn {
-            bg = hoveredBackgroundColor
-            fc = hoveredForegroundColor
+        if isOn == true {
+            backGroundColor = hoveredBackgroundColor
+            foregroundcolor = hoveredForegroundColor
         } else {
-            bg = backgroundColor
-            fc = foregroundColor
+            backGroundColor = backgroundColor
+            foregroundcolor = foregroundColor
         }
         
         let bgPath = NSBezierPath(ovalIn: circleRect)
-        bg.set()
+        backGroundColor.set()
         bgPath.fill()
         
         if (image != nil) {
             
             let targetRect = circleRect.insetBy(dx: circleBorder, dy: circleBorder)
-            var i: NSImage? = nil
+            var ima: NSImage? = nil
             
-            if isOn {
-                i = tintedImage
+            if isOn == true {
+                ima = tintedImage
             } else {
-                i = image
+                ima = image
             }
             
             var imageRect = NSRect.zero
-            var width = i?.size.width
-            var height = i?.size.height
+            var width = ima?.size.width
+            var height = ima?.size.height
             if (width ?? 0.0) > targetRect.size.width {
                 width = targetRect.size.width
             }
@@ -194,8 +197,10 @@ final class MLHoverButton: NSButton {
             imageRect.origin.x = (circleRect.size.width - imageRect.size.width) / 2.0
             imageRect.origin.y = (circleRect.size.height - imageRect.size.height) / 2.0
             
-            i?.draw(in: imageRect)
-            drawText(title, in: textRect, with: fc!)
+            ima?.draw(in: imageRect)
+            print(title , "with image")
+
+            drawText(title, in: textRect, with: foregroundcolor!)
         }
             
         else {
@@ -217,7 +222,8 @@ final class MLHoverButton: NSButton {
             let attrs : [NSAttributedString.Key : Any ] = [
                 .paragraphStyle: aParagraphStyle,
                 .font: font!,
-                .foregroundColor: fc!
+                .foregroundColor: foregroundcolor!,
+                .backgroundColor : backgroundColor
             ]
             
             let size = (sign?.size(withAttributes: attrs))!
@@ -228,8 +234,8 @@ final class MLHoverButton: NSButton {
                            height: size.height)
             
             sign?.draw(in: r, withAttributes: attrs)
-            drawText(text!, in: textRect, with: fc!)
-            
+            print(text!, "without image")
+            drawText(text!, in: textRect, with: foregroundcolor!)
         }
         NSGraphicsContext.restoreGraphicsState()
     }
@@ -242,23 +248,16 @@ extension String {
         return self.index(startIndex, offsetBy: from)
     }
     
-//    let newStr = str.substring(from: index) // Swift 3
-//    let newStr = String(str[index...]) // Swift 4
     func substring(from: Int) -> String {
         let fromIndex = index(from: from)
         return String(self[fromIndex...])
     }
     
-//    let newStr = str.substring(to: index) // Swift 3
-//    let newStr = String(str[..<index]) // Swift 4
     func substring(to: Int) -> String {
         let toIndex = index(from: to)
         return String(self[..<toIndex])
     }
     
-//    let range = firstIndex..<secondIndex // If you have a range
-//    let newStr = = str.substring(with: range) // Swift 3
-//    let newStr = String(str[range])  // Swift 4
     func substring(with r: Range<Int>) -> String {
         let startIndex = index(from: r.lowerBound)
         let endIndex = index(from: r.upperBound)

@@ -91,7 +91,7 @@ final class MLCalendarCell: NSButton {
         let attrs : [NSAttributedString.Key : Any] = [
             .paragraphStyle: paragraphStyle,
             .font: font!,
-            .foregroundColor: owner?.textColor ?? .black
+            .foregroundColor: owner?.textColor ?? .labelColor
         ]
         
         let size = title.size(withAttributes: attrs)
@@ -119,7 +119,6 @@ final class MLCalendarCell: NSButton {
         }
         
         NSGraphicsContext.restoreGraphicsState()
-        
     }
 
 }

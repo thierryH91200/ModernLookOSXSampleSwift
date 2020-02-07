@@ -20,15 +20,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         initializeLibraryAndShowMainWindow()
     }
     
-    func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
-    }
-    
-    func applicationShouldTerminateAfterLastWindowClosed (_ sender: NSApplication) -> Bool
-    {
+    func applicationShouldTerminateAfterLastWindowClosed (_ sender: NSApplication) -> Bool {
         return true
     }
-    
+
     func initializeLibraryAndShowMainWindow() {
         
         mainWindowController = MainWindowController()
