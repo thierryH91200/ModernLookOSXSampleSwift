@@ -32,48 +32,51 @@ final class MLAlert: NSWindowController {
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
         window?.styleMask = .borderless
-//        window?.contentView = MLWindowContent()
+        window?.contentView = MLWindowContent()
+        window?.maxSize = NSSize(width: 200, height: 200)
     }
     
-    func showQuestion(_ question: String, title: String, withCancel: Bool, buttonsTitle titles: [String]) -> MLAlertResponse {
-
+    func showQuestion(_ question: String, title: String, withCancel: Bool,  titles: [String]) -> MLAlertResponse {
+        
         if withCancel == false {
             cancel.isHidden = true
         }
         self.title.stringValue = title
-        message.stringValue = question
+        self.message.stringValue = question
         if titles.count == 3 {
-            cancel.title = titles[0]
-            yes.title = titles[1]
-            no.title = titles[2]
+            self.cancel.title = titles[0]
+            self.yes.title = titles[1]
+            self.no.title = titles[2]
         } else {
-            yes.title = titles[0]
-            no.title = titles[1]
+            self.yes.title = titles[0]
+            self.no.title = titles[1]
         }
-        resizeButtons()
+        self.resizeButtons()
         
-        let res = runAlert()
-        window?.close()
+        let res = self.runAlert()
+        self.window?.close()
         return res
     }
     
     func showQuestion(_ question: String, title: String, withCancel: Bool) -> MLAlertResponse {
-        return showQuestion(question, title: title, withCancel: withCancel, buttonsTitle: ["Cancel", "Yes", "No"])
+        return showQuestion(question, title: title, withCancel: withCancel, titles: ["Cancel", "Yes", "No"])
     }
     
     func showError(_ question: String, title: String, buttonsTitle butonTitle: String) -> MLAlertResponse {
         
-        toolbar.backgroundColor = .red
-        cancel.isHidden = true
-        yes.isHidden = true
+        let alert = MLAlert()
+
+        self.toolbar.backgroundColor = .textBackgroundColor
+        self.cancel.isHidden = true
+        self.yes.isHidden = true
         
         self.title.stringValue = title
-        message.stringValue = question
-        no.title = butonTitle
-        resizeButtons()
+        self.message.stringValue = question
+        self.no.title = butonTitle
+        self.resizeButtons()
         
-        let res = runAlert()
-        window?.close()
+        let res = self.runAlert()
+        self.window?.close()
         return res
     }
     
@@ -120,7 +123,6 @@ final class MLAlert: NSWindowController {
     }
     
     func windowWillClose(_ notification: Notification) {
-        //    [[NSApplication sharedApplication] stopModal];
     }
     
     @IBAction func doCancel(_ sender: Any) {

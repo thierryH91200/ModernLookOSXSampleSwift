@@ -177,9 +177,12 @@ final class MLCalendarView: NSViewController {
     
     func monthDay(_ day: Int) -> Date? {
         var calendar = Calendar.current
-        if let time = TimeZone(abbreviation: "UTC") {
-            calendar.timeZone = time
-        }
+        calendar.timeZone = .current
+
+//        if let time = TimeZone(abbreviation: "UTC") {
+//            calendar.timeZone = time
+//        }
+
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
         let components: DateComponents = calendar.dateComponents(unitFlags, from: date)
         var dateComponents = DateComponents()

@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16085" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16085"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="MLAlert">
+        <customObject id="-2" userLabel="File's Owner" customClass="MLAlert" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
             <connections>
-                <outlet property="cancel" destination="1VS-YW-anM" id="OQt-DA-yzb"/>
-                <outlet property="message" destination="WVl-N5-6Px" id="0V6-a5-Wpn"/>
-                <outlet property="no" destination="X5U-LN-WrO" id="rkB-jM-oo8"/>
-                <outlet property="title" destination="OEn-fO-laH" id="3W2-0a-ZKn"/>
-                <outlet property="toolbar" destination="D4K-MO-rYw" id="goD-Hr-a2S"/>
-                <outlet property="window" destination="F0z-JX-Cv5" id="gIp-Ho-8D9"/>
-                <outlet property="yes" destination="Vcr-UG-FoQ" id="q29-wZ-bl1"/>
+                <outlet property="cancel" destination="1VS-YW-anM" id="sDf-58-2fu"/>
+                <outlet property="message" destination="WVl-N5-6Px" id="s5s-s3-bAl"/>
+                <outlet property="no" destination="X5U-LN-WrO" id="nqo-o3-Jdc"/>
+                <outlet property="title" destination="OEn-fO-laH" id="q0H-uG-7a3"/>
+                <outlet property="toolbar" destination="D4K-MO-rYw" id="be5-3V-I4J"/>
+                <outlet property="window" destination="F0z-JX-Cv5" id="ou3-R4-XK5"/>
+                <outlet property="yes" destination="Vcr-UG-FoQ" id="ATU-Oe-5bA"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="MLAlertWindow" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="F0z-JX-Cv5" customClass="MLAlertWindow" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="480" height="166"/>
             <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" id="se5-gp-TjO" customClass="MLWindowContent" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
@@ -130,6 +132,7 @@ Gw
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+                <outlet property="pbContent" destination="se5-gp-TjO" id="8jC-MC-RoR"/>
             </connections>
             <point key="canvasLocation" x="-130" y="67"/>
         </window>

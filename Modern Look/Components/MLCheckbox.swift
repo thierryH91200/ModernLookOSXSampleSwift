@@ -155,11 +155,10 @@ class MLCheckbox: NSButton {
         
         NSGraphicsContext.saveGraphicsState()
         
-        let bgPath1 = NSBezierPath(ovalIn: dirtyRect)
+        let bgPath1 = NSBezierPath(ovalIn: bounds)
         NSColor.windowBackgroundColor.set()
         bgPath1.fill()
         
-
         var circleRect = bounds
         
         if circleRect.size.width > circleRect.size.height {
@@ -220,8 +219,9 @@ class MLCheckbox: NSButton {
         textRect.origin.x += circleRect.size.width + 4
         textRect.size.width -= circleRect.size.width + 4
 
-        print(title)
+        print("MLCheckbox : ", title)
         drawText(title, in: textRect, with: fc)
+        
         NSGraphicsContext.restoreGraphicsState()
     }
 }

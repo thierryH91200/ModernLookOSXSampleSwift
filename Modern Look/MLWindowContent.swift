@@ -11,10 +11,9 @@ import AppKit
 class MLWindowContent: MLGlassView {
     
     override func draw(_ rect: NSRect) {
+        
         NSGraphicsContext.saveGraphicsState()
-        
         let bounds = self.bounds
-        
         let borderPath = NSBezierPath(roundedRect: bounds, xRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS, yRadius: ML_MAIN_WINDOW_ROUNDED_RECT_RADIUS)
         backgroundColor.set()
         borderPath.fill()
