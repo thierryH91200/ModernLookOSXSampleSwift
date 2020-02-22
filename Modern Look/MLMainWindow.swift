@@ -35,7 +35,6 @@ class MLMainWindow: NSWindow {
       setupButtons()
     }
 
-    
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreType, defer flag: Bool)
     {
         super.init(contentRect: contentRect, styleMask: [.borderless , .resizable], backing: bufferingType, defer: flag)
