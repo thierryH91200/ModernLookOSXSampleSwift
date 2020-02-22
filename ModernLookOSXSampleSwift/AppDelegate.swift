@@ -17,19 +17,17 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
-        initializeLibraryAndShowMainWindow()
+        initializeAndShowMainWindow()
     }
     
     func applicationShouldTerminateAfterLastWindowClosed (_ sender: NSApplication) -> Bool {
         return true
     }
 
-    func initializeLibraryAndShowMainWindow() {
-        
+    func initializeAndShowMainWindow() {
         mainWindowController = MainWindowController()
         mainWindowController?.showWindow(self)
     }
-    
 }
 
 

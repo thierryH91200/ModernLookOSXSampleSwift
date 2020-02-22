@@ -219,7 +219,6 @@ class MLCheckbox: NSButton {
         textRect.origin.x += circleRect.size.width + 4
         textRect.size.width -= circleRect.size.width + 4
 
-        print("MLCheckbox : ", title)
         drawText(title, in: textRect, with: fc)
         
         NSGraphicsContext.restoreGraphicsState()

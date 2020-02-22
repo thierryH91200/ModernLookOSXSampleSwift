@@ -31,8 +31,6 @@ class MLComboField: MLTextField {
         
         let d = delegate as? MLComboFieldDelegate
         d?.handleMouseClick(self)
-        
-        print("Mouse down!")
     }
     
     func hidePopup() {

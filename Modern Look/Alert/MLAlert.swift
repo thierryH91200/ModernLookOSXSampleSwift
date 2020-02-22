@@ -47,8 +47,7 @@ final class MLAlert: NSWindowController {
 //        self.window?.frame = window.frame
 //        window?.contentView = MLWindowContent()
         window?.maxSize = NSSize(width: 200, height: 200)
-        let frame = window?.frame
-        print(frame)
+//        let frame = window?.frame
     }
     
     func showQuestion(_ question: String, title: String, withCancel: Bool,  titles: [String]) -> MLAlertResponse {

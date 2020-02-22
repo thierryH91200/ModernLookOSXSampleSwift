@@ -198,8 +198,6 @@ class MLHoverButton: NSButton {
             imageRect.origin.y = (circleRect.size.height - imageRect.size.height) / 2.0
             
             ima?.draw(in: imageRect)
-            print(title , "with image")
-
             drawText(title, in: textRect, with: foregroundcolor!)
         }
             

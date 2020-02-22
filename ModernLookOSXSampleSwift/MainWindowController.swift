@@ -13,18 +13,13 @@ class MainWindowController: NSWindowController {
     var budgetView: BudgetView?
     var toolBar: ToolBar?
     
-    var buttons: [NSView] = []
-
-    
+    var buttons = [NSView]()
     var budgets = [PBBudget]()
     
     @IBOutlet weak var pbToolBar: MLToolbar!
     @IBOutlet weak var pbContentView: MLContentView!
-    
     @IBOutlet var win: MLMainWindow!
-        
-//    let mlAlert = MLAlert()
-    
+            
     override var windowNibName: NSNib.Name? {
         return "MainWindowController"
     }
@@ -42,7 +37,6 @@ class MainWindowController: NSWindowController {
         self.budgetView = BudgetView()
         let vc = (self.budgetView?.view)!
         win.showContent(vc)
-        
         
 //        let close = self.window?.standardWindowButton(NSWindow.ButtonType.closeButton)
 //        let minimize = self.window?.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)

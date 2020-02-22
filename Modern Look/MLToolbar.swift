@@ -107,7 +107,6 @@ final class MLToolbar: MLGlassView {
     
     // Create A region of a view that generates mouse-tracking and cursor-update events when the pointer is over that region.
     func createTrackingArea() {
-//        return;
         
         if trackingArea != nil {
             removeTrackingArea(trackingArea!)
@@ -160,9 +159,7 @@ final class MLToolbar: MLGlassView {
             minimizeButton.setFrameOrigin(CGPoint(x: x + 2 + buttonWidth, y: y))
             maximizeButton.setFrameOrigin(CGPoint(x: x + 2 + buttonWidth + 2 + buttonWidth, y: y))
         }
-        
-        print( buttonsRect )
-    
+            
         trackingArea = NSTrackingArea(rect: buttonsRect, options: [.mouseEnteredAndExited, .activeInKeyWindow], owner: self, userInfo: nil)
         addTrackingArea(trackingArea!)
     }

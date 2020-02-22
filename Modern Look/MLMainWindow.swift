@@ -13,28 +13,16 @@ class MLMainWindow: NSWindow {
     var buttons: [NSView] = []
     var isVerticalButtons = true
     var value = CGFloat(8)
-
+    
     static let shared = MLMainWindow()
-
+    
     @IBOutlet weak var pbContent: NSView!
     @IBOutlet weak var pbToolbar: MLToolbar!
     
     var mlTextView: MLTextView?
     var fieldEditorMarker = NSColor.clear
     
-    override func makeKeyAndOrderFront(_ sender: Any?) {
-      titlebarAppearsTransparent = true
-      isMovableByWindowBackground = true
-      titleVisibility = .hidden
-
-      super.makeKeyAndOrderFront(sender)
-
-//      [NSWindow.didResizeNotification, NSWindow.didMoveNotification].forEach { notification in
-//        NotificationCenter.default.addObserver(self, selector: #selector(moveWindowButtons), name: notification, object: self)
-//      }
-      setupButtons()
-    }
-
+    
     override init(contentRect: NSRect, styleMask style: NSWindow.StyleMask, backing bufferingType: NSWindow.BackingStoreType, defer flag: Bool)
     {
         super.init(contentRect: contentRect, styleMask: [.borderless , .resizable], backing: bufferingType, defer: flag)
@@ -44,10 +32,23 @@ class MLMainWindow: NSWindow {
         isMovableByWindowBackground = true
         styleMask  = [.borderless , .resizable, .closable, .miniaturizable]
         hasShadow = true
-//        setupButtons()
+        //        setupButtons()
         
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.windowDidDeminiaturize(_:)), name: NSWindow.didDeminiaturizeNotification, object: self)
-//        NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(_:)), name: NSWindow.willCloseNotification, object: self)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(self.windowDidDeminiaturize(_:)), name: NSWindow.didDeminiaturizeNotification, object: self)
+        //        NotificationCenter.default.addObserver(self, selector: #selector(self.windowWillClose(_:)), name: NSWindow.willCloseNotification, object: self)
+    }
+    
+    override func makeKeyAndOrderFront(_ sender: Any?) {
+        titlebarAppearsTransparent = true
+        isMovableByWindowBackground = true
+        titleVisibility = .hidden
+        
+        super.makeKeyAndOrderFront(sender)
+        
+        //      [NSWindow.didResizeNotification, NSWindow.didMoveNotification].forEach { notification in
+        //        NotificationCenter.default.addObserver(self, selector: #selector(moveWindowButtons), name: notification, object: self)
+        //      }
+        setupButtons()
     }
     
     override func becomeMain() {
@@ -77,7 +78,6 @@ class MLMainWindow: NSWindow {
         cv.wantsLayer = true
         
         pbContent.removeConstraints(pbContent.constraints)
-        
         NSAnimationContext.current.duration = 1.0
         
         cv.translatesAutoresizingMaskIntoConstraints = false
@@ -118,7 +118,7 @@ class MLMainWindow: NSWindow {
         cv.animator().alphaValue = 1.0
         NSAnimationContext.endGrouping()
     }
-
+    
     override func sendEvent(_ event: NSEvent) {
         if event.type == .leftMouseUp {
             MLPopupWindowManager.shared.hidePopup()
@@ -156,34 +156,34 @@ class MLMainWindow: NSWindow {
     fileprivate func setupButtons() {
         
         let contentView = self.contentView!
-
+        
         if buttons.count == 0 {
             
             ([.closeButton, .miniaturizeButton, .zoomButton] as [NSWindow.ButtonType]).forEach { type in
-              guard let button = standardWindowButton(type) else { return }
-              button.setFrameOrigin(NSMakePoint(button.frame.origin.x, 12))
+                guard let button = standardWindowButton(type) else { return }
+                button.setFrameOrigin(NSMakePoint(button.frame.origin.x, 12))
                 buttons.append(button)
             }
-
             
-//            let close = self.standardWindowButton(NSWindow.ButtonType.closeButton)
-//            let minimize = self.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)
-//            let maximize = self.standardWindowButton(NSWindow.ButtonType.zoomButton)
-//
-//            buttons.append(close!)
-//            buttons.append(minimize!)
-//            buttons.append(maximize!)
+            
+            //            let close = self.standardWindowButton(NSWindow.ButtonType.closeButton)
+            //            let minimize = self.standardWindowButton(NSWindow.ButtonType.miniaturizeButton)
+            //            let maximize = self.standardWindowButton(NSWindow.ButtonType.zoomButton)
+            //
+            //            buttons.append(close!)
+            //            buttons.append(minimize!)
+            //            buttons.append(maximize!)
         }
         
         buttons.forEach { (btn) in
-             btn.superview?.willRemoveSubview(btn)
-             btn.removeFromSuperview()
-             
-             btn.viewWillMove(toSuperview: contentView)
-             contentView.addSubview(btn)
-             btn.viewDidMoveToSuperview()
-         }
-
+            btn.superview?.willRemoveSubview(btn)
+            btn.removeFromSuperview()
+            
+            btn.viewWillMove(toSuperview: contentView)
+            contentView.addSubview(btn)
+            btn.viewDidMoveToSuperview()
+        }
+        
         contentView.translatesAutoresizingMaskIntoConstraints = true
         if isVerticalButtons == true {
             
@@ -192,12 +192,12 @@ class MLMainWindow: NSWindow {
                 
                 button.removeConstraints(button.constraints)
                 button.translatesAutoresizingMaskIntoConstraints = false
-
+                
                 let constX = NSLayoutConstraint(item: button, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1, constant: value)
                 let constY = NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: offsetY)
                 let widthConstraint = button.widthAnchor.constraint(equalToConstant: 14)
                 let heightConstraint = button.heightAnchor.constraint(equalToConstant: 14)
-
+                
                 contentView.addConstraints([ constX, constY, widthConstraint, heightConstraint])
                 offsetY += 17
             }
@@ -208,12 +208,12 @@ class MLMainWindow: NSWindow {
                 
                 button.removeConstraints(button.constraints)
                 button.translatesAutoresizingMaskIntoConstraints = false
-
+                
                 let constX = NSLayoutConstraint(item: button, attribute: .left, relatedBy: .equal, toItem: contentView, attribute: .left, multiplier: 1, constant: offsetX)
                 let constY = NSLayoutConstraint(item: button, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: value)
                 let widthConstraint = button.widthAnchor.constraint(equalToConstant: 14)
                 let heightConstraint = button.heightAnchor.constraint(equalToConstant: 14)
-
+                
                 contentView.addConstraints([ constX, constY, widthConstraint, heightConstraint])
                 offsetX += 17
             }
@@ -222,5 +222,5 @@ class MLMainWindow: NSWindow {
         contentView.layoutSubtreeIfNeeded()
         contentView.superview!.viewDidEndLiveResize()
     }
-
+    
 }

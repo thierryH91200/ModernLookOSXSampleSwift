@@ -97,6 +97,12 @@ class ToolBar: NSViewController { //}, MLCalendarViewDelegate {
         print("Hyperlink Clicked")
     }
     
+    @IBAction func appearanceSelection(_ sender: NSSegmentedControl) {
+        let appearance: NSAppearance.Name = sender.selectedSegment == 0 ? .aqua : .darkAqua
+        view.window?.appearance = NSAppearance(named: appearance)
+    }
+
+    
     
     @IBAction func showAlert(_ sender: Any) {
         
