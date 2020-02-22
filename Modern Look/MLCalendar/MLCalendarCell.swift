@@ -69,7 +69,7 @@ final class MLCalendarCell: NSButton {
         
         let bounds = self.bounds
         owner!.backgroundColor.set()
-        NSColor.white.set()
+//        NSColor.white.set()
         bounds.fill()
         
         if representedDate != nil {

@@ -123,7 +123,7 @@ final class MLCalendarView: NSViewController {
     }
     
     func commonInit() {
-        backgroundColor = .textBackgroundColor
+        backgroundColor = NSColor.windowBackgroundColor
         textColor = .labelColor
         selectionColor = .red
         todayMarkerColor = .green
@@ -137,8 +137,7 @@ final class MLCalendarView: NSViewController {
         date = Date()
     }
     
-    
-    func view(byID id: String?) -> Any? {
+    func view(byID id: String) -> Any? {
         
         if let subview = view.subviews.first(where: { $0.identifier?.rawValue == id }) {
             return subview
@@ -163,6 +162,7 @@ final class MLCalendarView: NSViewController {
     }
     
     @objc func cellClicked(_ sender: MLCalendarCell?) {
+        guard sender?._representedDate != nil else { return }
         for row in 0..<6 {
             for col in 0..<7 {
                 let cell = dayCells?[row, col]

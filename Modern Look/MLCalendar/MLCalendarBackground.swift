@@ -10,7 +10,7 @@ import AppKit
 
 final class MLCalendarBackground: NSView {
     
-    var backgroundColor = NSColor.textBackgroundColor
+    var backgroundColor = NSColor.windowBackgroundColor
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -23,7 +23,7 @@ final class MLCalendarBackground: NSView {
     }
     
     func commonInit() {
-        backgroundColor = .textBackgroundColor
+        backgroundColor = .windowBackgroundColor
     }
     
     override func draw(_ dirtyRect: NSRect) {

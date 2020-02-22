@@ -34,12 +34,18 @@ class ToolBar: NSViewController { //}, MLCalendarViewDelegate {
         var myPopover = self.calendarPopover
         if myPopover == nil {
             
+            var appearance = NSAppearance(named: .darkAqua)
+            
+            if appearance!.isDarkMode == false {
+                appearance = NSAppearance(named: .aqua)
+            }
+            
             myPopover = NSPopover()
             calendarView = MLCalendarView()
             calendarView?.delegate = self
             
             myPopover?.contentViewController = calendarView
-            myPopover?.appearance = NSAppearance(named: .aqua)
+            myPopover?.appearance = appearance
             myPopover?.animates = true
             myPopover?.behavior = .transient
             myPopover?.delegate = self
@@ -101,8 +107,6 @@ class ToolBar: NSViewController { //}, MLCalendarViewDelegate {
         let appearance: NSAppearance.Name = sender.selectedSegment == 0 ? .aqua : .darkAqua
         view.window?.appearance = NSAppearance(named: appearance)
     }
-
-    
     
     @IBAction func showAlert(_ sender: Any) {
         
@@ -141,4 +145,19 @@ extension  ToolBar : NSPopoverDelegate {
     }
     
 }
+
+fileprivate extension NSAppearance {
+    var isDarkMode: Bool {
+        if #available(macOS 10.14, *) {
+            if self.bestMatch(from: [.darkAqua, .aqua]) == .darkAqua {
+                return true
+            } else {
+                return false
+            }
+        } else {
+            return false
+        }
+    }
+}
+
 
