@@ -100,7 +100,7 @@ class ToolBar: NSViewController { //}, MLCalendarViewDelegate {
     
     @IBAction func showAlert(_ sender: Any) {
         
-        _ = mlAlert.window?.contentView
+//        _ = mlAlert.window?.contentView
         
         let res = mlAlert.showQuestion("question ??", title: "showAlert", withCancel: true)
         switch res {

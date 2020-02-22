@@ -23,7 +23,7 @@ class MainWindowController: NSWindowController {
     
     @IBOutlet var win: MLMainWindow!
         
-    let mlAlert = MLAlert()
+//    let mlAlert = MLAlert()
     
     override var windowNibName: NSNib.Name? {
         return "MainWindowController"

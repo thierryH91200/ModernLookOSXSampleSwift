@@ -43,7 +43,7 @@ class MLMainWindow: NSWindow {
         self.isOpaque = false
         backgroundColor = NSColor.clear
         isMovableByWindowBackground = true
-        styleMask  = [.borderless , .resizable, .closable, .miniaturizable, .fullScreen]
+        styleMask  = [.borderless , .resizable, .closable, .miniaturizable]
         hasShadow = true
 //        setupButtons()
         

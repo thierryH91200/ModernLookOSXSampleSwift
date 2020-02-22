@@ -23,6 +23,16 @@ final class MLAlert: NSWindowController {
     @IBOutlet weak var no: NSButton!
     @IBOutlet weak var toolbar: MLToolbar!
     
+    init() {
+        super.init(window: nil)
+        Bundle.main.loadNibNamed("MLAlertYesNoCancel", owner: self, topLevelObjects: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override var windowNibName: NSNib.Name? {
         return  "MLAlertYesNoCancel"
     }
@@ -31,9 +41,14 @@ final class MLAlert: NSWindowController {
         super.windowDidLoad()
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-        window?.styleMask = .borderless
-        window?.contentView = MLWindowContent()
+//        let rctWindow = NSMakeRect(0, 0, 210, 306)
+//        let window = NSWindow(contentRect: rctWindow, styleMask: [.titled, .fullSizeContentView], backing: .buffered, defer: true)
+//
+//        self.window?.frame = window.frame
+//        window?.contentView = MLWindowContent()
         window?.maxSize = NSSize(width: 200, height: 200)
+        let frame = window?.frame
+        print(frame)
     }
     
     func showQuestion(_ question: String, title: String, withCancel: Bool,  titles: [String]) -> MLAlertResponse {
