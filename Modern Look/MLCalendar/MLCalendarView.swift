@@ -177,11 +177,11 @@ final class MLCalendarView: NSViewController {
     
     func monthDay(_ day: Int) -> Date? {
         var calendar = Calendar.current
-        calendar.timeZone = .current
+//        calendar.timeZone = .current
 
-//        if let time = TimeZone(abbreviation: "UTC") {
-//            calendar.timeZone = time
-//        }
+        if let time = TimeZone(abbreviation: "UTC") {
+            calendar.timeZone = time
+        }
 
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
         let components: DateComponents = calendar.dateComponents(unitFlags, from: date)
@@ -239,13 +239,14 @@ final class MLCalendarView: NSViewController {
             }
         }
         
-        var cal = Calendar.current
+        var calendar = Calendar.current
         if let time = TimeZone(abbreviation: "UTC") {
-            cal.timeZone = time
+            calendar.timeZone = time
         }
         
         let unitFlags = Set<Calendar.Component>([.weekday])
-        let components = cal.dateComponents(unitFlags, from: monthDay(1)!)
+        let components = calendar.dateComponents(unitFlags, from: monthDay(1)!)
+        print(components)
         let firstDay = components.weekday!
         let lastDay = lastDayOfTheMonth()
         var colFirstDay = colforDay( day: firstDay)

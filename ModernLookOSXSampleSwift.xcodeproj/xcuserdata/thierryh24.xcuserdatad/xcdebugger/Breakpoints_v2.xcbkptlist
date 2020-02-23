@@ -5,34 +5,43 @@
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.SwiftErrorBreakpoint">
+         <BreakpointContent
+            uuid = "71E74F4B-E23F-4FCC-81C3-F4632D598612"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C3472FC0-C424-44D3-80F5-BDE1BDD770C1"
+            uuid = "F72B6D3D-4317-4EA0-ACA1-E0D296A7A78E"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Modern Look/MLCalendar/MLCalendarView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "layoutCalendar()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "52B92D0D-B266-4227-99C6-FE49DC7A6596"
+            uuid = "5EDAC5D0-12D6-41B2-8F4F-B4502851FEAE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ModernLookOSXSampleSwift/Controllers/ToolBar.swift"
+            filePath = "Modern Look/MLCalendar/MLCalendarView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "createCalendarPopover()"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "layoutCalendar()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

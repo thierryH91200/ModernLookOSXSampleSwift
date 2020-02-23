@@ -77,7 +77,7 @@ final class MLAlert: NSWindowController {
     
     func showError(_ question: String, title: String, buttonsTitle butonTitle: String) -> MLAlertResponse {
         
-        let alert = MLAlert()
+//        let alert = MLAlert()
 
         self.toolbar.backgroundColor = .textBackgroundColor
         self.cancel.isHidden = true
