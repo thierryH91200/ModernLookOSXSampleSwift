@@ -189,7 +189,7 @@ class MLCheckbox: NSButton {
         bg.set()
         bgPath.fill()
 
-        var im: NSImage? = nil
+        var im: NSImage?
         if isOn == true {
             im = onImage != nil ? onImage : tintedImage
         } else {

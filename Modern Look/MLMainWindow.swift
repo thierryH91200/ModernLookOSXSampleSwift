@@ -81,7 +81,7 @@ class MLMainWindow: NSWindow {
         NSAnimationContext.current.duration = 1.0
         
         cv.translatesAutoresizingMaskIntoConstraints = false
-        if pbContent.subviews.count > 0 {
+        if pbContent.subviews.isEmpty == false {
             pbContent.subviews[0].alphaValue = 0.0
         }
         
@@ -104,7 +104,7 @@ class MLMainWindow: NSWindow {
         NSAnimationContext.current.duration = 1.0
         
         cv.translatesAutoresizingMaskIntoConstraints = false
-        if pbToolbar.subviews.count > 0 {
+        if pbToolbar.subviews.isEmpty == false {
             pbToolbar.subviews[0].alphaValue = 0.0
         }
         
@@ -157,11 +157,11 @@ class MLMainWindow: NSWindow {
         
         let contentView = self.contentView!
         
-        if buttons.count == 0 {
+        if buttons.isEmpty == true {
             
             ([.closeButton, .miniaturizeButton, .zoomButton] as [NSWindow.ButtonType]).forEach { type in
                 guard let button = standardWindowButton(type) else { return }
-                button.setFrameOrigin(NSMakePoint(button.frame.origin.x, 12))
+                button.setFrameOrigin(NSPoint(x: button.frame.origin.x, y: 12))
                 buttons.append(button)
             }
             

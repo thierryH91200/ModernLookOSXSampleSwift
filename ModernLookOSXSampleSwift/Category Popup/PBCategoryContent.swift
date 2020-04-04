@@ -28,13 +28,8 @@ class PBCategoryContent: MLPopupContent {
         
         self.init()
         
-        //    self = [super initWithNibName:@"PBCategoryContent" bundle:[NSBundle bundleForClass:[self class]]];
-        //    if(self) {
         self.budget = budget
         self.disableSelectionNotification = false
-        //    }
-        //    return self;
-        
     }
     
     override func loadView() {

@@ -77,7 +77,7 @@ class PBPayee :  PBEntity {
 
 class PBCategory: PBEntity {
     var budget: PBBudget?
-    var parent: PBCategory? = nil
+    var parent: PBCategory?
     @objc var subCategories: [PBCategory] = []
     @objc var name = ""
     var seq: Int = 0

@@ -71,9 +71,8 @@ class PBBudgetTemplates: NSObject {
         
         let ret = PBBudget()
         ret.name = "Office Budget"
-        var c: PBCategory? = nil
         
-        c = createCategory(withName: "Marketing", andParent: nil)
+        var c = createCategory(withName: "Marketing", andParent: nil)
         ret.categories.append(c!)
         createSubCategories(withName: [ "Printing", "AdWords", "Facebook", "Twitter", "Referral Fees", "Comissions" ], forParent: c)
         

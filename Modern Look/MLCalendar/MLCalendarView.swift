@@ -148,7 +148,7 @@ final class MLCalendarView: NSViewController {
     func toUTC(_ date: Date?) -> Date? {
         var cal = Calendar.current
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        var components: DateComponents? = nil
+        var components: DateComponents?
         if let date = date {
             components = cal.dateComponents(unitFlags, from: date)
         }
@@ -310,7 +310,7 @@ final class MLCalendarView: NSViewController {
             cal.timeZone = time
         }
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
-        var components: DateComponents? = nil
+        var components: DateComponents?
         if let d1 = d1 {
             components = cal.dateComponents(unitFlags, from: d1)
         }

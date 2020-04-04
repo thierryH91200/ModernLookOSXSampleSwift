@@ -100,7 +100,7 @@ class MLOutlineView: NSOutlineView {
     
     override func drawRow(_ row: Int, clipRect: NSRect) {
         
-        var bgColor: NSColor? = nil
+        var bgColor: NSColor?
         if NSApplication.shared.isActive {
             bgColor = selectionColor
         } else {

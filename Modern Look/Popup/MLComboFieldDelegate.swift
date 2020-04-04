@@ -100,7 +100,7 @@ extension MLComboFieldDelegate :  NSTextFieldDelegate {
             return
         }
         
-        var editor: NSTextView? = nil
+        var editor: NSTextView?
         if (control?.currentEditor() is NSTextView) {
             editor = control?.currentEditor() as? NSTextView
         }

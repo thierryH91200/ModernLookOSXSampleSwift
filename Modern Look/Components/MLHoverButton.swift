@@ -154,7 +154,7 @@ class MLHoverButton: NSButton {
         textRect.size.width -= circleRect.size.width + 4
         
         var backGroundColor = backgroundColor
-        var foregroundcolor: NSColor? = nil
+        var foregroundcolor: NSColor?
         isOn = hoovered && isHighlighted == false  || (self.state == .on)
         if isDrawsOn == true && (state == .on) {
             isOn = true
@@ -174,7 +174,7 @@ class MLHoverButton: NSButton {
         if (image != nil) {
             
             let targetRect = circleRect.insetBy(dx: circleBorder, dy: circleBorder)
-            var ima: NSImage? = nil
+            var ima: NSImage?
             
             if isOn == true {
                 ima = tintedImage
@@ -202,8 +202,8 @@ class MLHoverButton: NSButton {
         }
             
         else {
-            var sign: String? = nil
-            var text: String? = nil
+            var sign: String?
+            var text: String?
             let components = title.components(separatedBy: "|")
             if components.count == 2 {
                 sign = components[0]
