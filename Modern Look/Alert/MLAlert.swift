@@ -40,12 +40,12 @@ final class MLAlert: NSWindowController {
         super.windowDidLoad()
         
         // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
-//        let rctWindow = NSMakeRect(0, 0, 210, 306)
-//        let window = NSWindow(contentRect: rctWindow, styleMask: [.titled, .fullSizeContentView], backing: .buffered, defer: true)
-//
+        let rctWindow = NSRect(x: 0, y: 0, width: 210, height: 306)
+        let window = NSWindow(contentRect: rctWindow, styleMask: [.titled], backing: .buffered, defer: true)
+
 //        self.window?.frame = window.frame
 //        window?.contentView = MLWindowContent()
-        window?.maxSize = NSSize(width: 200, height: 200)
+        window.maxSize = NSSize(width: 200, height: 200)
 //        let frame = window?.frame
     }
     
@@ -66,9 +66,9 @@ final class MLAlert: NSWindowController {
         }
         self.resizeButtons()
         
-        let res = self.runAlert()
+        let alert = self.runAlert()
         self.window?.close()
-        return res
+        return alert
     }
     
     func showQuestion(_ question: String, title: String, withCancel: Bool) -> MLAlertResponse {
@@ -77,8 +77,6 @@ final class MLAlert: NSWindowController {
     
     func showError(_ question: String, title: String, buttonsTitle butonTitle: String) -> MLAlertResponse {
         
-//        let alert = MLAlert()
-
         self.toolbar.backgroundColor = .textBackgroundColor
         self.cancel.isHidden = true
         self.yes.isHidden = true
@@ -88,9 +86,9 @@ final class MLAlert: NSWindowController {
         self.no.title = butonTitle
         self.resizeButtons()
         
-        let res = self.runAlert()
+        let alert = self.runAlert()
         self.window?.close()
-        return res
+        return alert
     }
     
     func showError(_ question: String, title: String) -> MLAlertResponse {

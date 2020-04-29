@@ -123,11 +123,11 @@ final class MLCalendarView: NSViewController {
     }
     
     func commonInit() {
-        backgroundColor = NSColor.windowBackgroundColor
-        textColor = .labelColor
-        selectionColor = .red
+        backgroundColor  = NSColor.windowBackgroundColor
+        textColor        = .labelColor
+        selectionColor   = .red
         todayMarkerColor = .green
-        dayMarkerColor = .darkGray
+        dayMarkerColor   = .darkGray
         
         let cell = "c1"
         let button = view(byID: cell) as? MLCalendarCell
@@ -229,13 +229,13 @@ final class MLCalendarView: NSViewController {
     func layoutCalendar() {
         
         for row in 0..<6 {
-            for col in 0..<7 {
-                let cell = dayCells?[row, col]
+            for column in 0..<7 {
+                let cell = dayCells?[row, column]
                 cell?.representedDate = nil
                 cell?.isSelected = false
                 
                 cell?.row = row
-                cell?.col = col
+                cell?.col = column
             }
         }
         
@@ -272,7 +272,7 @@ final class MLCalendarView: NSViewController {
         }
     }
     
-    func stepMonth(_ dm: Int) {
+    func stepMonth(_ step: Int) {
         var calendar = Calendar.current
         if let time = TimeZone(abbreviation: "UTC") {
             calendar.timeZone = time
@@ -280,7 +280,7 @@ final class MLCalendarView: NSViewController {
         let unitFlags: Set<Calendar.Component>  = [.day, .year, .month]
         var components = calendar.dateComponents(unitFlags, from: date)
         
-        var month = components.month! + dm
+        var month = components.month! + step
         var year = components.year!
         if month > 12 {
             month = 1

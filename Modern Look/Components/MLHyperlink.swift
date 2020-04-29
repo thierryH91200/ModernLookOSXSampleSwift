@@ -26,7 +26,7 @@ class MLHyperlink: NSTextField {
             restoreFont = true
         }
         commonInit()
-        if restoreFont {
+        if restoreFont == true {
             font = fnt
         }
     }
@@ -122,11 +122,11 @@ class MLHyperlink: NSTextField {
             textColor?.set()
             
             let bottomLine = NSBezierPath()
-            var p = CGPoint.zero //bounds.origin;
-            p.y = bounds.size.height
-            bottomLine.move(to: p)
-            p.x += bounds.size.width
-            bottomLine.line(to: p)
+            var point = CGPoint.zero //bounds.origin;
+            point.y = bounds.size.height
+            bottomLine.move(to: point)
+            point.x += bounds.size.width
+            bottomLine.line(to: point)
             bottomLine.stroke()
 
         } else if self.isHovered == true {
