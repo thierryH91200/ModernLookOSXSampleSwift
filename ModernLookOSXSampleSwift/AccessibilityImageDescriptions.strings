@@ -6,12 +6,15 @@
 "NSLeftFacingTriangleTemplate" = "NSLeftFacingTriangleTemplate";
 
 // ToolBar
-"CalendarTemplate" = "CalendarTemplate";
-"TimerTemplate" = "TimerTemplate";
-"SettingsTemplate" = "SettingsTemplate";
-"NSActionTemplate" = "NSActionTemplate";
-"BuyTemplate" = "BuyTemplate";
-"PursueTemplate" = "PursueTemplate";
+"CalendarTemplate"  = "CalendarTemplate";
+"TimerTemplate"     = "TimerTemplate";
+"SettingsTemplate"  = "SettingsTemplate";
+"NSActionTemplate"  = "NSActionTemplate";
+"BuyTemplate"       = "BuyTemplate";
+"PursueTemplate"    = "PursueTemplate";
+
+"NSGoRightTemplate" = "NSGoRightTemplate";
+"NSGoLeftTemplate"  = "NSGoLeftTemplate";
 
 // MLAlert
 "NSCloseButton" = "NSCloseButton";

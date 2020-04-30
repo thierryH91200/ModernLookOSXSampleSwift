@@ -246,7 +246,7 @@ final class MLCalendarView: NSViewController {
         
         let unitFlags = Set<Calendar.Component>([.weekday])
         let components = calendar.dateComponents(unitFlags, from: monthDay(1)!)
-        print(components)
+//        print(components)
         let firstDay = components.weekday!
         let lastDay = lastDayOfTheMonth()
         var colFirstDay = colforDay( day: firstDay)
