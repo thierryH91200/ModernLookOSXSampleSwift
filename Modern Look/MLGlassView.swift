@@ -10,20 +10,20 @@ import AppKit
 
 class MLGlassView: NSView {
     
-    var backgroundColor = NSColor.windowBackgroundColor
+    var backgroundColor = NSColor.controlBackgroundColor
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
-        backgroundColor = NSColor.windowBackgroundColor
+        backgroundColor = .controlBackgroundColor
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        backgroundColor = NSColor.windowBackgroundColor
+        backgroundColor = .controlBackgroundColor
     }
     
     func commonInit() {
-        backgroundColor = NSColor.windowBackgroundColor
+        backgroundColor = .controlBackgroundColor
     }
     
     override func draw(_ dirtyRect: NSRect) {
