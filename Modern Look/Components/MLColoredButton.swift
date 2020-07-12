@@ -12,7 +12,7 @@ final class MLColoredButton: NSButton {
     
     let ML_COLORED_BUTTON_ROUNDED_RECT_RADIUS = CGFloat(5)
 
-    var backgroundColor = NSColor.textBackgroundColor
+    var backgroundColor = NSColor.controlBackgroundColor
     var textColor = NSColor.labelColor
 
     override  init(frame frameRect: NSRect) {
@@ -26,9 +26,9 @@ final class MLColoredButton: NSButton {
     }
     
     func commonInit() {
-        backgroundColor = .clear
-        textColor = .black
-        isBordered = false
+        backgroundColor = .controlBackgroundColor
+        textColor       = .labelColor
+        isBordered      = false
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -63,7 +63,5 @@ final class MLColoredButton: NSButton {
         borderPath.stroke()
         
         NSGraphicsContext.restoreGraphicsState()
-        
     }
-    
 }

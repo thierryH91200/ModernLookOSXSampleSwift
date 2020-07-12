@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jTa-2O-8M7" customClass="MLComboField" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                    <rect key="frame" x="31" y="20" width="166" height="22"/>
+                    <rect key="frame" x="31" y="20" width="166" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="166" id="55o-Y3-fTx"/>
                     </constraints>
@@ -34,7 +35,7 @@
                     </connections>
                 </textField>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BEM-yx-l4U" customClass="MLComboField" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                    <rect key="frame" x="205" y="20" width="166" height="22"/>
+                    <rect key="frame" x="205" y="20" width="166" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="166" id="rYC-JL-8SF"/>
                     </constraints>
@@ -109,21 +110,20 @@
                     </textFieldCell>
                 </textField>
                 <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="27" horizontalPageScroll="10" verticalLineScroll="27" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piB-B9-oIA">
-                    <rect key="frame" x="31" y="50" width="628" height="217"/>
+                    <rect key="frame" x="31" y="49" width="628" height="218"/>
                     <clipView key="contentView" drawsBackground="NO" id="Yd4-vs-KKv">
-                        <rect key="frame" x="0.0" y="0.0" width="628" height="217"/>
+                        <rect key="frame" x="0.0" y="0.0" width="628" height="218"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="25" headerView="pJO-w8-Wbh" viewBased="YES" id="f5Y-yV-Jan" customClass="MLTableView" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="628" height="192"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <rect key="frame" x="0.0" y="0.0" width="628" height="193"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
                                     <tableColumn width="102" minWidth="10" maxWidth="3.4028234663852886e+38" id="gC0-yP-kSa">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Date">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -150,7 +150,6 @@
                                     </tableColumn>
                                     <tableColumn width="116" minWidth="40" maxWidth="1000" id="RQ3-Qa-Xs6">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="Out Flow">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -167,7 +166,6 @@
                                     </tableColumn>
                                     <tableColumn width="116" minWidth="40" maxWidth="1000" id="OSz-0f-GlJ">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="right" title="In Flow">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -184,7 +182,6 @@
                                     </tableColumn>
                                     <tableColumn width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="2Hq-tc-GYe">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -217,7 +214,6 @@
                                     </tableColumn>
                                     <tableColumn width="64" minWidth="10" maxWidth="3.4028234663852886e+38" id="4ZA-0I-JK5">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -250,7 +246,6 @@
                                     </tableColumn>
                                     <tableColumn width="148" minWidth="10" maxWidth="3.4028234663852886e+38" id="zb1-hk-ZNa">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left">
-                                            <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
@@ -293,7 +288,7 @@
                     </buttonCell>
                 </button>
                 <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Yxp-0o-s6l" customClass="MLTextField" customModule="ModernLookOSXSampleSwift" customModuleProvider="target">
-                    <rect key="frame" x="379" y="20" width="183" height="22"/>
+                    <rect key="frame" x="379" y="20" width="183" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="183" id="EGo-8O-IRM"/>
                     </constraints>

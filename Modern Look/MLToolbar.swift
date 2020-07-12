@@ -75,7 +75,6 @@ final class MLToolbar: MLGlassView {
     override func commonInit() {
         
         super.commonInit()
-//        return;
         
         if self.hiddenButtons == false {
             
@@ -115,16 +114,16 @@ final class MLToolbar: MLGlassView {
         guard hiddenButtons == false else { return }
         
         var buttonsRect = CGRect.zero
-        let b = bounds
+        let bound = bounds
+        let x = CGFloat(8)
+        var y = bound.size.height
         
+        let buttonHeight = closeButton.bounds.size.height
+        let buttonWidth = closeButton.bounds.size.width
+        
+        y = y - buttonHeight - 5
+
         if isVerticalButtons == true {
-            
-            let x = CGFloat(8)
-            var y = b.size.height
-            
-            let buttonHeight = closeButton.bounds.size.height
-            let buttonWidth = closeButton.bounds.size.width
-            y = y - buttonHeight - 5
             
             if self.justClose == true {
                 buttonsRect.origin = CGPoint(x: x, y: y)
@@ -140,13 +139,7 @@ final class MLToolbar: MLGlassView {
 
         } else {
 
-            let x = CGFloat(8)
-            var y = b.size.height
             
-            let buttonHeight = closeButton.bounds.size.height
-            let buttonWidth = closeButton.bounds.size.width
-            y = y - buttonHeight - 5
-
             if self.justClose == true {
                 buttonsRect.origin = CGPoint(x: x, y: y)
                 buttonsRect.size = CGSize(width: buttonWidth + 2, height: buttonHeight)
